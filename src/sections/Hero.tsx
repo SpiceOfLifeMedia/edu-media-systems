@@ -1,5 +1,4 @@
 import { PrimaryButton, SecondaryButton } from "../lib/components";
-import LogoMark from "./LogoMark";
 
 export default function Hero() {
   return (
@@ -8,11 +7,12 @@ export default function Hero() {
       className="relative overflow-hidden border-b border-line-soft pt-20 pb-24 sm:pt-28 sm:pb-32 lg:pt-36 lg:pb-44"
     >
       <div className="mx-auto max-w-6xl px-6 sm:px-8 lg:px-10">
-        <div className="flex items-center gap-4 mb-12">
-          <LogoMark size={44} />
-          <div className="text-sm font-medium tracking-tight text-ink">
-            EDU Media Systems
-          </div>
+        <div className="mb-12">
+          <img
+            src="/edu-logo-black.png"
+            alt="EDU Media Systems"
+            className="h-12 sm:h-14 w-auto"
+          />
         </div>
 
         <h1 className="text-[40px] sm:text-6xl lg:text-7xl font-semibold leading-[1.02] tracking-[-0.03em] max-w-4xl">

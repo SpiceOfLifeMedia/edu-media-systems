@@ -1,18 +1,17 @@
-import LogoMark from "./LogoMark";
-
 export default function Nav() {
   return (
     <header className="sticky top-0 z-50 border-b border-line/70 bg-white/80 backdrop-blur-md">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4 sm:px-8 lg:px-10">
         <a
           href="#top"
-          className="flex items-center gap-3"
+          className="flex items-center"
           aria-label="EDU Media Systems home"
         >
-          <LogoMark size={28} />
-          <span className="text-sm font-semibold tracking-tight text-ink">
-            EDU Media Systems
-          </span>
+          <img
+            src="/edu-logo-black.png"
+            alt="EDU Media Systems"
+            className="h-9 w-auto"
+          />
         </a>
         <nav
           className="hidden items-center gap-8 text-sm text-ink-muted md:flex"
