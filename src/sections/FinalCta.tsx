@@ -26,10 +26,10 @@ export default function FinalCta() {
                 Email us
               </a>
               <a
-                href="tel:+61415791472"
+                href="mailto:info@edumediasystems.com.au?subject=Book%20a%20demo"
                 className="inline-flex items-center justify-center rounded-full border border-white/25 px-6 py-3 text-sm font-medium text-white transition-colors hover:border-white"
               >
-                Call 0415 791 472
+                Book a demo
               </a>
             </div>
           </div>
@@ -51,11 +51,9 @@ export default function FinalCta() {
                 </dd>
               </div>
               <div>
-                <dt className="text-sm text-white/60">Phone</dt>
+                <dt className="text-sm text-white/60">Response time</dt>
                 <dd className="mt-1 text-lg text-white">
-                  <a href="tel:+61415791472" className="hover:text-accent">
-                    0415 791 472
-                  </a>
+                  Within one business day
                 </dd>
               </div>
               <div>
