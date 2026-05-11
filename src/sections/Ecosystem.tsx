@@ -1,4 +1,4 @@
-import { Section, H2, Lead, Body } from "../lib/components";
+import { Section, H2, Lead } from "../lib/components";
 
 const pillars = [
   {

@@ -37,6 +37,12 @@ export default function Nav() {
             Book a demo
           </a>
         </nav>
+        <a
+          href="#contact"
+          className="md:hidden rounded-full bg-ink px-4 py-2 text-sm text-white hover:bg-accent"
+        >
+          Book a demo
+        </a>
       </div>
     </header>
   );

@@ -1,5 +1,3 @@
-import { PrimaryButton, SecondaryButton } from "../lib/components";
-
 export default function FinalCta() {
   return (
     <section
@@ -22,23 +20,17 @@ export default function FinalCta() {
             </p>
             <div className="mt-10 flex flex-wrap gap-3">
               <a
-                href="#contact"
+                href="mailto:info@edumediasystems.com.au?subject=Demo%20request"
                 className="inline-flex items-center justify-center rounded-full bg-white px-6 py-3 text-sm font-medium text-ink transition-colors hover:bg-accent hover:text-white"
               >
-                Book a demo
+                Email us
               </a>
               <a
-                href="#podcart"
+                href="tel:+61415791472"
                 className="inline-flex items-center justify-center rounded-full border border-white/25 px-6 py-3 text-sm font-medium text-white transition-colors hover:border-white"
               >
-                View The Podcart
+                Call 0415 791 472
               </a>
-            </div>
-            {/* Render the buttons import to satisfy unused-import suppressions
-                if we keep the component pattern consistent across sections. */}
-            <div className="hidden">
-              <PrimaryButton>noop</PrimaryButton>
-              <SecondaryButton>noop</SecondaryButton>
             </div>
           </div>
 
@@ -50,12 +42,21 @@ export default function FinalCta() {
               <div>
                 <dt className="text-sm text-white/60">Email</dt>
                 <dd className="mt-1 text-lg text-white">
-                  info@edumediasystems.com.au
+                  <a
+                    href="mailto:info@edumediasystems.com.au"
+                    className="hover:text-accent"
+                  >
+                    info@edumediasystems.com.au
+                  </a>
                 </dd>
               </div>
               <div>
                 <dt className="text-sm text-white/60">Phone</dt>
-                <dd className="mt-1 text-lg text-white">0415 791 472</dd>
+                <dd className="mt-1 text-lg text-white">
+                  <a href="tel:+61415791472" className="hover:text-accent">
+                    0415 791 472
+                  </a>
+                </dd>
               </div>
               <div>
                 <dt className="text-sm text-white/60">Based in</dt>
