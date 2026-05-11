@@ -7,6 +7,7 @@ import Podcart from "./sections/Podcart";
 import Offloadr from "./sections/Offloadr";
 import ProducerMode from "./sections/ProducerMode";
 import RemoteCollab from "./sections/RemoteCollab";
+import MediaIdentity from "./sections/MediaIdentity";
 import Pricing from "./sections/Pricing";
 import Founder from "./sections/Founder";
 import FinalCta from "./sections/FinalCta";
@@ -25,6 +26,7 @@ export default function App() {
         <Offloadr />
         <ProducerMode />
         <RemoteCollab />
+        <MediaIdentity />
         <Pricing />
         <Founder />
         <FinalCta />

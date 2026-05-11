@@ -27,6 +27,9 @@ export default function Nav() {
           <a href="#offloadr" className="hover:text-ink">
             Offloadr
           </a>
+          <a href="#identity" className="hover:text-ink">
+            Identity
+          </a>
           <a href="#pricing" className="hover:text-ink">
             Pricing
           </a>
