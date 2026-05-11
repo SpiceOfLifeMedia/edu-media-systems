@@ -7,7 +7,9 @@ const founders = [
     image: "/founder-sam.png",
     paragraphs: [
       "Sam Leverenz leads the creative and operational direction of EDU Media Systems. As Digital Media Coordinator at Prospect North Primary School and the founder of PNTV and the PNC Podcast, Sam works directly with students to build real-world media programs focused on communication, confidence, Oracy and student voice.",
-      "His experience implementing student-led production systems inside schools shaped EDU Media Systems into a practical, education-first ecosystem designed for long-term school adoption.",
+      "With more than 20 years experience in sound and over a decade working professionally in videography and media production, Sam brings extensive real-world production knowledge into education environments. His background spans music production, live sound, audio engineering, filming, editing and large-scale digital media workflows across both creative industries and school settings.",
+      "Through his work with SOL Media and a wide range of production and content projects, Sam has developed a strong understanding of how professional media systems operate in fast-moving real-world environments. That experience helped shape EDU Media Systems into a practical, workflow-focused ecosystem designed specifically for long-term school adoption rather than short-term equipment deployment.",
+      "By combining professional production standards with hands-on experience inside schools, Sam's focus is helping students build confidence, communication skills and media literacy through authentic student-led media experiences that feel modern, engaging and operationally sustainable.",
     ],
   },
   {
