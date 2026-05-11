@@ -98,17 +98,18 @@ export default function MediaIdentity() {
       <Eyebrow>Your school's media identity</Eyebrow>
       <H2>More than equipment. A media program students are proud of.</H2>
       <Lead>
-        Every school media program should feel unique to its school community.
-        EDU Media Systems helps schools build a professional media identity —
-        branding, channels, templates and operational support — so the program
-        feels real from day one and grows into a part of school culture.
+        Every school media program should feel unique to its own community.
+        EDU Media Systems is the underlying framework — branding, channels,
+        templates and operational support — that schools, networks and
+        education departments use to build their own student media identity.
+        Adaptable, scalable, school-owned.
       </Lead>
 
       <div className="mt-16 grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-16">
         <ServiceColumn
           eyebrow="Identity & brand"
           title="A visual identity students recognise as their own."
-          body="We design the brand layer that sits around the program — so it stops looking like a generic school project and starts looking like a real publication students want to be part of."
+          body="We build the brand layer that sits around each program — so a student media initiative stops looking like a generic school project and starts looking like a publication students want to be part of. Designed per school, owned by the school."
           items={identityServices}
         />
         <ServiceColumn
@@ -185,10 +186,12 @@ export default function MediaIdentity() {
 
       <div className="mt-16 max-w-3xl">
         <Body>
-          Programs such as PNTV at Prospect North Primary School demonstrate
-          how student-led media can become an embedded part of school culture
-          when supported by strong branding, workflows and ongoing
-          activation.
+          EDU Media Systems is a scalable framework, not a single
+          implementation. Student-led broadcast concepts, modern school
+          media initiatives and custom school media identities can all be
+          built on the same hardware, software and workflow layer — adapted
+          to each school's community and ready to scale across networks,
+          regions and education departments.
         </Body>
       </div>
     </Section>
