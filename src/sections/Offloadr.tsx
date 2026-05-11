@@ -44,6 +44,17 @@ export default function Offloadr() {
             </span>
             <span className="text-sm text-ink-muted">/ month / school</span>
           </div>
+          <div className="mt-8">
+            <a
+              href="https://www.useoffloadr.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 text-sm font-semibold text-accent hover:underline underline-offset-4"
+            >
+              Visit Offloadr
+              <span aria-hidden>→</span>
+            </a>
+          </div>
         </div>
 
         <div className="space-y-10">
