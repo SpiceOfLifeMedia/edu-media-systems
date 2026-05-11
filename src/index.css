@@ -68,3 +68,18 @@
     font-weight: 700;
   }
 }
+
+.podcart-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-line) transparent;
+}
+.podcart-scroll::-webkit-scrollbar {
+  height: 6px;
+}
+.podcart-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+.podcart-scroll::-webkit-scrollbar-thumb {
+  background: var(--color-line);
+  border-radius: 9999px;
+}

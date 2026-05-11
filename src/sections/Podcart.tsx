@@ -42,7 +42,7 @@ export default function Podcart() {
         </div>
 
         <div>
-          <PodcartIllustration />
+          <PodcartGallery />
           <ul className="mt-10 divide-y divide-line border-t border-line">
             {specs.map(([k, v]) => (
               <li
@@ -60,55 +60,42 @@ export default function Podcart() {
   );
 }
 
-function PodcartIllustration() {
+const frames = [
+  { src: "/podcart-2.png", caption: "Roundtable mode — full multi-host kit" },
+  { src: "/podcart-1.png", caption: "Compact setup — preview screens deployed" },
+  { src: "/podcart-3.png", caption: "Storage open — locked, integrated cabling" },
+  { src: "/podcart-4.png", caption: "Closed — wheels into any classroom" },
+];
+
+function PodcartGallery() {
   return (
-    <div className="aspect-[4/3] w-full rounded-xl border border-line bg-white p-8 flex items-center justify-center">
-      <svg
-        viewBox="0 0 320 240"
-        className="w-full h-auto text-ink"
-        role="img"
-        aria-label="Schematic illustration of The Podcart"
+    <div>
+      <div
+        className="podcart-scroll flex snap-x snap-mandatory gap-4 overflow-x-auto scroll-smooth -mx-4 px-4 pb-4"
+        aria-label="The Podcart product gallery"
       >
-        {/* cart top surface */}
-        <rect x="40" y="60" width="240" height="14" rx="2" fill="currentColor" opacity="0.08" />
-        {/* cart body */}
-        <rect x="50" y="74" width="220" height="110" rx="6" fill="none" stroke="currentColor" strokeWidth="1.5" />
-        {/* shelf lines */}
-        <line x1="50" y1="110" x2="270" y2="110" stroke="currentColor" strokeWidth="1" opacity="0.4" />
-        <line x1="50" y1="146" x2="270" y2="146" stroke="currentColor" strokeWidth="1" opacity="0.4" />
-        {/* mics on top */}
-        <g stroke="currentColor" strokeWidth="1.5" fill="none">
-          <line x1="80" y1="60" x2="80" y2="40" />
-          <circle cx="80" cy="34" r="6" />
-          <line x1="120" y1="60" x2="120" y2="34" />
-          <circle cx="120" cy="28" r="6" />
-          <line x1="200" y1="60" x2="200" y2="34" />
-          <circle cx="200" cy="28" r="6" />
-          <line x1="240" y1="60" x2="240" y2="40" />
-          <circle cx="240" cy="34" r="6" />
-        </g>
-        {/* mixer faders */}
-        <g stroke="currentColor" strokeWidth="1" opacity="0.6">
-          {[0, 1, 2, 3].map((i) => (
-            <line
-              key={i}
-              x1={80 + i * 40}
-              y1="86"
-              x2={80 + i * 40}
-              y2="104"
-            />
-          ))}
-        </g>
-        {/* screen */}
-        <rect x="62" y="116" width="100" height="24" rx="2" fill="none" stroke="currentColor" strokeWidth="1" />
-        {/* recorder */}
-        <rect x="180" y="116" width="80" height="24" rx="2" fill="none" stroke="currentColor" strokeWidth="1" />
-        <circle cx="200" cy="128" r="3" fill="currentColor" />
-        {/* casters */}
-        <circle cx="70" cy="200" r="10" fill="none" stroke="currentColor" strokeWidth="1.5" />
-        <circle cx="250" cy="200" r="10" fill="none" stroke="currentColor" strokeWidth="1.5" />
-        <line x1="50" y1="184" x2="270" y2="184" stroke="currentColor" strokeWidth="1.5" />
-      </svg>
+        {frames.map((f, i) => (
+          <figure
+            key={f.src}
+            className="snap-start shrink-0 w-full first:ml-0"
+          >
+            <div className="aspect-[4/3] w-full overflow-hidden rounded-xl border border-line bg-surface flex items-center justify-center p-4">
+              <img
+                src={f.src}
+                alt={f.caption}
+                loading={i === 0 ? "eager" : "lazy"}
+                className="h-full w-full object-contain"
+              />
+            </div>
+            <figcaption className="mt-3 text-xs uppercase tracking-[0.14em] text-ink-muted">
+              {String(i + 1).padStart(2, "0")} — {f.caption}
+            </figcaption>
+          </figure>
+        ))}
+      </div>
+      <p className="mt-2 text-xs text-ink-muted/80 lg:hidden">
+        Swipe to explore →
+      </p>
     </div>
   );
 }
