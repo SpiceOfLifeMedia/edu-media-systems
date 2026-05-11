@@ -2,7 +2,7 @@ export default function FinalCta() {
   return (
     <section
       id="contact"
-      className="bg-ink text-white py-28 sm:py-32 lg:py-40"
+      className="bg-ink text-white py-16 sm:py-20 lg:py-24"
     >
       <div className="mx-auto max-w-6xl px-6 sm:px-8 lg:px-10">
         <div className="grid grid-cols-1 gap-16 lg:grid-cols-[1.4fr_1fr]">

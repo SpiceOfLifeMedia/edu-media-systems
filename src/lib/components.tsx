@@ -16,7 +16,7 @@ export function Section({
   return (
     <section
       id={id}
-      className={`${bg} border-b border-line-soft py-24 sm:py-28 lg:py-36 ${className}`}
+      className={`${bg} border-b border-line-soft py-14 sm:py-16 lg:py-20 ${className}`}
     >
       <div className="mx-auto max-w-6xl px-6 sm:px-8 lg:px-10">
         {eyebrow ? <Eyebrow>{eyebrow}</Eyebrow> : null}
