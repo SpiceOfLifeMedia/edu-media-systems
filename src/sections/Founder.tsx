@@ -36,10 +36,13 @@ export default function Founder() {
         from the outside.
       </p>
 
-      <div className="mt-20 grid grid-cols-1 gap-16 lg:grid-cols-2 lg:gap-20">
+      <div className="mt-16 space-y-16 lg:space-y-20">
         {founders.map((f) => (
-          <article key={f.name} className="flex flex-col">
-            <div className="aspect-square w-full overflow-hidden rounded-2xl border border-line bg-surface">
+          <article
+            key={f.name}
+            className="grid grid-cols-[88px_1fr] gap-5 sm:grid-cols-[120px_1fr] sm:gap-8 lg:grid-cols-[160px_1fr] lg:gap-10"
+          >
+            <div className="aspect-square w-full overflow-hidden rounded-full border border-line bg-surface">
               <img
                 src={f.image}
                 alt={`Portrait of ${f.name}`}
@@ -47,12 +50,14 @@ export default function Founder() {
                 className="h-full w-full object-cover object-top grayscale"
               />
             </div>
-            <div className="mt-8">
-              <div className="text-xs font-semibold uppercase tracking-[0.16em] text-accent">
+            <div>
+              <div className="text-[11px] font-semibold uppercase tracking-[0.16em] text-accent">
                 {f.title}
               </div>
-              <h3 className="mt-3 text-2xl font-semibold text-ink">{f.name}</h3>
-              <div className="mt-5 space-y-4 max-w-xl">
+              <h3 className="mt-2 text-xl sm:text-2xl font-semibold text-ink">
+                {f.name}
+              </h3>
+              <div className="mt-4 space-y-4 max-w-2xl">
                 {f.paragraphs.map((p, i) => (
                   <Body key={i}>{p}</Body>
                 ))}
