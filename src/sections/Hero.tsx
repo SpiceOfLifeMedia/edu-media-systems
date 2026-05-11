@@ -4,36 +4,57 @@ export default function Hero() {
   return (
     <section
       id="top"
-      className="relative overflow-hidden border-b border-line-soft pt-20 pb-24 sm:pt-28 sm:pb-32 lg:pt-36 lg:pb-44"
+      className="relative overflow-hidden border-b border-line-soft pt-16 pb-20 sm:pt-20 sm:pb-24 lg:pt-24 lg:pb-32"
     >
       <div className="mx-auto max-w-6xl px-6 sm:px-8 lg:px-10">
-        <div className="mb-12">
-          <img
-            src="/edu-logo-black.png"
-            alt="EDU Media Systems"
-            className="h-12 sm:h-14 w-auto"
-          />
+        <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-[1.05fr_1fr] lg:gap-16">
+          <div>
+            <div className="inline-flex items-center gap-3 rounded-full border border-line bg-surface px-4 py-1.5">
+              <span
+                className="h-1.5 w-1.5 rounded-full bg-accent"
+                aria-hidden
+              />
+              <span className="text-[11px] font-semibold uppercase tracking-[0.18em] text-ink">
+                For schools · Hardware + Software + Workflow
+              </span>
+            </div>
+
+            <h1 className="mt-6 text-[40px] sm:text-6xl lg:text-[64px] font-semibold leading-[1.02] tracking-[-0.03em]">
+              Studio-grade media,
+              <br />
+              built for schools.
+            </h1>
+
+            <p className="mt-6 max-w-xl text-lg sm:text-xl text-ink-muted leading-relaxed">
+              EDU Media Systems gives schools a complete production stack —
+              purpose-built hardware on wheels, a software pipeline that
+              turns recordings into finished work, and a producer workflow
+              that lets students publish without losing an afternoon to file
+              management.
+            </p>
+
+            <div className="mt-8 flex flex-wrap items-center gap-3">
+              <PrimaryButton href="#contact">Book a demo</PrimaryButton>
+              <SecondaryButton href="#podcart">View The Podcart</SecondaryButton>
+            </div>
+          </div>
+
+          <div className="relative">
+            <div
+              className="absolute inset-0 -z-10 rounded-3xl bg-surface"
+              aria-hidden
+            />
+            <img
+              src="/podcart-1.png"
+              alt="The Podcart — mobile recording cart for schools"
+              className="relative w-full h-auto object-contain"
+              loading="eager"
+              fetchPriority="high"
+            />
+          </div>
         </div>
 
-        <h1 className="text-[40px] sm:text-6xl lg:text-7xl font-semibold leading-[1.02] tracking-[-0.03em] max-w-4xl">
-          Studio-grade media,
-          <br />
-          built for schools.
-        </h1>
-
-        <p className="mt-8 max-w-2xl text-lg sm:text-xl text-ink-muted leading-relaxed">
-          EDU Media Systems gives schools a complete production stack —
-          purpose-built hardware on wheels, a software pipeline that turns
-          recordings into finished work, and a producer workflow that lets
-          students publish without losing an afternoon to file management.
-        </p>
-
-        <div className="mt-10 flex flex-wrap items-center gap-3">
-          <PrimaryButton href="#contact">Book a demo</PrimaryButton>
-          <SecondaryButton href="#podcart">View The Podcart</SecondaryButton>
-        </div>
-
-        <div className="mt-20 grid grid-cols-2 gap-x-6 gap-y-8 sm:mt-24 sm:grid-cols-4 sm:gap-8">
+        <div className="mt-16 grid grid-cols-2 gap-x-6 gap-y-8 sm:mt-20 sm:grid-cols-4 sm:gap-8">
           <PillarLink label="The Podcart" sub="Hardware" href="#podcart" />
           <PillarLink label="Offloadr" sub="Software" href="#offloadr" />
           <PillarLink label="Producer Mode" sub="Workflow" href="#producer" />
