@@ -37,12 +37,12 @@ export default function Founder() {
       <div className="mt-20 grid grid-cols-1 gap-16 lg:grid-cols-2 lg:gap-20">
         {founders.map((f) => (
           <article key={f.name} className="flex flex-col">
-            <div className="aspect-[4/5] w-full overflow-hidden rounded-2xl border border-line bg-surface">
+            <div className="aspect-[4/5] w-full overflow-hidden rounded-2xl border border-line bg-surface flex items-end justify-center">
               <img
                 src={f.image}
                 alt={`Portrait of ${f.name}`}
                 loading="lazy"
-                className="h-full w-full object-cover object-top grayscale"
+                className="h-full w-full object-contain object-bottom grayscale"
               />
             </div>
             <div className="mt-8">
