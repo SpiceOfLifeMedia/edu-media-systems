@@ -4,8 +4,7 @@ const base = import.meta.env.BASE_URL;
 const eduLogo = `${base}pitch/edu-logo.png`;
 const offloadrLogo = `${base}pitch/offloadr-logo.png`;
 const podcartLogo = `${base}pitch/podcart-logo.png`;
-const podcartHero = `${base}podcart-1.png`;
-const podcartAlt = `${base}podcart-3.png`;
+const podcartHero = `${base}podcart-hero.png`;
 
 type SlideRender = (props: { index: number; total: number }) => ReactElement;
 
@@ -320,50 +319,19 @@ const slides: SlideEntry[] = [
     label: "The Solution",
     render: ({ index, total }) => (
       <Frame eyebrow="03 — The Solution" index={index} total={total}>
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "5vw", alignItems: "center" }}>
-          <div>
-            <Eyebrow>The Solution</Eyebrow>
-            <Headline>One connected education media ecosystem.</Headline>
-            <SubHead>
-              EDU Media Systems combines hardware, workflow software and structured programs into one scalable infrastructure layer for modern schools.
-            </SubHead>
-            <div style={{ marginTop: "5vh", display: "flex", flexDirection: "column", gap: "2vh" }}>
-              {[
-                { t: "EDU Media Systems", d: "The infrastructure layer for student-led media." },
-                { t: "The Podcart", d: "Portable studio hardware for the classroom." },
-                { t: "Offloadr", d: "Workflow software that turns sessions into projects." },
-              ].map((c) => (
-                <div
-                  key={c.t}
-                  style={{
-                    display: "grid",
-                    gridTemplateColumns: "auto 1fr",
-                    gap: "1.4vw",
-                    alignItems: "baseline",
-                  }}
-                >
-                  <div style={{ fontSize: "1.4vw", fontWeight: 600, color: INK, letterSpacing: "-0.01em", minWidth: "14vw" }}>{c.t}</div>
-                  <div style={{ fontSize: "1.15vw", color: INK_MUTED, lineHeight: 1.5 }}>{c.d}</div>
-                </div>
-              ))}
-            </div>
-          </div>
-          <div style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
-            <img
-              src={podcartHero}
-              crossOrigin="anonymous"
-              alt="The Podcart"
-              style={{
-                width: "100%",
-                maxWidth: "32vw",
-                height: "auto",
-                borderRadius: "0.8vw",
-                border: `1px solid ${LINE}`,
-                background: SURFACE,
-                objectFit: "cover",
-              }}
-            />
-          </div>
+        <Eyebrow>The Solution</Eyebrow>
+        <Headline>One connected education media ecosystem.</Headline>
+        <SubHead>
+          EDU Media Systems combines hardware, workflow software and structured programs into one scalable infrastructure layer for modern schools.
+        </SubHead>
+        <div style={{ marginTop: "6vh", display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "1.6vw" }}>
+          {[
+            { caption: "Infrastructure", title: "EDU Media Systems", body: "The connecting layer — programs, identity, training and ongoing support that keep school media systems alive." },
+            { caption: "Hardware", title: "The Podcart", body: "Portable student media studio. Rolls between classrooms, built to survive a school week, simple enough for students to operate." },
+            { caption: "Software", title: "Offloadr", body: "Media workflow software that turns recording sessions into clean, editor-ready projects automatically." },
+          ].map((c) => (
+            <Card key={c.title} caption={c.caption} title={c.title} body={c.body} />
+          ))}
         </div>
       </Frame>
     ),
