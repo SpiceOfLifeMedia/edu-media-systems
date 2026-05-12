@@ -345,23 +345,39 @@ const slides: SlideEntry[] = [
     label: "The Problem",
     render: ({ index, total }) => (
       <Frame eyebrow="02 — The Problem" index={index} total={total}>
-        <div style={{ display: "grid", gridTemplateColumns: "1.05fr 0.95fr", gap: "5vw", alignItems: "start" }}>
+        <div style={{ display: "grid", gridTemplateColumns: "1.05fr 0.95fr", gap: "5vw", alignItems: "center" }}>
           <div>
             <Eyebrow>The Problem</Eyebrow>
             <Headline>
               Schools are missing modern media infrastructure.
             </Headline>
             <SubHead>
-              Student voice is becoming central to modern education, but the systems behind it haven't caught up. Equipment is fragmented, workflows are improvised, and programs depend on individual staff to keep them alive.
+              Student voice is becoming central to modern education, but the systems behind it haven't caught up. Equipment is fragmented, workflows are improvised, and programs depend on individual staff to keep them alive. Without structured systems, many school media initiatives struggle to scale consistently across classrooms, staff and year levels.
             </SubHead>
           </div>
-          <ul style={{ display: "flex", flexDirection: "column", gap: "1.6vh", marginTop: "1vh" }}>
-            <Bullet>Most schools lack scalable media systems</Bullet>
-            <Bullet>Teachers are overloaded managing workflows</Bullet>
-            <Bullet>Student voice opportunities are inconsistent</Bullet>
-            <Bullet>Building a professional digital media program is hard</Bullet>
-            <Bullet>Existing systems are fragmented and difficult to manage</Bullet>
-          </ul>
+          <div style={{ position: "relative" }}>
+            <div
+              aria-hidden="true"
+              style={{
+                position: "absolute",
+                inset: "-2vh -2vw",
+                opacity: 0.07,
+                backgroundImage:
+                  "radial-gradient(rgba(110,168,255,0.55) 1px, transparent 1.2px)",
+                backgroundSize: "1.4vw 1.4vw",
+                maskImage: "radial-gradient(ellipse at center, black 55%, transparent 85%)",
+                WebkitMaskImage: "radial-gradient(ellipse at center, black 55%, transparent 85%)",
+                pointerEvents: "none",
+              }}
+            />
+            <ul style={{ position: "relative", display: "flex", flexDirection: "column", gap: "2vh", marginTop: "1vh" }}>
+              <Bullet>Most schools lack scalable media systems</Bullet>
+              <Bullet>Teachers are overloaded managing workflows</Bullet>
+              <Bullet>Student voice opportunities are inconsistent</Bullet>
+              <Bullet>Building a professional digital media program is hard</Bullet>
+              <Bullet>Existing systems are fragmented and difficult to manage</Bullet>
+            </ul>
+          </div>
         </div>
       </Frame>
     ),
@@ -388,19 +404,18 @@ const slides: SlideEntry[] = [
           }}
         >
           {[
-            { label: "Communication", hero: true, mt: "0vh", h: "20vh" },
-            { label: "Learner agency", hero: true, mt: "1.6vh", h: "20vh" },
-            { label: "Confidence", hero: true, mt: "0vh", h: "20vh" },
-            { label: "Student voice", hero: true, mt: "1.6vh", h: "20vh" },
-            { label: "Collaboration", hero: false, mt: "1vh", h: "13vh" },
-            { label: "Creativity", hero: false, mt: "0vh", h: "13vh" },
-            { label: "Participation", hero: false, mt: "1vh", h: "13vh" },
-            { label: "Digital capability", hero: false, mt: "0vh", h: "13vh" },
+            { label: "Communication", hero: true, h: "16.5vh" },
+            { label: "Learner agency", hero: true, h: "16.5vh" },
+            { label: "Confidence", hero: true, h: "16.5vh" },
+            { label: "Student voice", hero: true, h: "16.5vh" },
+            { label: "Collaboration", hero: false, h: "11vh" },
+            { label: "Creativity", hero: false, h: "11vh" },
+            { label: "Participation", hero: false, h: "11vh" },
+            { label: "Digital capability", hero: false, h: "11vh" },
           ].map((c) => (
             <div
               key={c.label}
               style={{
-                marginTop: c.mt,
                 minHeight: c.h,
                 position: "relative",
                 background: c.hero
@@ -443,7 +458,7 @@ const slides: SlideEntry[] = [
             </div>
           ))}
         </div>
-        <p style={{ fontSize: "1.1vw", color: INK_MUTED, marginTop: "3vh", maxWidth: "62vw", lineHeight: 1.5, fontStyle: "italic", letterSpacing: "-0.005em" }}>
+        <p style={{ fontSize: "1.05vw", color: INK_MUTED, marginTop: "2.4vh", maxWidth: "55vw", lineHeight: 1.5, fontStyle: "italic", letterSpacing: "-0.005em" }}>
           Students don't become confident communicators through worksheets alone. They become confident through repeated, real-world participation.
         </p>
       </Frame>
@@ -461,7 +476,7 @@ const slides: SlideEntry[] = [
         <SubHead>
           EDU Media Systems combines hardware, workflow software and structured programs into one scalable infrastructure layer for modern schools.
         </SubHead>
-        <div style={{ marginTop: "4vh", marginBottom: "1vh", display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "1.6vw", alignItems: "stretch" }}>
+        <div style={{ marginTop: "2.6vh", marginBottom: "1vh", display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "1.6vw", alignItems: "stretch" }}>
           {[
             { caption: "Infrastructure", title: "EDU Media Systems", body: "The connecting layer — programs, identity, training and ongoing support that keep school media systems alive." },
             { caption: "Hardware", title: "The Podcart", body: "Portable student media studio. Rolls between classrooms, built to survive a school week, simple enough for students to operate." },
@@ -523,17 +538,18 @@ const slides: SlideEntry[] = [
               <Bullet>Flexible classroom integration</Bullet>
             </ul>
           </div>
-          <div style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
+          <div style={{ display: "flex", justifyContent: "flex-end", alignItems: "center" }}>
             <img
               src={podcartHero}
               crossOrigin="anonymous"
               alt="The Podcart hero render"
               style={{
                 width: "100%",
-                maxWidth: "44vw",
-                maxHeight: "78vh",
+                maxWidth: "46vw",
+                maxHeight: "82vh",
                 height: "auto",
                 objectFit: "contain",
+                transform: "translate(2vw, -1vh)",
                 filter: "drop-shadow(0 2.4vw 3vw rgba(0,0,0,0.55))",
               }}
             />
@@ -567,10 +583,11 @@ const slides: SlideEntry[] = [
               background: SURFACE,
               border: `1px solid ${LINE}`,
               borderRadius: "0.9vw",
-              padding: "2.2vw 2.2vw",
+              padding: "1.6vw 1.8vw",
               display: "flex",
               flexDirection: "column",
-              gap: "1.1vh",
+              gap: "0.55vh",
+              alignSelf: "center",
             }}
           >
             {[
@@ -589,26 +606,26 @@ const slides: SlideEntry[] = [
                   style={{
                     display: "flex",
                     alignItems: "center",
-                    gap: "1.1vw",
-                    padding: "1.1vw 1.4vw",
-                    borderRadius: "0.55vw",
+                    gap: "1vw",
+                    padding: "0.85vw 1.2vw",
+                    borderRadius: "0.5vw",
                     background: "rgba(255,255,255,0.035)",
                     border: `1px solid rgba(245,245,247,0.1)`,
                   }}
                 >
                   <span
                     style={{
-                      width: "0.7vw",
-                      height: "0.7vw",
+                      width: "0.65vw",
+                      height: "0.65vw",
                       borderRadius: "9999px",
                       background: dotColor,
                       flexShrink: 0,
                       boxShadow: `0 0 0.6vw ${dotColor}66`,
                     }}
                   />
-                  <div style={{ display: "flex", flexDirection: "column", gap: "0.3vh", flex: 1, minWidth: 0 }}>
-                    <div style={{ fontSize: "1.1vw", color: INK, fontWeight: 500, letterSpacing: "-0.005em" }}>{title}</div>
-                    <div style={{ fontSize: "0.9vw", color: "rgba(245,245,247,0.7)", fontWeight: 400, letterSpacing: "0.01em" }}>{status}</div>
+                  <div style={{ display: "flex", flexDirection: "column", gap: "0.15vh", flex: 1, minWidth: 0 }}>
+                    <div style={{ fontSize: "1.05vw", color: INK, fontWeight: 600, letterSpacing: "-0.005em" }}>{title}</div>
+                    <div style={{ fontSize: "0.82vw", color: "rgba(245,245,247,0.6)", fontWeight: 400, letterSpacing: "0.01em" }}>{status}</div>
                   </div>
                 </div>
               );
@@ -626,7 +643,7 @@ const slides: SlideEntry[] = [
     render: ({ index, total }) => (
       <Frame eyebrow="07 — How Offloadr Works" index={index} total={total}>
         <Eyebrow>How Offloadr Works</Eyebrow>
-        <Headline size="3.4vw">Five steps. Nothing the editor has to chase.</Headline>
+        <Headline size="3.4vw">Five steps. Nothing the school has to chase.</Headline>
         <SubHead>
           Offloadr is the layer between recording ending and editing beginning. No manual file collection, no fragmented folders, no teacher overhead — every session lands as a clean, verified project.
         </SubHead>
@@ -665,7 +682,7 @@ const slides: SlideEntry[] = [
         <SubHead>
           Producer Mode runs in the studio. It checks the kit, watches the uploads and tells students and teachers the moment something expected from the session isn't there yet — admin functions stay hidden.
         </SubHead>
-        <div style={{ marginTop: "5vh", display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "1.4vw" }}>
+        <div style={{ marginTop: "3.6vh", display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "1.4vw" }}>
           <Card caption="Pre-record" title="Kit checks" body="Audio, cameras, drive and helper app all verified before record." />
           <Card caption="Pre-record" title="Recording readiness" body="A single status — Ready, Warning, or Not ready. No guessing." />
           <Card caption="In session" title="Take organisation" body="Tag take number, talent and mic assignments while it's still fresh." />
@@ -685,7 +702,7 @@ const slides: SlideEntry[] = [
         <SubHead>
           Every file accounted for, every project verified, every gap surfaced before it becomes a Tuesday-morning DM hunt for the missing lav from take 4.
         </SubHead>
-        <div style={{ marginTop: "5vh", display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "1.4vw" }}>
+        <div style={{ marginTop: "3.6vh", display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "1.4vw" }}>
           <Card caption="Post" title="Session status" body="Uploads land in real time. You see what's still on a card before anyone leaves the room." />
           <Card caption="Post" title="Project verification" body="What landed is compared against the expected setup for this project." />
           <Card caption="Post" title="Missing-file alerts" body="Flagged before the editor or teacher ever opens the project. Nothing slips." />
@@ -701,13 +718,13 @@ const slides: SlideEntry[] = [
     render: ({ index, total }) => (
       <Frame eyebrow="10 — Curriculum Alignment" index={index} total={total}>
         <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "5vw", alignItems: "center" }}>
-          <div>
+          <div style={{ marginTop: "-0.5vh" }}>
             <Eyebrow>Curriculum Alignment</Eyebrow>
-            <Headline size="3.4vw">Communication and learner agency are becoming core educational priorities.</Headline>
-            <p style={{ fontSize: "1.2vw", color: INK_MUTED, marginTop: "4vh", maxWidth: "42vw", lineHeight: 1.6 }}>
+            <Headline size="3.2vw">Communication and learner agency are becoming core educational priorities.</Headline>
+            <p style={{ fontSize: "1.15vw", color: INK_MUTED, marginTop: "3vh", maxWidth: "42vw", lineHeight: 1.6 }}>
               The future direction of education is increasingly focused not only on what students know, but how confidently they can communicate, contribute and participate.
             </p>
-            <p style={{ fontSize: "1.2vw", color: INK_MUTED, marginTop: "2.5vh", maxWidth: "42vw", lineHeight: 1.6 }}>
+            <p style={{ fontSize: "1.15vw", color: INK_MUTED, marginTop: "2vh", maxWidth: "42vw", lineHeight: 1.6 }}>
               EDU Media Systems helps schools transform these priorities into practical student experiences — confidence built through repeated participation in authentic communication environments.
             </p>
           </div>
@@ -726,11 +743,14 @@ const slides: SlideEntry[] = [
                 key={t}
                 style={{
                   position: "relative",
-                  border: `1px solid rgba(110,168,255,0.2)`,
-                  background: "linear-gradient(180deg, rgba(110,168,255,0.05) 0%, rgba(18,19,22,0.97) 100%)",
+                  border: `1px solid rgba(110,168,255,0.22)`,
+                  background: "linear-gradient(180deg, rgba(110,168,255,0.06) 0%, rgba(18,19,22,0.97) 100%)",
                   borderRadius: "0.75vw",
-                  padding: "2.1vw 1.8vw",
-                  fontSize: "1.25vw",
+                  padding: "1.7vw 1.6vw",
+                  minHeight: "8vh",
+                  display: "flex",
+                  alignItems: "center",
+                  fontSize: "1.18vw",
                   color: INK,
                   fontWeight: 500,
                   letterSpacing: "-0.005em",
@@ -785,15 +805,22 @@ const slides: SlideEntry[] = [
               <div
                 key={label}
                 style={{
-                  border: `1px solid rgba(110,168,255,0.22)`,
-                  background: "linear-gradient(180deg, rgba(110,168,255,0.05) 0%, rgba(18,19,22,0.95) 100%)",
+                  position: "relative",
+                  borderTop: `2px solid rgba(110,168,255,0.55)`,
+                  borderRight: `1px solid rgba(110,168,255,0.22)`,
+                  borderBottom: `1px solid rgba(110,168,255,0.22)`,
+                  borderLeft: `1px solid rgba(110,168,255,0.22)`,
+                  background: "linear-gradient(180deg, rgba(110,168,255,0.08) 0%, rgba(18,19,22,0.96) 100%)",
                   borderRadius: "0.85vw",
-                  padding: "2vw 1.9vw",
-                  fontSize: "1.3vw",
+                  padding: "2vw 1.9vw 2vw 2.3vw",
+                  minHeight: "8.5vh",
+                  display: "flex",
+                  alignItems: "center",
+                  fontSize: "1.4vw",
                   color: INK,
                   fontWeight: 500,
                   letterSpacing: "-0.005em",
-                  boxShadow: "0 0.6vw 1.6vw rgba(0,0,0,0.35), inset 0 0 0 1px rgba(110,168,255,0.04)",
+                  boxShadow: "0 0.6vw 1.8vw rgba(0,0,0,0.4), inset 0 0 2vw rgba(110,168,255,0.05)",
                 }}
               >
                 {label}
@@ -812,13 +839,14 @@ const slides: SlideEntry[] = [
     render: ({ index, total }) => (
       <Frame eyebrow="12 — School Media Identity" index={index} total={total}>
         <Eyebrow>Building School Media Identity</Eyebrow>
-        <Headline size="3.6vw">
-          More than equipment — a complete school media program.
+        <Headline size="3.4vw">
+          <span style={{ display: "block" }}>More than equipment.</span>
+          <span style={{ display: "block" }}>A complete school media program.</span>
         </Headline>
-        <SubHead>
+        <p style={{ fontSize: "1.45vw", fontWeight: 400, lineHeight: 1.45, color: INK_MUTED, marginTop: "3.2vh", maxWidth: "60vw" }}>
           EDU Media Systems helps schools build student-led media programs that are properly branded, properly produced and embedded into school culture — programs students genuinely want to participate in.
-        </SubHead>
-        <div style={{ marginTop: "5vh", display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1.4vw" }}>
+        </p>
+        <div style={{ marginTop: "3.5vh", display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1.4vw" }}>
           <ColumnCard caption="Brand Identity">
             <Listed items={[
               "Custom media branding",
@@ -853,7 +881,7 @@ const slides: SlideEntry[] = [
         <SubHead>
           EDU Media Systems is designed to integrate into everyday school life — not sit unused in a storage room. A typical week can look like this:
         </SubHead>
-        <div style={{ marginTop: "4vh", display: "grid", gridTemplateColumns: "repeat(5, 1fr)", gap: "1vw" }}>
+        <div style={{ marginTop: "2.8vh", display: "grid", gridTemplateColumns: "repeat(5, 1fr)", gap: "1vw" }}>
           {[
             { d: "Mon", t: "Student leadership podcast" },
             { d: "Tue", t: "Quick 15 classroom reflections" },
@@ -879,7 +907,7 @@ const slides: SlideEntry[] = [
             </div>
           ))}
         </div>
-        <p style={{ fontSize: "1.05vw", color: INK_SOFT, marginTop: "4vh", maxWidth: "72vw", lineHeight: 1.55 }}>
+        <p style={{ fontSize: "1.05vw", color: INK_SOFT, marginTop: "2.6vh", maxWidth: "72vw", lineHeight: 1.45 }}>
           Not every session needs a major production or public publishing. Much of the strongest content stays classroom-based, teacher-assessed and parent-shared — oral presentations, literacy reflections, leadership communication, debate programs, event coverage and school storytelling.
         </p>
       </Frame>
@@ -897,7 +925,7 @@ const slides: SlideEntry[] = [
         <p style={{ fontSize: "1.3vw", fontWeight: 400, lineHeight: 1.45, color: INK_MUTED, marginTop: "2.4vh", maxWidth: "60vw" }}>
           The rollout is only the beginning. EDU Media Systems provides ongoing activation, support and participation long after installation — so schools never feel: "we have the equipment, but what do we actually do with it?"
         </p>
-        <div style={{ marginTop: "3.5vh", display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1.6vw", alignItems: "stretch" }}>
+        <div style={{ marginTop: "2.4vh", display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1.6vw", alignItems: "stretch" }}>
           {[
             {
               caption: "Ongoing Support",
@@ -969,7 +997,7 @@ const slides: SlideEntry[] = [
             </div>
           ))}
         </div>
-        <p style={{ fontSize: "1.15vw", color: INK_MUTED, marginTop: "3vh", maxWidth: "62vw", lineHeight: 1.5, fontStyle: "italic", letterSpacing: "-0.005em" }}>
+        <p style={{ fontSize: "1.2vw", color: INK, marginTop: "1.8vh", maxWidth: "62vw", lineHeight: 1.5, fontStyle: "italic", letterSpacing: "-0.005em", opacity: 0.92 }}>
           The value is participation, representation and student voice — not celebrity access.
         </p>
       </Frame>
@@ -987,7 +1015,7 @@ const slides: SlideEntry[] = [
         <SubHead>
           Designed from day one for single schools, multi-campus rollouts and department-level deployments — same hardware, same workflows, same software, regardless of footprint.
         </SubHead>
-        <div style={{ marginTop: "5vh", display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "1.4vw" }}>
+        <div style={{ marginTop: "3.6vh", display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "1.4vw" }}>
           <Card caption="Tier 1" title="Single school" body="One Podcart, one workflow, one program — operational in a term." />
           <Card caption="Tier 2" title="Multi-campus rollout" body="Standardised deployment across grouped sites with shared identity." />
           <Card caption="Tier 3" title="Department integration" body="Enterprise licensing across regions and education systems." />
@@ -1007,7 +1035,7 @@ const slides: SlideEntry[] = [
         <SubHead>
           The same infrastructure stack underneath every deployment — so a single school and a multi-region department run on identical foundations.
         </SubHead>
-        <div style={{ marginTop: "5vh", display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "1.4vw" }}>
+        <div style={{ marginTop: "3.6vh", display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "1.4vw" }}>
           <Card caption="Layer" title="Portable infrastructure" body="Hardware moves between rooms, sites and events without reconfiguration." />
           <Card caption="Layer" title="Cloud-based workflows" body="Project state, uploads and handoffs accessible from anywhere." />
           <Card caption="Layer" title="Standardised systems" body="One operating model from primary classroom to department office." />
@@ -1039,20 +1067,22 @@ const slides: SlideEntry[] = [
               name: "Sam Leverenz",
               role: "Founder & Creative Director",
               bio: "Leads the creative and operational direction of EDU Media Systems. Over 20 years in sound and more than a decade in professional videography and media production — bringing real-world production systems into education through student-led media infrastructure focused on communication, confidence and student voice.",
+              imgFilter: "saturate(0.78) contrast(1.08) brightness(0.86) hue-rotate(-4deg)",
             },
             {
               img: founderTom,
               name: "Tom Leverenz",
               role: "Co-Founder & Education Strategy",
               bio: "Supports the education strategy and long-term implementation direction behind EDU Media Systems. Extensive experience across education environments and student support systems — helping ensure the EMS ecosystem remains practical, scalable and genuinely sustainable for schools, teachers and students.",
+              imgFilter: "saturate(0.92) contrast(1.02)",
             },
           ].map((f) => (
-            <div key={f.name} style={{ display: "flex", flexDirection: "column", alignItems: "flex-start" }}>
+            <div key={f.name} style={{ display: "flex", flexDirection: "column", alignItems: "flex-start", marginTop: "-1vh" }}>
               <div
                 style={{
                   position: "relative",
                   width: "100%",
-                  height: "32vh",
+                  height: "30vh",
                   borderRadius: "0.7vw",
                   overflow: "hidden",
                   background: "radial-gradient(ellipse at 50% 70%, rgba(110,168,255,0.22) 0%, rgba(110,168,255,0.08) 40%, rgba(10,10,11,0.95) 90%)",
@@ -1082,8 +1112,17 @@ const slides: SlideEntry[] = [
                     maxWidth: "100%",
                     objectFit: "contain",
                     objectPosition: "bottom center",
-                    filter: "saturate(0.92) contrast(1.02)",
+                    filter: f.imgFilter,
                     position: "relative",
+                  }}
+                />
+                <div
+                  aria-hidden="true"
+                  style={{
+                    position: "absolute",
+                    inset: 0,
+                    background: "linear-gradient(180deg, rgba(10,18,40,0.18) 0%, rgba(10,10,11,0.0) 45%, rgba(10,10,11,0.32) 100%)",
+                    pointerEvents: "none",
                   }}
                 />
               </div>
@@ -1093,13 +1132,13 @@ const slides: SlideEntry[] = [
                   height: "2px",
                   background: ACCENT,
                   opacity: 0.9,
-                  marginTop: "1.6vh",
-                  marginBottom: "0.9vh",
+                  marginTop: "1.2vh",
+                  marginBottom: "0.7vh",
                 }}
               />
               <div
                 style={{
-                  fontSize: "1.8vw",
+                  fontSize: "1.7vw",
                   fontWeight: 600,
                   letterSpacing: "-0.015em",
                   color: INK,
@@ -1110,11 +1149,11 @@ const slides: SlideEntry[] = [
               </div>
               <div
                 style={{
-                  fontSize: "1.05vw",
+                  fontSize: "1vw",
                   letterSpacing: "0.2em",
                   textTransform: "uppercase",
                   color: ACCENT,
-                  marginTop: "0.6vh",
+                  marginTop: "0.5vh",
                   fontWeight: 600,
                 }}
               >
@@ -1122,10 +1161,10 @@ const slides: SlideEntry[] = [
               </div>
               <p
                 style={{
-                  fontSize: "0.95vw",
+                  fontSize: "0.9vw",
                   color: INK_MUTED,
-                  lineHeight: 1.55,
-                  marginTop: "1.2vh",
+                  lineHeight: 1.5,
+                  marginTop: "0.9vh",
                   maxWidth: "32vw",
                 }}
               >
