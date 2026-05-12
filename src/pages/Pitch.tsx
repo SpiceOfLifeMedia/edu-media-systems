@@ -164,15 +164,29 @@ function Card({
   return (
     <div
       style={{
-        background: SURFACE,
-        border: `1px solid ${LINE}`,
+        position: "relative",
+        background: "linear-gradient(180deg, rgba(110,168,255,0.06) 0%, rgba(18,19,22,0.97) 100%)",
+        border: `1px solid rgba(110,168,255,0.22)`,
         borderRadius: "0.8vw",
         padding: "2.6vw 2.4vw",
         display: "flex",
         flexDirection: "column",
         gap: "1.4vh",
+        boxShadow: "0 0.6vw 1.6vw rgba(0,0,0,0.42), inset 0 1px 0 rgba(110,168,255,0.14)",
+        overflow: "hidden",
       }}
     >
+      <div
+        aria-hidden="true"
+        style={{
+          position: "absolute",
+          top: 0,
+          left: 0,
+          right: 0,
+          height: "1px",
+          background: "linear-gradient(90deg, transparent 0%, rgba(110,168,255,0.6) 50%, transparent 100%)",
+        }}
+      />
       {caption && (
         <div
           style={{
@@ -240,15 +254,29 @@ function ColumnCard({ caption, children }: { caption: string; children: React.Re
   return (
     <div
       style={{
-        background: SURFACE,
-        border: `1px solid ${LINE}`,
+        position: "relative",
+        background: "linear-gradient(180deg, rgba(110,168,255,0.06) 0%, rgba(18,19,22,0.97) 100%)",
+        border: `1px solid rgba(110,168,255,0.22)`,
         borderRadius: "0.8vw",
         padding: "2.2vw",
         display: "flex",
         flexDirection: "column",
         gap: "1.4vh",
+        boxShadow: "0 0.6vw 1.6vw rgba(0,0,0,0.42), inset 0 1px 0 rgba(110,168,255,0.14)",
+        overflow: "hidden",
       }}
     >
+      <div
+        aria-hidden="true"
+        style={{
+          position: "absolute",
+          top: 0,
+          left: 0,
+          right: 0,
+          height: "1px",
+          background: "linear-gradient(90deg, transparent 0%, rgba(110,168,255,0.6) 50%, transparent 100%)",
+        }}
+      />
       <div
         style={{
           fontSize: "0.85vw",
@@ -345,39 +373,59 @@ const slides: SlideEntry[] = [
     label: "The Problem",
     render: ({ index, total }) => (
       <Frame eyebrow="02 — The Problem" index={index} total={total}>
-        <div style={{ display: "grid", gridTemplateColumns: "1.05fr 0.95fr", gap: "5vw", alignItems: "center" }}>
+        <div style={{ display: "grid", gridTemplateColumns: "1.1fr 0.9fr", gap: "5vw", alignItems: "start" }}>
           <div>
             <Eyebrow>The Problem</Eyebrow>
-            <Headline>
+            <Headline size="3.8vw">
               Schools are missing modern media infrastructure.
             </Headline>
-            <SubHead>
-              Student voice is becoming central to modern education, but the systems behind it haven't caught up. Equipment is fragmented, workflows are improvised, and programs depend on individual staff to keep them alive. Without structured systems, many school media initiatives struggle to scale consistently across classrooms, staff and year levels.
-            </SubHead>
+            <p style={{ fontSize: "1.2vw", color: INK_MUTED, marginTop: "3vh", maxWidth: "44vw", lineHeight: 1.55 }}>
+              Student voice is becoming central to modern education, but the systems behind it haven't caught up. Equipment is fragmented, workflows are improvised, and programs depend on individual staff to keep them alive.
+            </p>
+            <p style={{ fontSize: "1.2vw", color: INK_MUTED, marginTop: "1.8vh", maxWidth: "44vw", lineHeight: 1.55 }}>
+              Without structured systems, many school media initiatives struggle to scale consistently across classrooms, staff and year levels.
+            </p>
           </div>
-          <div style={{ position: "relative" }}>
-            <div
-              aria-hidden="true"
-              style={{
-                position: "absolute",
-                inset: "-2vh -2vw",
-                opacity: 0.07,
-                backgroundImage:
-                  "radial-gradient(rgba(110,168,255,0.55) 1px, transparent 1.2px)",
-                backgroundSize: "1.4vw 1.4vw",
-                maskImage: "radial-gradient(ellipse at center, black 55%, transparent 85%)",
-                WebkitMaskImage: "radial-gradient(ellipse at center, black 55%, transparent 85%)",
-                pointerEvents: "none",
-              }}
-            />
-            <ul style={{ position: "relative", display: "flex", flexDirection: "column", gap: "2vh", marginTop: "1vh" }}>
-              <Bullet>Most schools lack scalable media systems</Bullet>
-              <Bullet>Teachers are overloaded managing workflows</Bullet>
-              <Bullet>Student voice opportunities are inconsistent</Bullet>
-              <Bullet>Building a professional digital media program is hard</Bullet>
-              <Bullet>Existing systems are fragmented and difficult to manage</Bullet>
-            </ul>
-          </div>
+          <ul style={{ display: "flex", flexDirection: "column", gap: "1.6vh", marginTop: "5vh" }}>
+            {[
+              "Most schools lack scalable media systems",
+              "Teachers are overloaded managing workflows",
+              "Student voice opportunities are inconsistent",
+              "Building a professional digital media program is hard",
+              "Existing systems are fragmented and difficult to manage",
+            ].map((t) => (
+              <li
+                key={t}
+                style={{
+                  position: "relative",
+                  listStyle: "none",
+                  background: "linear-gradient(180deg, rgba(110,168,255,0.06) 0%, rgba(18,19,22,0.97) 100%)",
+                  border: `1px solid rgba(110,168,255,0.22)`,
+                  borderRadius: "0.6vw",
+                  padding: "1.5vh 1.4vw",
+                  fontSize: "1.15vw",
+                  color: INK,
+                  fontWeight: 500,
+                  letterSpacing: "-0.005em",
+                  boxShadow: "0 0.4vw 1.2vw rgba(0,0,0,0.4), inset 0 1px 0 rgba(110,168,255,0.12)",
+                  overflow: "hidden",
+                }}
+              >
+                <span
+                  aria-hidden="true"
+                  style={{
+                    position: "absolute",
+                    top: 0,
+                    left: 0,
+                    right: 0,
+                    height: "1px",
+                    background: "linear-gradient(90deg, transparent 0%, rgba(110,168,255,0.55) 50%, transparent 100%)",
+                  }}
+                />
+                {t}
+              </li>
+            ))}
+          </ul>
         </div>
       </Frame>
     ),
@@ -523,14 +571,14 @@ const slides: SlideEntry[] = [
     label: "The Podcart",
     render: ({ index, total }) => (
       <Frame eyebrow="05 — Hardware" index={index} total={total}>
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 1.15fr", gap: "4vw", alignItems: "center" }}>
-          <div>
-            <img src={podcartLogo} crossOrigin="anonymous" alt="The Podcart" style={{ height: "2.6vw", marginBottom: "3vh" }} />
-            <Headline size="3.4vw">Portable student media infrastructure for modern schools.</Headline>
-            <SubHead>
+        <div style={{ display: "grid", gridTemplateColumns: "1fr 1.15fr", gap: "4vw", alignItems: "start" }}>
+          <div style={{ marginTop: "-2vh" }}>
+            <img src={podcartLogo} crossOrigin="anonymous" alt="The Podcart" style={{ height: "2.6vw", marginBottom: "2vh" }} />
+            <Headline size="3.2vw">Portable student media infrastructure for modern schools.</Headline>
+            <p style={{ fontSize: "1.2vw", color: INK_MUTED, marginTop: "2vh", maxWidth: "38vw", lineHeight: 1.55 }}>
               A complete production setup that rolls between classrooms — built to survive a school week and simple enough for students to operate.
-            </SubHead>
-            <ul style={{ display: "flex", flexDirection: "column", gap: "1.2vh", marginTop: "3vh" }}>
+            </p>
+            <ul style={{ display: "flex", flexDirection: "column", gap: "1.1vh", marginTop: "2.4vh" }}>
               <Bullet>Portable production setup</Bullet>
               <Bullet>Podcasting and video recording</Bullet>
               <Bullet>Mobile deployment between rooms</Bullet>
@@ -604,15 +652,29 @@ const slides: SlideEntry[] = [
                 <div
                   key={title}
                   style={{
+                    position: "relative",
                     display: "flex",
                     alignItems: "center",
                     gap: "1vw",
-                    padding: "0.85vw 1.2vw",
-                    borderRadius: "0.5vw",
-                    background: "rgba(255,255,255,0.035)",
-                    border: `1px solid rgba(245,245,247,0.1)`,
+                    padding: "0.95vw 1.2vw",
+                    borderRadius: "0.55vw",
+                    background: "linear-gradient(180deg, rgba(110,168,255,0.06) 0%, rgba(18,19,22,0.6) 100%)",
+                    border: `1px solid rgba(110,168,255,0.2)`,
+                    boxShadow: "inset 0 1px 0 rgba(110,168,255,0.12)",
+                    overflow: "hidden",
                   }}
                 >
+                  <span
+                    aria-hidden="true"
+                    style={{
+                      position: "absolute",
+                      top: 0,
+                      left: 0,
+                      right: 0,
+                      height: "1px",
+                      background: "linear-gradient(90deg, transparent 0%, rgba(110,168,255,0.55) 50%, transparent 100%)",
+                    }}
+                  />
                   <span
                     style={{
                       width: "0.65vw",
