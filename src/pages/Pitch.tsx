@@ -4,6 +4,8 @@ const base = import.meta.env.BASE_URL;
 const eduLogo = `${base}pitch/edu-logo.png`;
 const offloadrLogo = `${base}pitch/offloadr-logo.png`;
 const podcartLogo = `${base}pitch/podcart-logo.png`;
+const podcartHero = `${base}podcart-1.png`;
+const podcartAlt = `${base}podcart-3.png`;
 
 type SlideRender = (props: { index: number; total: number }) => ReactElement;
 
@@ -224,6 +226,7 @@ function LogoRow() {
 }
 
 const slides: SlideEntry[] = [
+  // 01 — HERO
   {
     id: "cover",
     label: "Cover",
@@ -233,42 +236,33 @@ const slides: SlideEntry[] = [
         style={{ padding: "10vh 10vw", backgroundColor: BG, color: INK }}
       >
         <div className="flex items-center justify-between" style={{ color: INK_SOFT, fontSize: "0.9vw", letterSpacing: "0.2em", textTransform: "uppercase" }}>
-          <img
-            src={eduLogo}
-            crossOrigin="anonymous"
-            alt="EDU Media Systems"
-            style={{ height: "2.6vw" }}
-          />
-          <span>
-            {String(index).padStart(2, "0")} / {String(total).padStart(2, "0")}
-          </span>
+          <img src={eduLogo} crossOrigin="anonymous" alt="EDU Media Systems" style={{ height: "2.6vw" }} />
+          <span>{String(index).padStart(2, "0")} / {String(total).padStart(2, "0")}</span>
         </div>
-        <div>
+        <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-start" }}>
           <div
             style={{
               fontSize: "0.95vw",
-              letterSpacing: "0.28em",
+              letterSpacing: "0.32em",
               textTransform: "uppercase",
               color: ACCENT,
               marginBottom: "5vh",
               fontWeight: 500,
             }}
           >
-            Pitch Deck
+            Pitch Deck — 2026
           </div>
           <h1
             style={{
-              fontSize: "7.5vw",
+              fontSize: "8vw",
               fontWeight: 600,
-              letterSpacing: "-0.035em",
-              lineHeight: 0.96,
-              maxWidth: "70vw",
+              letterSpacing: "-0.04em",
+              lineHeight: 0.94,
               color: INK,
+              maxWidth: "80vw",
             }}
           >
-            Student voice.
-            <br />
-            Professionally delivered.
+            EDU Media Systems
           </h1>
           <p
             style={{
@@ -279,7 +273,7 @@ const slides: SlideEntry[] = [
               lineHeight: 1.4,
             }}
           >
-            Modern media infrastructure for schools — hardware, software, and the workflow that holds them together.
+            Modern media infrastructure for student voice, communication and digital learning.
           </p>
         </div>
         <div className="flex items-end justify-between">
@@ -291,157 +285,139 @@ const slides: SlideEntry[] = [
       </div>
     ),
   },
+
+  // 02 — THE PROBLEM
   {
     id: "problem",
     label: "The Problem",
     render: ({ index, total }) => (
-      <Frame eyebrow="01 — The Problem" index={index} total={total}>
+      <Frame eyebrow="02 — The Problem" index={index} total={total}>
         <div style={{ display: "grid", gridTemplateColumns: "1.05fr 0.95fr", gap: "5vw", alignItems: "start" }}>
           <div>
             <Eyebrow>The Problem</Eyebrow>
             <Headline>
-              Schools want student media programs.
-              <br />
-              Most cannot sustain them.
+              Schools are missing modern media infrastructure.
             </Headline>
             <SubHead>
-              The equipment shows up. The excitement fades. Within a term the gear is in a cupboard, the files are scattered, and one teacher is left holding the program together.
+              Student voice is becoming central to modern education, but the systems behind it haven't caught up. Equipment is fragmented, workflows are improvised, and programs depend on individual staff to keep them alive.
             </SubHead>
           </div>
           <ul style={{ display: "flex", flexDirection: "column", gap: "1.6vh", marginTop: "1vh" }}>
-            <Bullet>Equipment too complicated for daily classroom use</Bullet>
-            <Bullet>Teachers overloaded; no time to manage workflows</Bullet>
-            <Bullet>Files scattered across phones, drives and laptops</Bullet>
-            <Bullet>Programs depend on one passionate staff member</Bullet>
-            <Bullet>No clear path from recording to publishing</Bullet>
-            <Bullet>Expensive gear ends up sitting unused</Bullet>
+            <Bullet>Most schools lack scalable media systems</Bullet>
+            <Bullet>Teachers are overloaded managing workflows</Bullet>
+            <Bullet>Student voice opportunities are inconsistent</Bullet>
+            <Bullet>Building a professional digital media program is hard</Bullet>
+            <Bullet>Existing systems are fragmented and difficult to manage</Bullet>
           </ul>
         </div>
       </Frame>
     ),
   },
-  {
-    id: "why",
-    label: "Why It Matters",
-    render: ({ index, total }) => (
-      <Frame eyebrow="02 — Why This Matters" index={index} total={total}>
-        <div style={{ display: "grid", gridTemplateColumns: "1.1fr 0.9fr", gap: "6vw", alignItems: "center" }}>
-          <div>
-            <Eyebrow>Curriculum Direction</Eyebrow>
-            <Headline>
-              Modern education is shifting from content to capability.
-            </Headline>
-            <SubHead>
-              The emerging direction of education is increasingly focused not only on what students know, but also on what they can communicate, create, contribute and confidently participate in. EDU Media Systems gives schools the practical infrastructure and programs to operationalise that shift.
-            </SubHead>
-          </div>
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1.2vw" }}>
-            {[
-              "Student voice",
-              "Learner agency",
-              "Communication",
-              "Confidence",
-              "Collaboration",
-              "Creativity",
-              "Wellbeing",
-              "Media literacy",
-            ].map((label) => (
-              <div
-                key={label}
-                style={{
-                  border: `1px solid ${LINE}`,
-                  background: SURFACE,
-                  borderRadius: "0.6vw",
-                  padding: "1.8vw 1.6vw",
-                  fontSize: "1.35vw",
-                  fontWeight: 500,
-                  color: INK,
-                }}
-              >
-                {label}
-              </div>
-            ))}
-          </div>
-        </div>
-      </Frame>
-    ),
-  },
+
+  // 03 — THE SOLUTION
   {
     id: "solution",
     label: "The Solution",
     render: ({ index, total }) => (
       <Frame eyebrow="03 — The Solution" index={index} total={total}>
-        <Eyebrow>The Solution</Eyebrow>
-        <Headline>One connected system for modern school media.</Headline>
-        <SubHead>
-          Hardware, software, branding, training and ongoing activation — designed to operate as a single ecosystem rather than a pile of parts.
-        </SubHead>
-        <div style={{ marginTop: "5vh", display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: "1.2vw" }}>
-          {[
-            { t: "The Podcart", d: "Portable studio hardware" },
-            { t: "Offloadr", d: "Upload and project software" },
-            { t: "Producer Mode", d: "Confidence dashboard" },
-            { t: "EMS Network", d: "Live cross-school sessions" },
-            { t: "School Identity", d: "Branding & channels" },
-            { t: "Initiatives", d: "Ready-to-run formats" },
-            { t: "Training", d: "Onboarding & coaching" },
-            { t: "Activation", d: "First-term momentum" },
-          ].map((c) => (
-            <div
-              key={c.t}
+        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "5vw", alignItems: "center" }}>
+          <div>
+            <Eyebrow>The Solution</Eyebrow>
+            <Headline>One connected education media ecosystem.</Headline>
+            <SubHead>
+              EDU Media Systems combines hardware, workflow software and structured programs into one scalable infrastructure layer for modern schools.
+            </SubHead>
+            <div style={{ marginTop: "5vh", display: "flex", flexDirection: "column", gap: "2vh" }}>
+              {[
+                { t: "EDU Media Systems", d: "The infrastructure layer for student-led media." },
+                { t: "The Podcart", d: "Portable studio hardware for the classroom." },
+                { t: "Offloadr", d: "Workflow software that turns sessions into projects." },
+              ].map((c) => (
+                <div
+                  key={c.t}
+                  style={{
+                    display: "grid",
+                    gridTemplateColumns: "auto 1fr",
+                    gap: "1.4vw",
+                    alignItems: "baseline",
+                  }}
+                >
+                  <div style={{ fontSize: "1.4vw", fontWeight: 600, color: INK, letterSpacing: "-0.01em", minWidth: "14vw" }}>{c.t}</div>
+                  <div style={{ fontSize: "1.15vw", color: INK_MUTED, lineHeight: 1.5 }}>{c.d}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+          <div style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
+            <img
+              src={podcartHero}
+              crossOrigin="anonymous"
+              alt="The Podcart"
               style={{
+                width: "100%",
+                maxWidth: "32vw",
+                height: "auto",
+                borderRadius: "0.8vw",
                 border: `1px solid ${LINE}`,
                 background: SURFACE,
-                borderRadius: "0.6vw",
-                padding: "1.8vw 1.4vw",
-                display: "flex",
-                flexDirection: "column",
-                gap: "0.8vh",
+                objectFit: "cover",
               }}
-            >
-              <div style={{ fontSize: "1.3vw", fontWeight: 600, color: INK, letterSpacing: "-0.01em" }}>{c.t}</div>
-              <div style={{ fontSize: "1vw", color: INK_MUTED, lineHeight: 1.45 }}>{c.d}</div>
-            </div>
-          ))}
+            />
+          </div>
         </div>
       </Frame>
     ),
   },
+
+  // 04 — THE PODCART
   {
     id: "podcart",
     label: "The Podcart",
     render: ({ index, total }) => (
       <Frame eyebrow="04 — Hardware" index={index} total={total}>
-        <div style={{ display: "grid", gridTemplateColumns: "1.05fr 0.95fr", gap: "5vw", alignItems: "center" }}>
+        <div style={{ display: "grid", gridTemplateColumns: "1fr 1.1fr", gap: "5vw", alignItems: "center" }}>
           <div>
-            <img
-              src={podcartLogo}
-              crossOrigin="anonymous"
-              alt="The Podcart"
-              style={{ height: "2.6vw", marginBottom: "3vh" }}
-            />
-            <Headline>A complete student media studio that rolls between classrooms.</Headline>
+            <img src={podcartLogo} crossOrigin="anonymous" alt="The Podcart" style={{ height: "2.6vw", marginBottom: "3vh" }} />
+            <Headline>Portable student media infrastructure designed for modern schools.</Headline>
             <SubHead>
-              Foldable, secure and student-friendly. A Mac Mini workstation, integrated screens, professional microphones and remote-guest capability — cable-managed and built to survive a school week.
+              A complete production setup that rolls between classrooms — built to survive a school week and simple enough for students to operate.
             </SubHead>
+            <ul style={{ display: "flex", flexDirection: "column", gap: "1.4vh", marginTop: "4vh" }}>
+              <Bullet>Portable production setup</Bullet>
+              <Bullet>Podcasting and video recording</Bullet>
+              <Bullet>Mobile deployment between rooms</Bullet>
+              <Bullet>School event coverage ready</Bullet>
+              <Bullet>Flexible classroom integration</Bullet>
+            </ul>
           </div>
-          <ul style={{ display: "flex", flexDirection: "column", gap: "1.4vh" }}>
-            <Bullet>Portable media workstation with foldable secure design</Bullet>
-            <Bullet>Mac Mini workstation and integrated screens</Bullet>
-            <Bullet>Professional microphones, classroom-ready</Bullet>
-            <Bullet>Remote guest capability built in</Bullet>
-            <Bullet>Cable-managed, student-friendly operation</Bullet>
-          </ul>
+          <div style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
+            <img
+              src={podcartHero}
+              crossOrigin="anonymous"
+              alt="The Podcart hero render"
+              style={{
+                width: "100%",
+                maxWidth: "38vw",
+                height: "auto",
+                borderRadius: "0.8vw",
+                border: `1px solid ${LINE}`,
+                background: SURFACE,
+                objectFit: "cover",
+              }}
+            />
+          </div>
         </div>
       </Frame>
     ),
   },
+
+  // 05 — OFFLOADR SOFTWARE
   {
     id: "offloadr",
     label: "Offloadr",
     render: ({ index, total }) => (
       <Frame eyebrow="05 — Software" index={index} total={total}>
-        <div style={{ display: "grid", gridTemplateColumns: "1.05fr 0.95fr", gap: "5vw", alignItems: "center" }}>
+        <div style={{ display: "grid", gridTemplateColumns: "1fr 1.05fr", gap: "5vw", alignItems: "center" }}>
           <div>
             <img
               src={offloadrLogo}
@@ -449,10 +425,17 @@ const slides: SlideEntry[] = [
               alt="Offloadr"
               style={{ height: "2.6vw", marginBottom: "3vh", filter: "brightness(0) invert(1)" }}
             />
-            <Headline>The missing link between recording and editing.</Headline>
+            <Headline>Media workflow software built for education environments.</Headline>
             <SubHead>
-              Offloadr automatically uploads, verifies, organises and prepares media projects for editor handoff — the operational layer that turns a recording session into a clean project.
+              The operational layer that turns a recording session into a clean, editor-ready project — automatically.
             </SubHead>
+            <ul style={{ display: "flex", flexDirection: "column", gap: "1.4vh", marginTop: "4vh" }}>
+              <Bullet>Automatic media uploads</Bullet>
+              <Bullet>Editor handoff systems</Bullet>
+              <Bullet>Storage management</Bullet>
+              <Bullet>Student producer dashboards</Bullet>
+              <Bullet>Cloud-based accessibility</Bullet>
+            </ul>
           </div>
           <div
             style={{
@@ -462,13 +445,13 @@ const slides: SlideEntry[] = [
               padding: "2.4vw",
               display: "flex",
               flexDirection: "column",
-              gap: "1.6vh",
+              gap: "1.4vh",
             }}
           >
             {[
               ["Session 042 — Quick 15", "Verified · 8 files · 12.4 GB"],
               ["Assembly Recap — Term 4", "Uploading · 3 of 6 files"],
-              ["Year 5 Podcast — Ep. 12", "Ready for editor handoff"],
+              ["Year 5 Podcast — Episode 12", "Ready for editor handoff"],
               ["Leadership Interview", "Organised · awaiting review"],
             ].map(([title, status]) => (
               <div
@@ -492,62 +475,110 @@ const slides: SlideEntry[] = [
       </Frame>
     ),
   },
+
+  // 06 — PRODUCER MODE
   {
     id: "producer",
     label: "Producer Mode",
     render: ({ index, total }) => (
-      <Frame eyebrow="06 — Workflow" index={index} total={total}>
+      <Frame eyebrow="06 — Producer Mode" index={index} total={total}>
         <Eyebrow>Producer Mode</Eyebrow>
-        <Headline>Simple enough for students. Powerful enough for schools.</Headline>
+        <Headline>Student-friendly production confidence.</Headline>
         <SubHead>
-          A confidence dashboard that tells students and teachers exactly what is working — before, during and after a recording.
+          Designed to empower students without exposing complex system controls. Admin functions stay hidden — students see only what they need to record with confidence.
         </SubHead>
         <div style={{ marginTop: "5vh", display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "1.4vw" }}>
-          <Card caption="Live" title="Recording state" body="Students can see at a glance whether the session is capturing." />
-          <Card caption="Live" title="Audio status" body="Per-mic levels and signal health surfaced in plain language." />
-          <Card caption="Live" title="Video status" body="Frame, focus and source confirmed before takes begin." />
-          <Card caption="Post" title="Upload verification" body="Every file confirmed offloaded and integrity-checked." />
-          <Card caption="Post" title="Storage health" body="Free space and project size monitored on the workstation." />
-          <Card caption="Post" title="Project readiness" body="Handoff summary the editor or teacher can act on." />
+          <Card caption="Live" title="Recording status" body="A clear visual signal showing the session is capturing." />
+          <Card caption="Live" title="Audio monitoring" body="Per-mic levels surfaced in plain language." />
+          <Card caption="Live" title="Camera connectivity" body="Frame, focus and source confirmed before takes begin." />
+          <Card caption="Post" title="Upload status" body="Every file confirmed offloaded and integrity-checked." />
+          <Card caption="Live" title="Session timer" body="Visible runtime so sessions stay structured." />
+          <Card caption="Post" title="Storage health" body="Free space and project size monitored in-app." />
         </div>
       </Frame>
     ),
   },
+
+  // 07 — CURRICULUM ALIGNMENT
   {
-    id: "identity",
-    label: "School Media Identity",
+    id: "curriculum",
+    label: "Curriculum Alignment",
     render: ({ index, total }) => (
-      <Frame eyebrow="07 — Identity & Content" index={index} total={total}>
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "5vw", alignItems: "start" }}>
+      <Frame eyebrow="07 — Curriculum Alignment" index={index} total={total}>
+        <div style={{ display: "grid", gridTemplateColumns: "1.1fr 0.9fr", gap: "5vw", alignItems: "center" }}>
           <div>
-            <Eyebrow>School Media Identity</Eyebrow>
-            <Headline>More than equipment. A complete school media identity.</Headline>
+            <Eyebrow>Aligned With The Future Of Education</Eyebrow>
+            <Headline size="4.4vw">Aligned with the future of education.</Headline>
+            <p style={{ fontSize: "1.35vw", color: INK_MUTED, marginTop: "3vh", maxWidth: "44vw", lineHeight: 1.5 }}>
+              Curriculum direction across modern education systems is shifting toward learner agency, wellbeing, confidence, communication, resilience and student voice — alongside traditional academic outcomes.
+            </p>
+            <p style={{ fontSize: "1.35vw", color: INK_MUTED, marginTop: "2.4vh", maxWidth: "44vw", lineHeight: 1.5 }}>
+              EDU Media Systems directly supports this shift by giving schools the infrastructure, workflows and programs to build confident communicators through student-led media.
+            </p>
+          </div>
+          <div style={{ display: "grid", gridTemplateColumns: "1fr", gap: "1.4vw" }}>
+            {[
+              { t: "Confidence", d: "Practiced in real recording environments." },
+              { t: "Communication", d: "Articulating ideas with clarity and structure." },
+              { t: "Student Voice", d: "Genuine participation in school storytelling." },
+            ].map((p) => (
+              <div
+                key={p.t}
+                style={{
+                  border: `1px solid ${LINE}`,
+                  background: SURFACE,
+                  borderRadius: "0.7vw",
+                  padding: "2vw 2.2vw",
+                  display: "flex",
+                  flexDirection: "column",
+                  gap: "0.8vh",
+                }}
+              >
+                <div style={{ fontSize: "1.6vw", fontWeight: 600, color: INK, letterSpacing: "-0.01em" }}>{p.t}</div>
+                <div style={{ fontSize: "1.1vw", color: INK_MUTED, lineHeight: 1.5 }}>{p.d}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </Frame>
+    ),
+  },
+
+  // 08 — EDUCATION PROGRAMS
+  {
+    id: "programs",
+    label: "Education Programs",
+    render: ({ index, total }) => (
+      <Frame eyebrow="08 — Education Programs" index={index} total={total}>
+        <div style={{ display: "grid", gridTemplateColumns: "1fr 1.1fr", gap: "5vw", alignItems: "start" }}>
+          <div>
+            <Eyebrow>Education Programs</Eyebrow>
+            <Headline>Structured programs built into the ecosystem.</Headline>
             <SubHead>
-              Student-led media programs become part of school culture when supported by strong branding, clear workflows and ongoing activation.
+              Schools receive structured implementation support and program frameworks to help staff and students confidently launch media initiatives — without inventing the format from scratch.
             </SubHead>
           </div>
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1vw", marginTop: "1vh" }}>
+          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1.2vw", marginTop: "1vh" }}>
             {[
-              "Custom media branding",
-              "Logo development",
-              "School-colour integration",
-              "YouTube channel setup",
-              "Upload workflows",
-              "Thumbnail templates",
-              "Overlays & graphics",
-              "Intro / outro packages",
-              "Production templates",
-              "Rollout guidance",
+              "Podcast programs",
+              "Student interviews",
+              "Debates",
+              "Cultural discussions",
+              "Media literacy",
+              "Communication workshops",
+              "Digital storytelling",
+              "Leadership opportunities",
             ].map((label) => (
               <div
                 key={label}
                 style={{
                   border: `1px solid ${LINE}`,
                   background: SURFACE,
-                  borderRadius: "0.5vw",
-                  padding: "1.3vw 1.4vw",
-                  fontSize: "1.1vw",
+                  borderRadius: "0.6vw",
+                  padding: "1.6vw 1.6vw",
+                  fontSize: "1.25vw",
                   color: INK,
+                  fontWeight: 500,
                 }}
               >
                 {label}
@@ -558,46 +589,46 @@ const slides: SlideEntry[] = [
       </Frame>
     ),
   },
+
+  // 09 — SCALABILITY
   {
-    id: "network",
-    label: "EMS Network",
+    id: "scalability",
+    label: "Scalability",
     render: ({ index, total }) => (
-      <Frame eyebrow="08 — EMS Network" index={index} total={total}>
-        <div style={{ display: "grid", gridTemplateColumns: "1.1fr 0.9fr", gap: "5vw", alignItems: "start" }}>
-          <div>
-            <Eyebrow>EMS Network</Eyebrow>
-            <Headline>A connected student media network for schools.</Headline>
-            <SubHead>
-              Schools join the EMS Network and participate in scheduled live podcast sessions, discussions and collaborative initiatives — contributing segments, asking questions and showcasing student voice across schools.
-            </SubHead>
-            <p style={{ fontSize: "1.15vw", color: INK_SOFT, marginTop: "3vh", maxWidth: "32vw", lineHeight: 1.5 }}>
-              The value is not celebrity culture. The value is participation, confidence and communication.
-            </p>
-          </div>
-          <ul style={{ display: "flex", flexDirection: "column", gap: "1.3vh" }}>
-            <Bullet>Participate live alongside other schools</Bullet>
-            <Bullet>Contribute segments and interview guests</Bullet>
-            <Bullet>Showcase student voice statewide</Bullet>
-            <Bullet>Topics: leadership, wellbeing, debates, careers</Bullet>
-            <Bullet>Guest speakers across sport, media and industry</Bullet>
-            <Bullet>Scheduled cadence — not one-off events</Bullet>
-          </ul>
+      <Frame eyebrow="09 — Scalability" index={index} total={total}>
+        <Eyebrow>Built To Scale Across Education</Eyebrow>
+        <Headline>Built to scale across education.</Headline>
+        <SubHead>
+          Designed from day one for single schools, multi-campus rollouts and department-level deployments — same hardware, same workflows, same software, regardless of footprint.
+        </SubHead>
+        <div style={{ marginTop: "6vh", display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "1.4vw" }}>
+          <Card caption="Tier 1" title="Single school" body="One Podcart, one workflow, one program — operational in a term." />
+          <Card caption="Tier 2" title="Multi-campus rollout" body="Standardised deployment across grouped sites with shared identity." />
+          <Card caption="Tier 3" title="Department integration" body="Enterprise licensing across regions and education systems." />
+          <Card caption="Layer" title="Portable infrastructure" body="Hardware moves between rooms, sites and events without reconfiguration." />
+          <Card caption="Layer" title="Cloud-based workflows" body="Project state, uploads and handoffs accessible from anywhere." />
+          <Card caption="Layer" title="Standardised systems" body="One operating model from primary classroom to department office." />
         </div>
       </Frame>
     ),
   },
+
+  // 10 — WHY IT MATTERS
   {
-    id: "initiatives",
-    label: "Structured Initiatives",
+    id: "why",
+    label: "Why It Matters",
     render: ({ index, total }) => (
-      <Frame eyebrow="09 — Structured Initiatives" index={index} total={total}>
-        <div style={{ display: "grid", gridTemplateColumns: "1.05fr 0.95fr", gap: "5vw", alignItems: "start" }}>
+      <Frame eyebrow="10 — Why It Matters" index={index} total={total}>
+        <div style={{ display: "grid", gridTemplateColumns: "1.15fr 0.85fr", gap: "5vw", alignItems: "center" }}>
           <div>
-            <Eyebrow>Structured Initiatives</Eyebrow>
-            <Headline>Schools should never wonder what to create.</Headline>
-            <SubHead>
-              EDU Media Systems provides ready-to-run podcast and media initiatives schools can implement immediately, without inventing a format from scratch.
-            </SubHead>
+            <Eyebrow>Why It Matters</Eyebrow>
+            <Headline size="4.6vw">Communication is becoming a core skill.</Headline>
+            <p style={{ fontSize: "1.35vw", color: INK_MUTED, marginTop: "3vh", maxWidth: "44vw", lineHeight: 1.55 }}>
+              The future of education is not just academic performance. Schools are increasingly being asked to develop confidence, communication, collaboration, creativity and digital capability alongside curriculum outcomes.
+            </p>
+            <p style={{ fontSize: "1.35vw", color: INK_MUTED, marginTop: "2.4vh", maxWidth: "44vw", lineHeight: 1.55 }}>
+              EDU Media Systems provides schools with the infrastructure to make this practical, scalable and sustainable.
+            </p>
           </div>
           <div
             style={{
@@ -605,408 +636,29 @@ const slides: SlideEntry[] = [
               border: `1px solid ${LINE}`,
               borderRadius: "0.8vw",
               padding: "2.6vw",
+              display: "flex",
+              flexDirection: "column",
+              gap: "1.6vh",
             }}
           >
             <div style={{ fontSize: "0.9vw", letterSpacing: "0.22em", textTransform: "uppercase", color: ACCENT, fontWeight: 500 }}>
-              Example initiative
+              Outcomes
             </div>
-            <div style={{ fontSize: "2.4vw", fontWeight: 600, color: INK, marginTop: "1.4vh", letterSpacing: "-0.02em" }}>
-              The Quick 15
-            </div>
-            <ul style={{ marginTop: "2.4vh", display: "flex", flexDirection: "column", gap: "1.1vh" }}>
-              <Bullet>4 students, 15-minute session</Bullet>
-              <Bullet>Approved discussion topic, teacher-supervised</Bullet>
-              <Bullet>Simple recording workflow on the Podcart</Bullet>
-              <Bullet>Exported as classroom-ready media content</Bullet>
-              <Bullet>Internal, parent-shared or public — school chooses</Bullet>
-            </ul>
-          </div>
-        </div>
-      </Frame>
-    ),
-  },
-  {
-    id: "publishing",
-    label: "Publishing Environments",
-    render: ({ index, total }) => (
-      <Frame eyebrow="10 — Publishing Environments" index={index} total={total}>
-        <Eyebrow>Publishing Environments</Eyebrow>
-        <Headline>Flexible publishing environments for schools.</Headline>
-        <SubHead>
-          Schools maintain full control over how student content is shared. Public, private, parent-only — the workflow stays the same.
-        </SubHead>
-        <div style={{ marginTop: "5vh", display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "1.4vw" }}>
-          <Card caption="Public" title="YouTube channels" body="Branded school channels with templates and upload workflows." />
-          <Card caption="Internal" title="Private libraries" body="Internal-only content for classroom and assembly use." />
-          <Card caption="Parents" title="Parent-only distribution" body="Controlled access for families without going public." />
-          <Card caption="Optional" title="Vimeo environments" body="Higher-control hosting where schools require it." />
-          <Card caption="Support" title="Permission templates" body="Media consent and moderation guidance included." />
-          <Card caption="Support" title="Publishing workflows" body="Operational support so the right content reaches the right audience." />
-        </div>
-      </Frame>
-    ),
-  },
-  {
-    id: "support",
-    label: "Support & Activation",
-    render: ({ index, total }) => (
-      <Frame eyebrow="11 — Support & Activation" index={index} total={total}>
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "5vw", alignItems: "start" }}>
-          <div>
-            <Eyebrow>Ongoing Support</Eyebrow>
-            <Headline size="4.4vw">A supported ecosystem, not a hardware drop-off.</Headline>
-            <ul style={{ marginTop: "3.5vh", display: "flex", flexDirection: "column", gap: "1.2vh" }}>
-              <Bullet>Business-hours technical support</Bullet>
-              <Bullet>Onboarding and implementation guidance</Bullet>
-              <Bullet>Workflow support and remote troubleshooting</Bullet>
-              <Bullet>Operational coaching and scheduled check-ins</Bullet>
-            </ul>
-          </div>
-          <div
-            style={{
-              background: SURFACE,
-              border: `1px solid ${LINE}`,
-              borderRadius: "0.8vw",
-              padding: "2.6vw",
-            }}
-          >
-            <div style={{ fontSize: "0.9vw", letterSpacing: "0.22em", textTransform: "uppercase", color: ACCENT, fontWeight: 500 }}>
-              First-term activation
-            </div>
-            <div style={{ fontSize: "2vw", fontWeight: 600, color: INK, marginTop: "1.4vh", letterSpacing: "-0.02em" }}>
-              Most school media systems fail because excitement disappears after setup.
-            </div>
-            <ul style={{ marginTop: "2.6vh", display: "flex", flexDirection: "column", gap: "1.1vh" }}>
-              <Bullet>Activation visits and coaching sessions</Bullet>
-              <Bullet>Workflow guidance through the first term</Bullet>
-              <Bullet>EMS Network participation from week one</Bullet>
-              <Bullet>Embeds the program into school culture</Bullet>
-            </ul>
-          </div>
-        </div>
-      </Frame>
-    ),
-  },
-  {
-    id: "different",
-    label: "Why Different",
-    render: ({ index, total }) => (
-      <Frame eyebrow="12 — Why This Is Different" index={index} total={total}>
-        <Eyebrow>Why This Is Different</Eyebrow>
-        <Headline size="4.6vw">
-          Most schools buy equipment.
-          <br />
-          Very few build sustainable systems.
-        </Headline>
-        <div style={{ marginTop: "5vh", display: "grid", gridTemplateColumns: "1fr 1fr", gap: "2vw" }}>
-          <div
-            style={{
-              background: "rgba(255,255,255,0.02)",
-              border: `1px solid ${LINE}`,
-              borderRadius: "0.7vw",
-              padding: "2.4vw",
-            }}
-          >
-            <div style={{ fontSize: "0.9vw", letterSpacing: "0.22em", textTransform: "uppercase", color: INK_SOFT, fontWeight: 500 }}>
-              Traditional approach
-            </div>
-            <ul style={{ marginTop: "2.4vh", display: "flex", flexDirection: "column", gap: "1vh" }}>
-              {["Disconnected equipment", "No workflow", "Teacher-dependent", "Files get lost", "Difficult onboarding", "Eventually unused"].map((t) => (
-                <li
-                  key={t}
-                  style={{
-                    fontSize: "1.25vw",
-                    color: INK_MUTED,
-                    paddingLeft: "1.4vw",
-                    position: "relative",
-                  }}
-                >
-                  <span style={{ position: "absolute", left: 0, top: "0.85vw", width: "0.6vw", height: 1, background: INK_SOFT }} />
-                  {t}
-                </li>
-              ))}
-            </ul>
-          </div>
-          <div
-            style={{
-              background: SURFACE,
-              border: `1px solid ${ACCENT}`,
-              borderRadius: "0.7vw",
-              padding: "2.4vw",
-            }}
-          >
-            <div style={{ fontSize: "0.9vw", letterSpacing: "0.22em", textTransform: "uppercase", color: ACCENT, fontWeight: 500 }}>
-              EDU Media Systems
-            </div>
-            <ul style={{ marginTop: "2.4vh", display: "flex", flexDirection: "column", gap: "1vh" }}>
-              {[
-                "Connected ecosystem",
-                "Workflow-first",
-                "Student-led",
-                "Operational simplicity",
-                "Ongoing support",
-                "Structured initiatives",
-                "Participation network",
-                "Scalable across schools",
-              ].map((t) => (
-                <li
-                  key={t}
-                  style={{
-                    fontSize: "1.25vw",
-                    color: INK,
-                    paddingLeft: "1.4vw",
-                    position: "relative",
-                  }}
-                >
-                  <span style={{ position: "absolute", left: 0, top: "0.7vw", width: "0.55vw", height: "0.55vw", borderRadius: "9999px", background: ACCENT }} />
-                  {t}
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
-      </Frame>
-    ),
-  },
-  {
-    id: "market",
-    label: "Target Market",
-    render: ({ index, total }) => (
-      <Frame eyebrow="13 — Target Market" index={index} total={total}>
-        <Eyebrow>Target Market</Eyebrow>
-        <Headline>Built for modern education environments.</Headline>
-        <div style={{ marginTop: "6vh", display: "grid", gridTemplateColumns: "1fr 1fr", gap: "2vw" }}>
-          <div
-            style={{
-              background: SURFACE,
-              border: `1px solid ${LINE}`,
-              borderRadius: "0.7vw",
-              padding: "2.4vw",
-            }}
-          >
-            <div style={{ fontSize: "0.9vw", letterSpacing: "0.22em", textTransform: "uppercase", color: ACCENT, fontWeight: 500 }}>
-              Primary
-            </div>
-            <ul style={{ marginTop: "2.4vh", display: "flex", flexDirection: "column", gap: "1.2vh" }}>
-              <Bullet>Primary schools</Bullet>
-              <Bullet>Secondary schools</Bullet>
-              <Bullet>Education departments</Bullet>
-              <Bullet>Media specialist programs</Bullet>
-              <Bullet>Leadership and student-voice programs</Bullet>
-            </ul>
-          </div>
-          <div
-            style={{
-              background: SURFACE,
-              border: `1px solid ${LINE}`,
-              borderRadius: "0.7vw",
-              padding: "2.4vw",
-            }}
-          >
-            <div style={{ fontSize: "0.9vw", letterSpacing: "0.22em", textTransform: "uppercase", color: INK_SOFT, fontWeight: 500 }}>
-              Secondary
-            </div>
-            <ul style={{ marginTop: "2.4vh", display: "flex", flexDirection: "column", gap: "1.2vh" }}>
-              <Bullet>Youth media organisations</Bullet>
-              <Bullet>Training environments</Bullet>
-              <Bullet>Community programs</Bullet>
-            </ul>
-          </div>
-        </div>
-      </Frame>
-    ),
-  },
-  {
-    id: "model",
-    label: "Business Model",
-    render: ({ index, total }) => (
-      <Frame eyebrow="14 — Business Model" index={index} total={total}>
-        <Eyebrow>Business Model</Eyebrow>
-        <Headline>The subscription is the ecosystem.</Headline>
-        <SubHead>
-          Schools are not paying for software access. They are paying for ongoing activation, workflow systems, EMS Network participation, structured initiatives and operational support — the layer that keeps the program alive after rollout.
-        </SubHead>
-        <div style={{ marginTop: "5vh", display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "1.4vw" }}>
-          <Card
-            caption="Hardware"
-            title="The Podcart"
-            body="Packages from ~$14,999 AUD + GST. Configurable for primary and secondary deployments."
-          />
-          <Card
-            caption="Software"
-            title="Offloadr"
-            body="Subscriptions from ~$299–499 / month. Per-school licensing with editor handoff included."
-          />
-          <Card
-            caption="Services"
-            title="Rollout packages"
-            body="From ~$24,999–39,999 AUD. Implementation, training and first-term activation."
-          />
-          <Card
-            caption="Recurring"
-            title="Media operations"
-            body="Editing, branded graphics, thumbnails, assembly recaps and publishing support."
-          />
-          <Card
-            caption="Recurring"
-            title="EMS Network"
-            body="Participation in the live cross-school sessions and structured initiatives calendar."
-          />
-          <Card
-            caption="Future"
-            title="Enterprise licensing"
-            body="Department-level and multi-school licensing as the ecosystem scales."
-          />
-        </div>
-      </Frame>
-    ),
-  },
-  {
-    id: "real-world",
-    label: "Real-World Implementation",
-    render: ({ index, total }) => (
-      <Frame eyebrow="15 — Real-World Implementation" index={index} total={total}>
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "5vw", alignItems: "center" }}>
-          <div>
-            <Eyebrow>Real-World Implementation</Eyebrow>
-            <Headline>Built from real school experience.</Headline>
-            <SubHead>
-              The ecosystem has been shaped inside an active school — not assembled from theory. Every workflow has run with real students, real teachers and real classroom constraints.
-            </SubHead>
-          </div>
-          <div style={{ display: "flex", flexDirection: "column", gap: "1.4vw" }}>
-            <div
-              style={{
-                background: SURFACE,
-                border: `1px solid ${LINE}`,
-                borderRadius: "0.7vw",
-                padding: "2vw 2.2vw",
-              }}
-            >
-              <div style={{ fontSize: "0.85vw", letterSpacing: "0.22em", textTransform: "uppercase", color: ACCENT, fontWeight: 500 }}>
-                School
-              </div>
-              <div style={{ fontSize: "1.6vw", fontWeight: 600, color: INK, marginTop: "1vh" }}>
-                Prospect North Primary School
-              </div>
-              <div style={{ fontSize: "1.1vw", color: INK_MUTED, marginTop: "0.6vh", lineHeight: 1.45 }}>
-                Active deployment of the Podcart, Offloadr and Producer Mode workflow.
-              </div>
-            </div>
-            <div
-              style={{
-                background: SURFACE,
-                border: `1px solid ${LINE}`,
-                borderRadius: "0.7vw",
-                padding: "2vw 2.2vw",
-              }}
-            >
-              <div style={{ fontSize: "0.85vw", letterSpacing: "0.22em", textTransform: "uppercase", color: ACCENT, fontWeight: 500 }}>
-                Programs
-              </div>
-              <div style={{ fontSize: "1.6vw", fontWeight: 600, color: INK, marginTop: "1vh" }}>
-                PNTV · PNC Podcast
-              </div>
-              <div style={{ fontSize: "1.1vw", color: INK_MUTED, marginTop: "0.6vh", lineHeight: 1.45 }}>
-                Student-led video and podcast programs running on the EDU Media Systems stack.
-              </div>
-            </div>
-          </div>
-        </div>
-      </Frame>
-    ),
-  },
-  {
-    id: "founders",
-    label: "Founders",
-    render: ({ index, total }) => (
-      <Frame eyebrow="16 — Founders" index={index} total={total}>
-        <Eyebrow>Founders</Eyebrow>
-        <Headline size="4.6vw">Built by people already working in education.</Headline>
-        <div style={{ marginTop: "5vh", display: "grid", gridTemplateColumns: "1fr 1fr", gap: "2vw" }}>
-          <div
-            style={{
-              background: SURFACE,
-              border: `1px solid ${LINE}`,
-              borderRadius: "0.7vw",
-              padding: "2.6vw",
-            }}
-          >
-            <div style={{ fontSize: "1.9vw", fontWeight: 600, color: INK, letterSpacing: "-0.02em" }}>
-              Sam Leverenz
-            </div>
-            <div style={{ fontSize: "1.1vw", color: ACCENT, marginTop: "0.6vh", letterSpacing: "0.04em" }}>
-              Founder & Creative Director
-            </div>
-            <p style={{ fontSize: "1.05vw", color: INK_MUTED, marginTop: "2vh", lineHeight: 1.55 }}>
-              Digital Media Coordinator at Prospect North Primary School. Founder and lead of PNTV and the PNC Podcast.
-            </p>
-            <p style={{ fontSize: "1.05vw", color: INK_MUTED, marginTop: "1.4vh", lineHeight: 1.55 }}>
-              Over 20 years in sound; more than a decade working professionally in videography and media production. Background spans music production, live sound, filming, editing and student-led media implementation.
-            </p>
-          </div>
-          <div
-            style={{
-              background: SURFACE,
-              border: `1px solid ${LINE}`,
-              borderRadius: "0.7vw",
-              padding: "2.6vw",
-            }}
-          >
-            <div style={{ fontSize: "1.9vw", fontWeight: 600, color: INK, letterSpacing: "-0.02em" }}>
-              Tom Leverenz
-            </div>
-            <div style={{ fontSize: "1.1vw", color: ACCENT, marginTop: "0.6vh", letterSpacing: "0.04em" }}>
-              Director of Education Partnerships
-            </div>
-            <p style={{ fontSize: "1.05vw", color: INK_MUTED, marginTop: "2vh", lineHeight: 1.55 }}>
-              Leads the education and implementation strategy behind EDU Media Systems.
-            </p>
-            <p style={{ fontSize: "1.05vw", color: INK_MUTED, marginTop: "1.4vh", lineHeight: 1.55 }}>
-              Focused on long-term school rollout, partnership development, practical integration and sustainable adoption — building the relationships that keep programs running beyond the first term.
-            </p>
-          </div>
-        </div>
-      </Frame>
-    ),
-  },
-  {
-    id: "vision",
-    label: "Vision",
-    render: ({ index, total }) => (
-      <Frame eyebrow="17 — Vision" index={index} total={total}>
-        <div style={{ display: "grid", gridTemplateColumns: "1.1fr 0.9fr", gap: "5vw", alignItems: "center" }}>
-          <div>
-            <Eyebrow>Vision</Eyebrow>
-            <Headline>We are not a podcast company.</Headline>
-            <SubHead>
-              EDU Media Systems builds communication culture, learner agency and student voice ecosystems for modern schools — connected hardware, workflow software, participation initiatives and education-focused implementation.
-            </SubHead>
-            <p style={{ fontSize: "1.2vw", color: INK_SOFT, marginTop: "3vh", maxWidth: "32vw", lineHeight: 1.5 }}>
-              We help schools build communication and media systems students actually want to participate in.
-            </p>
-          </div>
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1vw" }}>
             {[
-              "Infrastructure",
-              "Workflow",
-              "Engagement",
-              "Support",
-              "Participation",
-              "Communication culture",
-              "Student confidence",
-              "Modern school storytelling",
+              "Confidence",
+              "Communication",
+              "Collaboration",
+              "Creativity",
+              "Digital capability",
             ].map((t) => (
               <div
                 key={t}
                 style={{
-                  border: `1px solid ${LINE}`,
-                  background: SURFACE,
-                  borderRadius: "0.5vw",
-                  padding: "1.4vw 1.4vw",
-                  fontSize: "1.15vw",
+                  fontSize: "1.5vw",
                   color: INK,
                   fontWeight: 500,
+                  paddingBottom: "1.2vh",
+                  borderBottom: `1px solid ${LINE}`,
                 }}
               >
                 {t}
@@ -1017,77 +669,72 @@ const slides: SlideEntry[] = [
       </Frame>
     ),
   },
+
+  // 11 — FINAL VISION
   {
-    id: "final",
-    label: "Contact",
+    id: "vision",
+    label: "Final Vision",
     render: ({ index, total }) => (
       <div
         className="absolute inset-0 flex flex-col justify-between"
         style={{ padding: "10vh 10vw", backgroundColor: BG, color: INK }}
       >
         <div className="flex items-center justify-between" style={{ color: INK_SOFT, fontSize: "0.9vw", letterSpacing: "0.2em", textTransform: "uppercase" }}>
-          <img
-            src={eduLogo}
-            crossOrigin="anonymous"
-            alt="EDU Media Systems"
-            style={{ height: "2.6vw" }}
-          />
-          <span>
-            {String(index).padStart(2, "0")} / {String(total).padStart(2, "0")}
-          </span>
+          <img src={eduLogo} crossOrigin="anonymous" alt="EDU Media Systems" style={{ height: "2.6vw" }} />
+          <span>{String(index).padStart(2, "0")} / {String(total).padStart(2, "0")}</span>
         </div>
-        <div>
+        <div style={{ display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center" }}>
           <div
             style={{
               fontSize: "0.95vw",
-              letterSpacing: "0.28em",
+              letterSpacing: "0.32em",
               textTransform: "uppercase",
               color: ACCENT,
               marginBottom: "5vh",
               fontWeight: 500,
             }}
           >
-            Continue the conversation
+            Final Vision
           </div>
           <h1
             style={{
-              fontSize: "6.6vw",
+              fontSize: "6.2vw",
               fontWeight: 600,
               letterSpacing: "-0.035em",
-              lineHeight: 0.98,
+              lineHeight: 1.0,
               maxWidth: "70vw",
               color: INK,
             }}
           >
-            Student voice.
-            <br />
-            Professionally delivered.
+            The future of student-led media.
           </h1>
-          <div style={{ marginTop: "5vh", display: "flex", gap: "5vw", flexWrap: "wrap" }}>
-            <div>
-              <div style={{ fontSize: "0.85vw", letterSpacing: "0.22em", textTransform: "uppercase", color: INK_SOFT, fontWeight: 500 }}>
-                Email
-              </div>
-              <div style={{ fontSize: "1.6vw", color: INK, marginTop: "1vh" }}>info@edumediasystems.com.au</div>
-            </div>
-            <div>
-              <div style={{ fontSize: "0.85vw", letterSpacing: "0.22em", textTransform: "uppercase", color: INK_SOFT, fontWeight: 500 }}>
-                Phone
-              </div>
-              <div style={{ fontSize: "1.6vw", color: INK, marginTop: "1vh" }}>0415 791 472</div>
-            </div>
-            <div>
-              <div style={{ fontSize: "0.85vw", letterSpacing: "0.22em", textTransform: "uppercase", color: INK_SOFT, fontWeight: 500 }}>
-                Web
-              </div>
-              <div style={{ fontSize: "1.6vw", color: INK, marginTop: "1vh" }}>edumediasystems.com.au</div>
-            </div>
-          </div>
+          <p
+            style={{
+              fontSize: "1.7vw",
+              color: INK_MUTED,
+              marginTop: "5vh",
+              maxWidth: "60vw",
+              lineHeight: 1.45,
+            }}
+          >
+            EDU Media Systems is building the infrastructure layer for modern student communication, media literacy and digital storytelling.
+          </p>
+          <p
+            style={{
+              fontSize: "1.2vw",
+              color: INK_SOFT,
+              marginTop: "4vh",
+              letterSpacing: "0.22em",
+              textTransform: "uppercase",
+            }}
+          >
+            Designed for schools — built for the future.
+          </p>
         </div>
         <div className="flex items-end justify-between">
           <LogoRow />
           <div style={{ fontSize: "0.9vw", color: INK_SOFT, letterSpacing: "0.18em", textTransform: "uppercase" }}>
-            Book a demo
+            edumediasystems.com.au
           </div>
         </div>
       </div>
