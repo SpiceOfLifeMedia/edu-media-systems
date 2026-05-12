@@ -1127,7 +1127,7 @@ const slides: SlideEntry[] = [
           {[
             {
               img: founderSam,
-              name: "Sam Leverenz",
+              name: "Sammy Leverenz",
               role: "Founder & Creative Director",
               bio: "Over 20 years in sound and more than a decade in professional videography and media production, bringing real-world media systems into education through student-led communication infrastructure.",
               imgFilter: "saturate(0.7) contrast(1.04) brightness(0.78) hue-rotate(-6deg)",

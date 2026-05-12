@@ -2,14 +2,14 @@ import { Section, Eyebrow, Body } from "../lib/components";
 
 const founders = [
   {
-    name: "Sam Leverenz",
+    name: "Sammy Leverenz",
     title: "Founder & Creative Director",
     image: "/founder-sam.png",
     paragraphs: [
-      "Sam Leverenz leads the creative and operational direction of EDU Media Systems. With years of hands-on experience running student-led media programs inside schools, Sam works directly with students and teachers to build real-world media systems focused on communication, confidence, Oracy and student voice.",
-      "With more than 20 years experience in sound and over a decade working professionally in videography and media production, Sam brings extensive real-world production knowledge into education environments. His background spans music production, live sound, audio engineering, filming, editing and large-scale digital media workflows across both creative industries and school settings.",
-      "Through his work with SOL Media and a wide range of production and content projects, Sam has developed a strong understanding of how professional media systems operate in fast-moving real-world environments. That experience helped shape EDU Media Systems into a practical, workflow-focused ecosystem designed specifically for long-term school adoption rather than short-term equipment deployment.",
-      "By combining professional production standards with hands-on experience inside schools, Sam's focus is helping students build confidence, communication skills and media literacy through authentic student-led media experiences that feel modern, engaging and operationally sustainable.",
+      "Sammy Leverenz leads the creative and operational direction of EDU Media Systems. With years of hands-on experience running student-led media programs inside schools, Sammy works directly with students and teachers to build real-world media systems focused on communication, confidence, Oracy and student voice.",
+      "With more than 20 years experience in sound and over a decade working professionally in videography and media production, Sammy brings extensive real-world production knowledge into education environments. His background spans music production, live sound, audio engineering, filming, editing and large-scale digital media workflows across both creative industries and school settings.",
+      "Through his work with SOL Media and a wide range of production and content projects, Sammy has developed a strong understanding of how professional media systems operate in fast-moving real-world environments. That experience helped shape EDU Media Systems into a practical, workflow-focused ecosystem designed specifically for long-term school adoption rather than short-term equipment deployment.",
+      "By combining professional production standards with hands-on experience inside schools, Sammy's focus is helping students build confidence, communication skills and media literacy through authentic student-led media experiences that feel modern, engaging and operationally sustainable.",
     ],
   },
   {
@@ -70,7 +70,7 @@ export default function Founder() {
 
       <div className="mt-16 border-t border-line pt-10">
         <p className="max-w-3xl text-base sm:text-lg leading-relaxed text-ink-muted">
-          Together, Sam and Tom combine real-world production experience with
+          Together, Sammy and Tom combine real-world production experience with
           education-focused operational strategy to help schools build modern
           communication ecosystems centred around student voice, confidence
           and participation.
