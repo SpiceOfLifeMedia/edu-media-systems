@@ -29,7 +29,19 @@ export default function Explore() {
       </Lead>
 
       <div className="mt-12 sm:mt-14 lg:mt-16">
-        <Tabs tabs={tabs} defaultId="podcart">
+        <Tabs
+          tabs={tabs}
+          defaultId="podcart"
+          scrollTargetId="explore"
+          aliases={{
+            producer: "workflow",
+            remote: "workflow",
+            ecosystem: "workflow",
+            pricing: "subscription",
+            hardware: "podcart",
+            software: "offloadr",
+          }}
+        >
           {(active) => {
             const tab = tabs.find((t) => t.id === active)!;
             return (

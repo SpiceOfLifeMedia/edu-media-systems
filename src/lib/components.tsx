@@ -136,25 +136,42 @@ export type TabDef = { id: string; label: string; eyebrow?: string };
 export function Tabs({
   tabs,
   defaultId,
+  aliases,
+  scrollTargetId,
   children,
 }: {
   tabs: TabDef[];
   defaultId?: string;
+  aliases?: Record<string, string>;
+  scrollTargetId?: string;
   children: (activeId: string) => ReactNode;
 }) {
   const ids = useMemo(() => new Set(tabs.map((t) => t.id)), [tabs]);
   const fallback = defaultId && ids.has(defaultId) ? defaultId : tabs[0]!.id;
-  const readHash = (): string => {
-    if (typeof window === "undefined") return fallback;
-    const h = window.location.hash.replace("#", "");
-    return ids.has(h) ? h : fallback;
+  const resolveHash = (h: string): string | null => {
+    const bare = h.replace(/^#/, "");
+    if (!bare) return null;
+    if (ids.has(bare)) return bare;
+    const aliased = aliases?.[bare];
+    if (aliased && ids.has(aliased)) return aliased;
+    return null;
   };
   const [active, setActive] = useState<string>(fallback);
   const tabRefs = useRef<Record<string, HTMLButtonElement | null>>({});
 
   useEffect(() => {
-    setActive(readHash());
-    const handler = () => setActive(readHash());
+    const apply = (scroll: boolean) => {
+      const matched = resolveHash(window.location.hash);
+      if (matched) {
+        setActive(matched);
+        if (scroll && scrollTargetId) {
+          const el = document.getElementById(scrollTargetId);
+          el?.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+      }
+    };
+    apply(false);
+    const handler = () => apply(true);
     window.addEventListener("hashchange", handler);
     return () => window.removeEventListener("hashchange", handler);
     // eslint-disable-next-line react-hooks/exhaustive-deps
