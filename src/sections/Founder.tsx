@@ -17,8 +17,9 @@ const founders = [
     title: "Director of Education Partnerships",
     image: "/founder-tom.png",
     paragraphs: [
-      "Tom Leverenz supports the education and implementation strategy behind EDU Media Systems. With extensive experience working within education environments, Tom guides long-term rollout, partnership development and the practical integration of student media systems into schools.",
-      "His focus is ensuring EDU Media Systems remains sustainable, accessible and genuinely useful for teachers, students and school leadership teams.",
+      "Tom Leverenz supports the education strategy, implementation planning and long-term partnership direction behind EDU Media Systems. With extensive experience working across education environments and student support systems, Tom helps ensure the EMS ecosystem is practical, scalable and aligned with the operational realities of schools.",
+      "His focus includes school engagement, rollout coordination, partnership development and helping schools successfully integrate student-led media programs into everyday learning environments. Tom plays a key role in ensuring EDU Media Systems remains sustainable and genuinely valuable for teachers, students and leadership teams over the long term.",
+      "Working closely across implementation and education strategy, Tom helps bridge the gap between professional media infrastructure and real-world school adoption — ensuring systems are accessible, manageable and capable of scaling across multiple classrooms, campuses and education settings.",
     ],
   },
 ];
@@ -65,6 +66,15 @@ export default function Founder() {
             </div>
           </article>
         ))}
+      </div>
+
+      <div className="mt-16 border-t border-line pt-10">
+        <p className="max-w-3xl text-base sm:text-lg leading-relaxed text-ink-muted">
+          Together, Sam and Tom combine real-world production experience with
+          education-focused operational strategy to help schools build modern
+          communication ecosystems centred around student voice, confidence
+          and participation.
+        </p>
       </div>
     </Section>
   );
