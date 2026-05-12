@@ -374,29 +374,76 @@ const slides: SlideEntry[] = [
     render: ({ index, total }) => (
       <Frame eyebrow="03 — Why Now" index={index} total={total}>
         <Eyebrow>Why Now</Eyebrow>
-        <Headline size="3.6vw">Communication is becoming one of the most important skills in modern education.</Headline>
-        <p style={{ fontSize: "1.45vw", fontWeight: 400, lineHeight: 1.55, color: INK_MUTED, marginTop: "3vh", maxWidth: "58vw" }}>
-          Schools are increasingly being asked to develop more than academic outcomes alone. EDU Media Systems exists to help schools operationalise communication, learner agency and student voice through real student-led media infrastructure.
+        <Headline size="3.4vw">Communication is becoming one of the most important skills in modern education.</Headline>
+        <p style={{ fontSize: "1.2vw", fontWeight: 400, lineHeight: 1.55, color: INK_MUTED, marginTop: "2.4vh", maxWidth: "60vw" }}>
+          Schools are increasingly being asked to develop more than academic outcomes alone. EDU Media Systems exists to help schools operationalise communication, learner agency and student voice.
         </p>
-        <div style={{ marginTop: "4vh", display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1.8vw" }}>
-          <ColumnCard caption="Modern Education Is Shifting Toward">
-            <div style={{ display: "flex", flexWrap: "wrap", gap: "0.85vw", marginTop: "0.4vh" }}>
-              {["Communication","Learner agency","Confidence","Collaboration","Creativity","Student voice","Participation","Wellbeing","Digital capability"].map((t)=>(
-                <Pill key={t}>{t}</Pill>
-              ))}
+        <div
+          style={{
+            marginTop: "4vh",
+            display: "grid",
+            gridTemplateColumns: "repeat(4, 1fr)",
+            gap: "1.2vw",
+            alignItems: "stretch",
+          }}
+        >
+          {[
+            { label: "Communication", hero: true, mt: "0vh", h: "20vh" },
+            { label: "Learner agency", hero: true, mt: "1.6vh", h: "20vh" },
+            { label: "Confidence", hero: true, mt: "0vh", h: "20vh" },
+            { label: "Student voice", hero: true, mt: "1.6vh", h: "20vh" },
+            { label: "Collaboration", hero: false, mt: "1vh", h: "13vh" },
+            { label: "Creativity", hero: false, mt: "0vh", h: "13vh" },
+            { label: "Participation", hero: false, mt: "1vh", h: "13vh" },
+            { label: "Digital capability", hero: false, mt: "0vh", h: "13vh" },
+          ].map((c) => (
+            <div
+              key={c.label}
+              style={{
+                marginTop: c.mt,
+                minHeight: c.h,
+                position: "relative",
+                background: c.hero
+                  ? "linear-gradient(180deg, rgba(110,168,255,0.09) 0%, rgba(18,19,22,0.96) 100%)"
+                  : "linear-gradient(180deg, rgba(110,168,255,0.04) 0%, rgba(18,19,22,0.96) 100%)",
+                border: `1px solid rgba(110,168,255,${c.hero ? 0.28 : 0.16})`,
+                borderRadius: "0.85vw",
+                padding: c.hero ? "2.2vw 1.6vw" : "1.6vw 1.4vw",
+                display: "flex",
+                alignItems: "flex-end",
+                boxShadow: c.hero
+                  ? "0 0.8vw 2vw rgba(0,0,0,0.5), inset 0 1px 0 rgba(110,168,255,0.18)"
+                  : "0 0.4vw 1.2vw rgba(0,0,0,0.4), inset 0 1px 0 rgba(110,168,255,0.08)",
+                overflow: "hidden",
+              }}
+            >
+              <div
+                style={{
+                  position: "absolute",
+                  top: 0,
+                  left: 0,
+                  right: 0,
+                  height: "1px",
+                  background: c.hero
+                    ? "linear-gradient(90deg, transparent 0%, rgba(110,168,255,0.55) 50%, transparent 100%)"
+                    : "linear-gradient(90deg, transparent 0%, rgba(110,168,255,0.3) 50%, transparent 100%)",
+                }}
+              />
+              <div
+                style={{
+                  fontSize: c.hero ? "1.55vw" : "1.15vw",
+                  fontWeight: c.hero ? 600 : 500,
+                  color: INK,
+                  letterSpacing: "-0.01em",
+                  lineHeight: 1.15,
+                }}
+              >
+                {c.label}
+              </div>
             </div>
-          </ColumnCard>
-          <ColumnCard caption="While Schools Are Navigating">
-            <Listed items={[
-              "Fragmented media systems",
-              "Rising student disengagement",
-              "Inconsistent communication opportunities",
-              "Growing expectations around digital literacy",
-              "Demand for authentic student participation",
-            ]} />
-          </ColumnCard>
+          ))}
         </div>
-        <p style={{ fontSize: "1.2vw", color: INK, marginTop: "3.5vh", maxWidth: "62vw", lineHeight: 1.5, fontStyle: "italic", letterSpacing: "-0.005em" }}>
+        <p style={{ fontSize: "1.1vw", color: INK_MUTED, marginTop: "3vh", maxWidth: "62vw", lineHeight: 1.5, fontStyle: "italic", letterSpacing: "-0.005em" }}>
           Students don't become confident communicators through worksheets alone. They become confident through repeated, real-world participation.
         </p>
       </Frame>
@@ -414,7 +461,7 @@ const slides: SlideEntry[] = [
         <SubHead>
           EDU Media Systems combines hardware, workflow software and structured programs into one scalable infrastructure layer for modern schools.
         </SubHead>
-        <div style={{ marginTop: "5vh", marginBottom: "3vh", display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "1.8vw" }}>
+        <div style={{ marginTop: "4vh", marginBottom: "1vh", display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "1.6vw", alignItems: "stretch" }}>
           {[
             { caption: "Infrastructure", title: "EDU Media Systems", body: "The connecting layer — programs, identity, training and ongoing support that keep school media systems alive." },
             { caption: "Hardware", title: "The Podcart", body: "Portable student media studio. Rolls between classrooms, built to survive a school week, simple enough for students to operate." },
@@ -423,18 +470,31 @@ const slides: SlideEntry[] = [
             <div
               key={c.title}
               style={{
-                background: SURFACE,
-                border: `1px solid ${LINE}`,
+                position: "relative",
+                background: "linear-gradient(180deg, rgba(110,168,255,0.05) 0%, rgba(18,19,22,0.97) 100%)",
+                border: `1px solid rgba(110,168,255,0.18)`,
                 borderRadius: "0.9vw",
-                padding: "3vw 2.6vw",
+                padding: "2.6vw 2.4vw",
                 display: "flex",
                 flexDirection: "column",
                 gap: "1.6vh",
+                boxShadow: "0 0.8vw 2vw rgba(0,0,0,0.45), inset 0 1px 0 rgba(110,168,255,0.12)",
+                overflow: "hidden",
               }}
             >
-              <div style={{ fontSize: "0.9vw", letterSpacing: "0.26em", textTransform: "uppercase", color: ACCENT, fontWeight: 500, marginBottom: "0.6vh" }}>{c.caption}</div>
+              <div
+                style={{
+                  position: "absolute",
+                  top: 0,
+                  left: 0,
+                  right: 0,
+                  height: "1px",
+                  background: "linear-gradient(90deg, transparent 0%, rgba(110,168,255,0.5) 50%, transparent 100%)",
+                }}
+              />
+              <div style={{ fontSize: "0.9vw", letterSpacing: "0.26em", textTransform: "uppercase", color: ACCENT, fontWeight: 500, marginBottom: "0.4vh" }}>{c.caption}</div>
               <div style={{ fontSize: "1.85vw", fontWeight: 600, color: INK, letterSpacing: "-0.01em" }}>{c.title}</div>
-              <div style={{ fontSize: "1.15vw", color: INK_MUTED, lineHeight: 1.55 }}>{c.body}</div>
+              <div style={{ fontSize: "1.1vw", color: INK_MUTED, lineHeight: 1.65 }}>{c.body}</div>
             </div>
           ))}
         </div>
@@ -514,29 +574,45 @@ const slides: SlideEntry[] = [
             }}
           >
             {[
-              ["Session 042 — Quick 15", "Verified · 8 files · checksum confirmed"],
-              ["Assembly Recap — Term 4", "Uploading · 3 of 6 files · resumable"],
-              ["Year 5 Podcast — Episode 12", "Publish-ready · share link issued"],
-              ["EMS Debate Session", "Processing · audio + 2 cams"],
-              ["Parent Reflection Upload", "Verified · ready for review"],
-              ["Leadership Interview", "Organised · awaiting teacher review"],
-            ].map(([title, status]) => (
-              <div
-                key={title}
-                style={{
-                  display: "flex",
-                  flexDirection: "column",
-                  gap: "0.5vh",
-                  padding: "1.3vw 1.5vw",
-                  borderRadius: "0.55vw",
-                  background: "rgba(255,255,255,0.035)",
-                  border: `1px solid rgba(245,245,247,0.1)`,
-                }}
-              >
-                <div style={{ fontSize: "1.15vw", color: INK, fontWeight: 500, letterSpacing: "-0.005em" }}>{title}</div>
-                <div style={{ fontSize: "0.95vw", color: "rgba(245,245,247,0.7)", fontWeight: 400, letterSpacing: "0.01em" }}>{status}</div>
-              </div>
-            ))}
+              { title: "Session 042 — Quick 15", status: "Verified · 8 files · checksum confirmed", state: "verified" },
+              { title: "Assembly Recap — Term 4", status: "Uploading · 3 of 6 files · resumable", state: "processing" },
+              { title: "Year 5 Podcast — Episode 12", status: "Publish-ready · share link issued", state: "ready" },
+              { title: "EMS Debate Session", status: "Processing · audio + 2 cams", state: "processing" },
+              { title: "Parent Reflection Upload", status: "Verified · ready for review", state: "verified" },
+              { title: "Leadership Interview", status: "Organised · awaiting teacher review", state: "verified" },
+              { title: "Year 7 News Bulletin", status: "Publish-ready · captions attached", state: "ready" },
+            ].map(({ title, status, state }) => {
+              const dotColor = state === "ready" ? ACCENT : state === "processing" ? "#f5b042" : "#6ee7b7";
+              return (
+                <div
+                  key={title}
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "1.1vw",
+                    padding: "1.1vw 1.4vw",
+                    borderRadius: "0.55vw",
+                    background: "rgba(255,255,255,0.035)",
+                    border: `1px solid rgba(245,245,247,0.1)`,
+                  }}
+                >
+                  <span
+                    style={{
+                      width: "0.7vw",
+                      height: "0.7vw",
+                      borderRadius: "9999px",
+                      background: dotColor,
+                      flexShrink: 0,
+                      boxShadow: `0 0 0.6vw ${dotColor}66`,
+                    }}
+                  />
+                  <div style={{ display: "flex", flexDirection: "column", gap: "0.3vh", flex: 1, minWidth: 0 }}>
+                    <div style={{ fontSize: "1.1vw", color: INK, fontWeight: 500, letterSpacing: "-0.005em" }}>{title}</div>
+                    <div style={{ fontSize: "0.9vw", color: "rgba(245,245,247,0.7)", fontWeight: 400, letterSpacing: "0.01em" }}>{status}</div>
+                  </div>
+                </div>
+              );
+            })}
           </div>
         </div>
       </Frame>
@@ -626,16 +702,16 @@ const slides: SlideEntry[] = [
       <Frame eyebrow="10 — Curriculum Alignment" index={index} total={total}>
         <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "5vw", alignItems: "center" }}>
           <div>
-            <Eyebrow>Aligned With The Future Of Education</Eyebrow>
-            <Headline size="3.6vw">Aligned with the future of education.</Headline>
-            <p style={{ fontSize: "1.25vw", color: INK_MUTED, marginTop: "4vh", maxWidth: "42vw", lineHeight: 1.6 }}>
+            <Eyebrow>Curriculum Alignment</Eyebrow>
+            <Headline size="3.4vw">Communication and learner agency are becoming core educational priorities.</Headline>
+            <p style={{ fontSize: "1.2vw", color: INK_MUTED, marginTop: "4vh", maxWidth: "42vw", lineHeight: 1.6 }}>
               The future direction of education is increasingly focused not only on what students know, but how confidently they can communicate, contribute and participate.
             </p>
-            <p style={{ fontSize: "1.25vw", color: INK_MUTED, marginTop: "2.5vh", maxWidth: "42vw", lineHeight: 1.6 }}>
-              EDU Media Systems helps schools transform communication and learner agency into practical student experiences — confidence built through repeated participation in authentic communication environments.
+            <p style={{ fontSize: "1.2vw", color: INK_MUTED, marginTop: "2.5vh", maxWidth: "42vw", lineHeight: 1.6 }}>
+              EDU Media Systems helps schools transform these priorities into practical student experiences — confidence built through repeated participation in authentic communication environments.
             </p>
           </div>
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1.2vw" }}>
+          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1.3vw" }}>
             {[
               "Learner agency",
               "Communication capability",
@@ -649,16 +725,29 @@ const slides: SlideEntry[] = [
               <div
                 key={t}
                 style={{
-                  border: `1px solid ${LINE}`,
-                  background: SURFACE,
-                  borderRadius: "0.7vw",
-                  padding: "1.9vw 1.7vw",
-                  fontSize: "1.2vw",
+                  position: "relative",
+                  border: `1px solid rgba(110,168,255,0.2)`,
+                  background: "linear-gradient(180deg, rgba(110,168,255,0.05) 0%, rgba(18,19,22,0.97) 100%)",
+                  borderRadius: "0.75vw",
+                  padding: "2.1vw 1.8vw",
+                  fontSize: "1.25vw",
                   color: INK,
                   fontWeight: 500,
                   letterSpacing: "-0.005em",
+                  boxShadow: "0 0.5vw 1.4vw rgba(0,0,0,0.4), inset 0 1px 0 rgba(110,168,255,0.1)",
+                  overflow: "hidden",
                 }}
               >
+                <div
+                  style={{
+                    position: "absolute",
+                    top: 0,
+                    left: 0,
+                    right: 0,
+                    height: "1px",
+                    background: "linear-gradient(90deg, transparent 0%, rgba(110,168,255,0.4) 50%, transparent 100%)",
+                  }}
+                />
                 {t}
               </div>
             ))}
@@ -724,9 +813,7 @@ const slides: SlideEntry[] = [
       <Frame eyebrow="12 — School Media Identity" index={index} total={total}>
         <Eyebrow>Building School Media Identity</Eyebrow>
         <Headline size="3.6vw">
-          More than equipment.
-          <br />
-          A complete school media program.
+          More than equipment — a complete school media program.
         </Headline>
         <SubHead>
           EDU Media Systems helps schools build student-led media programs that are properly branded, properly produced and embedded into school culture — programs students genuinely want to participate in.
@@ -807,32 +894,82 @@ const slides: SlideEntry[] = [
       <Frame eyebrow="14 — Subscription Ecosystem" index={index} total={total}>
         <Eyebrow>Why Schools Stay Subscribed</Eyebrow>
         <Headline size="3.6vw">The subscription is the ecosystem.</Headline>
-        <SubHead>
-          The rollout is only the beginning. EDU Media Systems is designed to provide ongoing activation, support and participation long after installation — so schools never feel: "we have the equipment, but what do we actually do with it?"
-        </SubHead>
-        <div style={{ marginTop: "5vh", display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1.6vw" }}>
-          <ColumnCard caption="Ongoing Support">
-            <Listed items={[
-              "Implementation guidance",
-              "Operational coaching",
-              "Editing assistance",
-              "Workflow & booking management",
-              "Templates and teacher guidance",
-              "Publishing & YouTube support",
-            ]} />
-          </ColumnCard>
-          <ColumnCard caption="EMS Network">
-            <Listed items={[
-              "Interschool podcasts and debates",
-              "Live guest sessions and Q&A",
-              "Student leadership panels",
-              "Cultural and community discussions",
-              "Communication initiatives",
-              "Media literacy workshops",
-            ]} />
-          </ColumnCard>
+        <p style={{ fontSize: "1.3vw", fontWeight: 400, lineHeight: 1.45, color: INK_MUTED, marginTop: "2.4vh", maxWidth: "60vw" }}>
+          The rollout is only the beginning. EDU Media Systems provides ongoing activation, support and participation long after installation — so schools never feel: "we have the equipment, but what do we actually do with it?"
+        </p>
+        <div style={{ marginTop: "3.5vh", display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1.6vw", alignItems: "stretch" }}>
+          {[
+            {
+              caption: "Ongoing Support",
+              items: [
+                "Implementation guidance",
+                "Operational coaching",
+                "Editing assistance",
+                "Workflow & booking management",
+                "Templates and teacher guidance",
+                "Publishing & YouTube support",
+              ],
+            },
+            {
+              caption: "EMS Network",
+              items: [
+                "Interschool podcasts and debates",
+                "Live guest sessions and Q&A",
+                "Student leadership panels",
+                "Cultural and community discussions",
+                "Communication initiatives",
+                "Media literacy workshops",
+              ],
+            },
+          ].map((col) => (
+            <div
+              key={col.caption}
+              style={{
+                position: "relative",
+                background: "linear-gradient(180deg, rgba(110,168,255,0.05) 0%, rgba(18,19,22,0.97) 100%)",
+                border: `1px solid rgba(110,168,255,0.2)`,
+                borderRadius: "0.85vw",
+                padding: "2vw 2.2vw 2.2vw",
+                display: "flex",
+                flexDirection: "column",
+                gap: "0.8vh",
+                boxShadow: "0 0.6vw 1.6vw rgba(0,0,0,0.4), inset 0 1px 0 rgba(110,168,255,0.12)",
+                overflow: "hidden",
+              }}
+            >
+              <div
+                style={{
+                  position: "absolute",
+                  top: 0,
+                  left: 0,
+                  right: 0,
+                  height: "1px",
+                  background: "linear-gradient(90deg, transparent 0%, rgba(110,168,255,0.45) 50%, transparent 100%)",
+                }}
+              />
+              <div
+                style={{
+                  fontSize: "0.85vw",
+                  letterSpacing: "0.22em",
+                  textTransform: "uppercase",
+                  color: ACCENT,
+                  fontWeight: 500,
+                  marginBottom: "0.6vh",
+                }}
+              >
+                {col.caption}
+              </div>
+              <ul style={{ display: "flex", flexDirection: "column", gap: "0.7vh" }}>
+                {col.items.map((t) => (
+                  <li key={t} style={{ fontSize: "1.1vw", color: INK, lineHeight: 1.5 }}>
+                    {t}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
         </div>
-        <p style={{ fontSize: "1.2vw", color: INK, marginTop: "5vh", maxWidth: "62vw", lineHeight: 1.55, fontStyle: "italic", letterSpacing: "-0.005em" }}>
+        <p style={{ fontSize: "1.15vw", color: INK_MUTED, marginTop: "3vh", maxWidth: "62vw", lineHeight: 1.5, fontStyle: "italic", letterSpacing: "-0.005em" }}>
           The value is participation, representation and student voice — not celebrity access.
         </p>
       </Frame>
@@ -886,10 +1023,10 @@ const slides: SlideEntry[] = [
     render: ({ index, total }) => (
       <Frame eyebrow="17 — Founders" index={index} total={total}>
         <Eyebrow>Founders</Eyebrow>
-        <Headline size="3.6vw">Built by people working inside real-world media and education.</Headline>
+        <Headline size="3.4vw">Built by people working inside real-world media and education.</Headline>
         <div
           style={{
-            marginTop: "4vh",
+            marginTop: "3vh",
             display: "grid",
             gridTemplateColumns: "1fr 1fr",
             gap: "4vw",
@@ -913,17 +1050,29 @@ const slides: SlideEntry[] = [
             <div key={f.name} style={{ display: "flex", flexDirection: "column", alignItems: "flex-start" }}>
               <div
                 style={{
+                  position: "relative",
                   width: "100%",
                   height: "32vh",
-                  borderRadius: "0.6vw",
+                  borderRadius: "0.7vw",
                   overflow: "hidden",
-                  background: "linear-gradient(180deg, rgba(110,168,255,0.07) 0%, rgba(255,255,255,0.015) 100%)",
-                  border: `1px solid ${LINE}`,
+                  background: "radial-gradient(ellipse at 50% 70%, rgba(110,168,255,0.22) 0%, rgba(110,168,255,0.08) 40%, rgba(10,10,11,0.95) 90%)",
+                  border: `1px solid rgba(110,168,255,0.22)`,
                   display: "flex",
                   alignItems: "flex-end",
                   justifyContent: "center",
+                  boxShadow: "0 0.8vw 2vw rgba(0,0,0,0.5), inset 0 1px 0 rgba(110,168,255,0.18)",
                 }}
               >
+                <div
+                  style={{
+                    position: "absolute",
+                    top: 0,
+                    left: 0,
+                    right: 0,
+                    height: "1px",
+                    background: "linear-gradient(90deg, transparent 0%, rgba(110,168,255,0.5) 50%, transparent 100%)",
+                  }}
+                />
                 <img
                   src={f.img}
                   crossOrigin="anonymous"
@@ -934,6 +1083,7 @@ const slides: SlideEntry[] = [
                     objectFit: "contain",
                     objectPosition: "bottom center",
                     filter: "saturate(0.92) contrast(1.02)",
+                    position: "relative",
                   }}
                 />
               </div>
@@ -942,16 +1092,16 @@ const slides: SlideEntry[] = [
                   width: "2.4vw",
                   height: "2px",
                   background: ACCENT,
-                  opacity: 0.85,
-                  marginTop: "2vh",
-                  marginBottom: "1.2vh",
+                  opacity: 0.9,
+                  marginTop: "1.6vh",
+                  marginBottom: "0.9vh",
                 }}
               />
               <div
                 style={{
-                  fontSize: "1.7vw",
+                  fontSize: "1.8vw",
                   fontWeight: 600,
-                  letterSpacing: "-0.01em",
+                  letterSpacing: "-0.015em",
                   color: INK,
                   lineHeight: 1.05,
                 }}
@@ -960,12 +1110,12 @@ const slides: SlideEntry[] = [
               </div>
               <div
                 style={{
-                  fontSize: "0.95vw",
-                  letterSpacing: "0.18em",
+                  fontSize: "1.05vw",
+                  letterSpacing: "0.2em",
                   textTransform: "uppercase",
                   color: ACCENT,
-                  marginTop: "0.8vh",
-                  fontWeight: 500,
+                  marginTop: "0.6vh",
+                  fontWeight: 600,
                 }}
               >
                 {f.role}
@@ -975,7 +1125,7 @@ const slides: SlideEntry[] = [
                   fontSize: "0.95vw",
                   color: INK_MUTED,
                   lineHeight: 1.55,
-                  marginTop: "1.4vh",
+                  marginTop: "1.2vh",
                   maxWidth: "32vw",
                 }}
               >
