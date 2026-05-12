@@ -346,11 +346,11 @@ const slides: SlideEntry[] = [
         <div style={{ display: "grid", gridTemplateColumns: "1fr 1.1fr", gap: "5vw", alignItems: "center" }}>
           <div>
             <img src={podcartLogo} crossOrigin="anonymous" alt="The Podcart" style={{ height: "2.6vw", marginBottom: "3vh" }} />
-            <Headline>Portable student media infrastructure designed for modern schools.</Headline>
+            <Headline size="3.4vw">Portable student media infrastructure for modern schools.</Headline>
             <SubHead>
               A complete production setup that rolls between classrooms — built to survive a school week and simple enough for students to operate.
             </SubHead>
-            <ul style={{ display: "flex", flexDirection: "column", gap: "1.4vh", marginTop: "4vh" }}>
+            <ul style={{ display: "flex", flexDirection: "column", gap: "1.2vh", marginTop: "3vh" }}>
               <Bullet>Portable production setup</Bullet>
               <Bullet>Podcasting and video recording</Bullet>
               <Bullet>Mobile deployment between rooms</Bullet>
@@ -393,17 +393,10 @@ const slides: SlideEntry[] = [
               alt="Offloadr"
               style={{ height: "2.6vw", marginBottom: "3vh", filter: "brightness(0) invert(1)" }}
             />
-            <Headline>Media workflow software built for education environments.</Headline>
+            <Headline size="3.4vw">Media workflow software built for education environments.</Headline>
             <SubHead>
-              The operational layer that turns a recording session into a clean, editor-ready project — automatically.
+              The operational layer that turns a recording session into a clean, editor-ready project — automatically. Uploads, organises, verifies and prepares projects for editor handoff without intervention.
             </SubHead>
-            <ul style={{ display: "flex", flexDirection: "column", gap: "1.4vh", marginTop: "4vh" }}>
-              <Bullet>Automatic media uploads</Bullet>
-              <Bullet>Editor handoff systems</Bullet>
-              <Bullet>Storage management</Bullet>
-              <Bullet>Student producer dashboards</Bullet>
-              <Bullet>Cloud-based accessibility</Bullet>
-            </ul>
           </div>
           <div
             style={{
@@ -444,14 +437,14 @@ const slides: SlideEntry[] = [
     ),
   },
 
-  // 06 — PRODUCER MODE
+  // 06 — PRODUCER MODE — LIVE CONFIDENCE
   {
-    id: "producer",
-    label: "Producer Mode",
+    id: "producer-live",
+    label: "Producer Mode — Live",
     render: ({ index, total }) => (
       <Frame eyebrow="06 — Producer Mode" index={index} total={total}>
-        <Eyebrow>Producer Mode</Eyebrow>
-        <Headline>Student-friendly production confidence.</Headline>
+        <Eyebrow>Producer Mode — Live Confidence</Eyebrow>
+        <Headline size="3.8vw">Student-friendly production confidence.</Headline>
         <SubHead>
           Designed to empower students without exposing complex system controls. Admin functions stay hidden — students see only what they need to record with confidence.
         </SubHead>
@@ -459,8 +452,25 @@ const slides: SlideEntry[] = [
           <Card caption="Live" title="Recording status" body="A clear visual signal showing the session is capturing." />
           <Card caption="Live" title="Audio monitoring" body="Per-mic levels surfaced in plain language." />
           <Card caption="Live" title="Camera connectivity" body="Frame, focus and source confirmed before takes begin." />
+        </div>
+      </Frame>
+    ),
+  },
+
+  // 07 — PRODUCER MODE — SESSION INTEGRITY
+  {
+    id: "producer-post",
+    label: "Producer Mode — Session Integrity",
+    render: ({ index, total }) => (
+      <Frame eyebrow="07 — Producer Mode" index={index} total={total}>
+        <Eyebrow>Producer Mode — Session Integrity</Eyebrow>
+        <Headline size="3.8vw">Every session ends with a clean, verified project.</Headline>
+        <SubHead>
+          The session doesn't end when the recording stops. Producer Mode keeps students and teachers informed through upload, verification and handoff — so nothing slips through the cracks.
+        </SubHead>
+        <div style={{ marginTop: "5vh", display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "1.4vw" }}>
+          <Card caption="Live" title="Session timer" body="Visible runtime so sessions stay structured and on track." />
           <Card caption="Post" title="Upload status" body="Every file confirmed offloaded and integrity-checked." />
-          <Card caption="Live" title="Session timer" body="Visible runtime so sessions stay structured." />
           <Card caption="Post" title="Storage health" body="Free space and project size monitored in-app." />
         </div>
       </Frame>
@@ -472,7 +482,7 @@ const slides: SlideEntry[] = [
     id: "curriculum",
     label: "Curriculum Alignment",
     render: ({ index, total }) => (
-      <Frame eyebrow="07 — Curriculum Alignment" index={index} total={total}>
+      <Frame eyebrow="08 — Curriculum Alignment" index={index} total={total}>
         <div style={{ display: "grid", gridTemplateColumns: "1.1fr 0.9fr", gap: "5vw", alignItems: "center" }}>
           <div>
             <Eyebrow>Aligned With The Future Of Education</Eyebrow>
@@ -517,7 +527,7 @@ const slides: SlideEntry[] = [
     id: "programs",
     label: "Education Programs",
     render: ({ index, total }) => (
-      <Frame eyebrow="08 — Education Programs" index={index} total={total}>
+      <Frame eyebrow="09 — Education Programs" index={index} total={total}>
         <div style={{ display: "grid", gridTemplateColumns: "1fr 1.1fr", gap: "5vw", alignItems: "start" }}>
           <div>
             <Eyebrow>Education Programs</Eyebrow>
@@ -558,21 +568,38 @@ const slides: SlideEntry[] = [
     ),
   },
 
-  // 09 — SCALABILITY
+  // 10 — SCALABILITY — DEPLOYMENT TIERS
   {
-    id: "scalability",
-    label: "Scalability",
+    id: "scalability-tiers",
+    label: "Scalability — Tiers",
     render: ({ index, total }) => (
-      <Frame eyebrow="09 — Scalability" index={index} total={total}>
+      <Frame eyebrow="10 — Scalability" index={index} total={total}>
         <Eyebrow>Built To Scale Across Education</Eyebrow>
-        <Headline>Built to scale across education.</Headline>
+        <Headline size="3.8vw">Built to scale — from one classroom to a whole department.</Headline>
         <SubHead>
           Designed from day one for single schools, multi-campus rollouts and department-level deployments — same hardware, same workflows, same software, regardless of footprint.
         </SubHead>
-        <div style={{ marginTop: "6vh", display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "1.4vw" }}>
+        <div style={{ marginTop: "5vh", display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "1.4vw" }}>
           <Card caption="Tier 1" title="Single school" body="One Podcart, one workflow, one program — operational in a term." />
           <Card caption="Tier 2" title="Multi-campus rollout" body="Standardised deployment across grouped sites with shared identity." />
           <Card caption="Tier 3" title="Department integration" body="Enterprise licensing across regions and education systems." />
+        </div>
+      </Frame>
+    ),
+  },
+
+  // 11 — SCALABILITY — OPERATIONAL LAYERS
+  {
+    id: "scalability-layers",
+    label: "Scalability — Layers",
+    render: ({ index, total }) => (
+      <Frame eyebrow="11 — Scalability" index={index} total={total}>
+        <Eyebrow>The Operational Layers</Eyebrow>
+        <Headline size="3.8vw">One operating model. Three layers that scale with you.</Headline>
+        <SubHead>
+          The same infrastructure stack underneath every deployment — so a single school and a multi-region department run on identical foundations.
+        </SubHead>
+        <div style={{ marginTop: "5vh", display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "1.4vw" }}>
           <Card caption="Layer" title="Portable infrastructure" body="Hardware moves between rooms, sites and events without reconfiguration." />
           <Card caption="Layer" title="Cloud-based workflows" body="Project state, uploads and handoffs accessible from anywhere." />
           <Card caption="Layer" title="Standardised systems" body="One operating model from primary classroom to department office." />
@@ -586,7 +613,7 @@ const slides: SlideEntry[] = [
     id: "why",
     label: "Why It Matters",
     render: ({ index, total }) => (
-      <Frame eyebrow="10 — Why It Matters" index={index} total={total}>
+      <Frame eyebrow="12 — Why It Matters" index={index} total={total}>
         <div style={{ display: "grid", gridTemplateColumns: "1.15fr 0.85fr", gap: "5vw", alignItems: "center" }}>
           <div>
             <Eyebrow>Why It Matters</Eyebrow>
