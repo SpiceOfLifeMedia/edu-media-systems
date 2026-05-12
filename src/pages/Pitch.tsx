@@ -327,22 +327,24 @@ const slides: SlideEntry[] = [
       <Frame eyebrow="02 — Why This Matters" index={index} total={total}>
         <div style={{ display: "grid", gridTemplateColumns: "1.1fr 0.9fr", gap: "6vw", alignItems: "center" }}>
           <div>
-            <Eyebrow>Why This Matters</Eyebrow>
+            <Eyebrow>Curriculum Direction</Eyebrow>
             <Headline>
-              Communication is becoming one of the most important skills in education.
+              Modern education is shifting from content to capability.
             </Headline>
             <SubHead>
-              Schools are preparing students for communication-driven futures. EDU Media Systems gives them a practical way to build those skills through authentic media production and student-led participation.
+              The emerging direction of education is increasingly focused not only on what students know, but also on what they can communicate, create, contribute and confidently participate in. EDU Media Systems gives schools the practical infrastructure and programs to operationalise that shift.
             </SubHead>
           </div>
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1.4vw" }}>
+          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1.2vw" }}>
             {[
-              "Oracy",
               "Student voice",
-              "Media literacy",
-              "Collaboration",
+              "Learner agency",
+              "Communication",
               "Confidence",
-              "Leadership",
+              "Collaboration",
+              "Creativity",
+              "Wellbeing",
+              "Media literacy",
             ].map((label) => (
               <div
                 key={label}
@@ -820,9 +822,9 @@ const slides: SlideEntry[] = [
     render: ({ index, total }) => (
       <Frame eyebrow="14 — Business Model" index={index} total={total}>
         <Eyebrow>Business Model</Eyebrow>
-        <Headline>A supported media ecosystem.</Headline>
+        <Headline>The subscription is the ecosystem.</Headline>
         <SubHead>
-          Hardware, software and services structured for sustained school-side adoption — not one-off equipment sales.
+          Schools are not paying for software access. They are paying for ongoing activation, workflow systems, EMS Network participation, structured initiatives and operational support — the layer that keeps the program alive after rollout.
         </SubHead>
         <div style={{ marginTop: "5vh", display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "1.4vw" }}>
           <Card
@@ -976,12 +978,12 @@ const slides: SlideEntry[] = [
         <div style={{ display: "grid", gridTemplateColumns: "1.1fr 0.9fr", gap: "5vw", alignItems: "center" }}>
           <div>
             <Eyebrow>Vision</Eyebrow>
-            <Headline>Building the infrastructure behind student-led media.</Headline>
+            <Headline>We are not a podcast company.</Headline>
             <SubHead>
-              Sustainable, professional student media ecosystems — connected hardware, workflow software, participation initiatives and education-focused implementation.
+              EDU Media Systems builds communication culture, learner agency and student voice ecosystems for modern schools — connected hardware, workflow software, participation initiatives and education-focused implementation.
             </SubHead>
             <p style={{ fontSize: "1.2vw", color: INK_SOFT, marginTop: "3vh", maxWidth: "32vw", lineHeight: 1.5 }}>
-              This is bigger than equipment. It is the operating layer for modern school storytelling.
+              We help schools build communication and media systems students actually want to participate in.
             </p>
           </div>
           <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1vw" }}>
@@ -1108,6 +1110,16 @@ export default function Pitch() {
     return new URLSearchParams(window.location.search).has("print");
   }, []);
 
+  const scrollMode = useMemo(() => {
+    if (typeof window === "undefined") return false;
+    return new URLSearchParams(window.location.search).has("scroll");
+  }, []);
+
+  const embedMode = useMemo(() => {
+    if (typeof window === "undefined") return false;
+    return new URLSearchParams(window.location.search).has("embed");
+  }, []);
+
   useEffect(() => {
     if (!printMode) return;
     const t = window.setTimeout(() => window.print(), 600);
@@ -1134,6 +1146,27 @@ export default function Pitch() {
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
   }, [printMode, total]);
+
+  if (scrollMode) {
+    return (
+      <div style={{ background: "#000", minHeight: "100vh" }}>
+        {slides.map((s, i) => (
+          <iframe
+            key={s.id}
+            src={`${window.location.pathname}?slide=${i + 1}&embed`}
+            title={s.label}
+            style={{
+              display: "block",
+              width: "100vw",
+              height: "56.25vw",
+              border: 0,
+              background: BG,
+            }}
+          />
+        ))}
+      </div>
+    );
+  }
 
   if (printMode) {
     return (
@@ -1219,7 +1252,7 @@ export default function Pitch() {
       >
         {slide.render({ index: current + 1, total })}
       </div>
-      <div
+      {!embedMode && <div
         style={{
           position: "fixed",
           bottom: "1.4vh",
@@ -1242,8 +1275,8 @@ export default function Pitch() {
         <span>
           {current + 1} / {total}
         </span>
-      </div>
-      <div
+      </div>}
+      {!embedMode && <div
         style={{
           position: "fixed",
           top: "1.4vh",
@@ -1278,6 +1311,28 @@ export default function Pitch() {
         >
           ↓ Download PDF
         </button>
+        <button
+          type="button"
+          onClick={() => {
+            const url = `${window.location.pathname}?scroll`;
+            window.open(url, "_blank", "noopener");
+          }}
+          style={{
+            background: "transparent",
+            color: "rgba(255,255,255,0.85)",
+            border: "1px solid rgba(255,255,255,0.25)",
+            padding: "0.7vw 1.1vw",
+            fontSize: "0.8vw",
+            letterSpacing: "0.2em",
+            textTransform: "uppercase",
+            fontWeight: 500,
+            cursor: "pointer",
+            borderRadius: 2,
+            fontFamily: "inherit",
+          }}
+        >
+          ☰ Scroll View
+        </button>
         <a
           href={import.meta.env.BASE_URL || "/"}
           style={{
@@ -1287,7 +1342,7 @@ export default function Pitch() {
         >
           Esc — Home
         </a>
-      </div>
+      </div>}
     </div>
   );
 }
