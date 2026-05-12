@@ -63,7 +63,7 @@ function Frame({
         style={{ color: INK_SOFT, fontSize: "0.85vw", letterSpacing: "0.16em", textTransform: "uppercase" }}
       >
         <span>edumediasystems.com.au</span>
-        <span>Investor Brief — 2026</span>
+        <span>Pitch Deck — 2026</span>
       </div>
     </div>
   );
@@ -203,21 +203,21 @@ function LogoRow() {
         src={eduLogo}
         crossOrigin="anonymous"
         alt="EDU Media Systems"
-        style={{ height: "2.4vw", width: "auto", filter: "invert(1) brightness(1.1)" }}
+        style={{ height: "2.4vw", width: "auto", filter: "brightness(0) invert(1)" }}
       />
       <span style={{ width: 1, height: "2vw", background: LINE }} />
       <img
         src={podcartLogo}
         crossOrigin="anonymous"
         alt="The Podcart"
-        style={{ height: "2.4vw", width: "auto", filter: "invert(1) brightness(1.1)" }}
+        style={{ height: "2.4vw", width: "auto", filter: "brightness(0) invert(1)" }}
       />
       <span style={{ width: 1, height: "2vw", background: LINE }} />
       <img
         src={offloadrLogo}
         crossOrigin="anonymous"
         alt="Offloadr"
-        style={{ height: "2.4vw", width: "auto", filter: "invert(1) brightness(1.1)" }}
+        style={{ height: "2.4vw", width: "auto", filter: "brightness(0) invert(1)" }}
       />
     </div>
   );
@@ -237,7 +237,7 @@ const slides: SlideEntry[] = [
             src={eduLogo}
             crossOrigin="anonymous"
             alt="EDU Media Systems"
-            style={{ height: "2.6vw", filter: "invert(1) brightness(1.1)" }}
+            style={{ height: "2.6vw", filter: "brightness(0) invert(1)" }}
           />
           <span>
             {String(index).padStart(2, "0")} / {String(total).padStart(2, "0")}
@@ -254,7 +254,7 @@ const slides: SlideEntry[] = [
               fontWeight: 500,
             }}
           >
-            Investor Brief
+            Pitch Deck
           </div>
           <h1
             style={{
@@ -416,7 +416,7 @@ const slides: SlideEntry[] = [
               src={podcartLogo}
               crossOrigin="anonymous"
               alt="The Podcart"
-              style={{ height: "2.6vw", filter: "invert(1) brightness(1.1)", marginBottom: "3vh" }}
+              style={{ height: "2.6vw", filter: "brightness(0) invert(1)", marginBottom: "3vh" }}
             />
             <Headline>A complete student media studio that rolls between classrooms.</Headline>
             <SubHead>
@@ -445,7 +445,7 @@ const slides: SlideEntry[] = [
               src={offloadrLogo}
               crossOrigin="anonymous"
               alt="Offloadr"
-              style={{ height: "2.6vw", filter: "invert(1) brightness(1.1)", marginBottom: "3vh" }}
+              style={{ height: "2.6vw", marginBottom: "3vh", filter: "brightness(0) invert(1)" }}
             />
             <Headline>The missing link between recording and editing.</Headline>
             <SubHead>
@@ -1028,7 +1028,7 @@ const slides: SlideEntry[] = [
             src={eduLogo}
             crossOrigin="anonymous"
             alt="EDU Media Systems"
-            style={{ height: "2.6vw", filter: "invert(1) brightness(1.1)" }}
+            style={{ height: "2.6vw", filter: "brightness(0) invert(1)" }}
           />
           <span>
             {String(index).padStart(2, "0")} / {String(total).padStart(2, "0")}
@@ -1107,6 +1107,12 @@ export default function Pitch() {
     if (typeof window === "undefined") return false;
     return new URLSearchParams(window.location.search).has("print");
   }, []);
+
+  useEffect(() => {
+    if (!printMode) return;
+    const t = window.setTimeout(() => window.print(), 600);
+    return () => window.clearTimeout(t);
+  }, [printMode]);
 
   useEffect(() => {
     if (printMode) return;
@@ -1237,21 +1243,51 @@ export default function Pitch() {
           {current + 1} / {total}
         </span>
       </div>
-      <a
-        href={import.meta.env.BASE_URL || "/"}
+      <div
         style={{
           position: "fixed",
           top: "1.4vh",
           right: "1.4vw",
+          display: "flex",
+          alignItems: "center",
+          gap: "1.6vw",
           fontSize: "0.85vw",
-          color: "rgba(255,255,255,0.55)",
           letterSpacing: "0.18em",
           textTransform: "uppercase",
-          textDecoration: "none",
         }}
       >
-        Esc — Home
-      </a>
+        <button
+          type="button"
+          onClick={() => {
+            const url = `${window.location.pathname}?print`;
+            window.open(url, "_blank", "noopener");
+          }}
+          style={{
+            background: ACCENT,
+            color: "#0a0a0b",
+            border: 0,
+            padding: "0.7vw 1.1vw",
+            fontSize: "0.8vw",
+            letterSpacing: "0.2em",
+            textTransform: "uppercase",
+            fontWeight: 600,
+            cursor: "pointer",
+            borderRadius: 2,
+            fontFamily: "inherit",
+          }}
+        >
+          ↓ Download PDF
+        </button>
+        <a
+          href={import.meta.env.BASE_URL || "/"}
+          style={{
+            color: "rgba(255,255,255,0.55)",
+            textDecoration: "none",
+          }}
+        >
+          Esc — Home
+        </a>
+      </div>
     </div>
   );
 }
