@@ -1122,7 +1122,7 @@ export default function Pitch() {
       } else if (e.key === "End") {
         setCurrent(total - 1);
       } else if (e.key === "Escape") {
-        window.location.href = "/";
+        window.location.href = import.meta.env.BASE_URL || "/";
       }
     }
     window.addEventListener("keydown", onKey);
@@ -1238,7 +1238,7 @@ export default function Pitch() {
         </span>
       </div>
       <a
-        href="/"
+        href={import.meta.env.BASE_URL || "/"}
         style={{
           position: "fixed",
           top: "1.4vh",
