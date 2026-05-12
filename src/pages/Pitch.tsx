@@ -373,12 +373,12 @@ const slides: SlideEntry[] = [
       <Frame eyebrow="03 — Why Now" index={index} total={total}>
         <Eyebrow>Why Now</Eyebrow>
         <Headline size="3.6vw">Communication is becoming one of the most important skills in modern education.</Headline>
-        <SubHead>
+        <p style={{ fontSize: "1.6vw", fontWeight: 400, lineHeight: 1.55, color: INK_MUTED, marginTop: "4vh", maxWidth: "58vw" }}>
           Schools are increasingly being asked to develop more than academic outcomes alone. EDU Media Systems exists to help schools operationalise communication, learner agency and student voice through real student-led media infrastructure.
-        </SubHead>
-        <div style={{ marginTop: "4vh", display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1.4vw" }}>
+        </p>
+        <div style={{ marginTop: "6vh", display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1.8vw" }}>
           <ColumnCard caption="Modern Education Is Shifting Toward">
-            <div style={{ display: "flex", flexWrap: "wrap", gap: "0.6vw" }}>
+            <div style={{ display: "flex", flexWrap: "wrap", gap: "0.85vw", marginTop: "0.4vh" }}>
               {["Communication","Learner agency","Confidence","Collaboration","Creativity","Student voice","Participation","Wellbeing","Digital capability"].map((t)=>(
                 <Pill key={t}>{t}</Pill>
               ))}
@@ -394,7 +394,7 @@ const slides: SlideEntry[] = [
             ]} />
           </ColumnCard>
         </div>
-        <p style={{ fontSize: "1.15vw", color: INK_MUTED, marginTop: "3vh", maxWidth: "70vw", lineHeight: 1.55, fontStyle: "italic" }}>
+        <p style={{ fontSize: "1.25vw", color: INK, marginTop: "6vh", maxWidth: "62vw", lineHeight: 1.55, fontStyle: "italic", letterSpacing: "-0.005em" }}>
           Students don't become confident communicators through worksheets alone. They become confident through repeated, real-world participation.
         </p>
       </Frame>
@@ -412,13 +412,28 @@ const slides: SlideEntry[] = [
         <SubHead>
           EDU Media Systems combines hardware, workflow software and structured programs into one scalable infrastructure layer for modern schools.
         </SubHead>
-        <div style={{ marginTop: "6vh", display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "1.6vw" }}>
+        <div style={{ marginTop: "5vh", marginBottom: "3vh", display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "1.8vw" }}>
           {[
             { caption: "Infrastructure", title: "EDU Media Systems", body: "The connecting layer — programs, identity, training and ongoing support that keep school media systems alive." },
             { caption: "Hardware", title: "The Podcart", body: "Portable student media studio. Rolls between classrooms, built to survive a school week, simple enough for students to operate." },
             { caption: "Software", title: "Offloadr", body: "The missing link between recording and editing — uploads, verifies and organises every file the moment a session ends." },
           ].map((c) => (
-            <Card key={c.title} caption={c.caption} title={c.title} body={c.body} />
+            <div
+              key={c.title}
+              style={{
+                background: SURFACE,
+                border: `1px solid ${LINE}`,
+                borderRadius: "0.9vw",
+                padding: "3vw 2.6vw",
+                display: "flex",
+                flexDirection: "column",
+                gap: "1.6vh",
+              }}
+            >
+              <div style={{ fontSize: "0.9vw", letterSpacing: "0.26em", textTransform: "uppercase", color: ACCENT, fontWeight: 500, marginBottom: "0.6vh" }}>{c.caption}</div>
+              <div style={{ fontSize: "1.85vw", fontWeight: 600, color: INK, letterSpacing: "-0.01em" }}>{c.title}</div>
+              <div style={{ fontSize: "1.15vw", color: INK_MUTED, lineHeight: 1.55 }}>{c.body}</div>
+            </div>
           ))}
         </div>
       </Frame>
@@ -431,7 +446,7 @@ const slides: SlideEntry[] = [
     label: "The Podcart",
     render: ({ index, total }) => (
       <Frame eyebrow="05 — Hardware" index={index} total={total}>
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 1.1fr", gap: "5vw", alignItems: "center" }}>
+        <div style={{ display: "grid", gridTemplateColumns: "1fr 1.15fr", gap: "4vw", alignItems: "center" }}>
           <div>
             <img src={podcartLogo} crossOrigin="anonymous" alt="The Podcart" style={{ height: "2.6vw", marginBottom: "3vh" }} />
             <Headline size="3.4vw">Portable student media infrastructure for modern schools.</Headline>
@@ -453,12 +468,11 @@ const slides: SlideEntry[] = [
               alt="The Podcart hero render"
               style={{
                 width: "100%",
-                maxWidth: "38vw",
+                maxWidth: "44vw",
+                maxHeight: "78vh",
                 height: "auto",
-                borderRadius: "0.8vw",
-                border: `1px solid ${LINE}`,
-                background: SURFACE,
-                objectFit: "cover",
+                objectFit: "contain",
+                filter: "drop-shadow(0 2.4vw 3vw rgba(0,0,0,0.55))",
               }}
             />
           </div>
@@ -490,17 +504,19 @@ const slides: SlideEntry[] = [
             style={{
               background: SURFACE,
               border: `1px solid ${LINE}`,
-              borderRadius: "0.8vw",
-              padding: "2.4vw",
+              borderRadius: "0.9vw",
+              padding: "2.2vw 2.2vw",
               display: "flex",
               flexDirection: "column",
-              gap: "1.4vh",
+              gap: "1.1vh",
             }}
           >
             {[
               ["Session 042 — Quick 15", "Verified · 8 files · checksum confirmed"],
               ["Assembly Recap — Term 4", "Uploading · 3 of 6 files · resumable"],
               ["Year 5 Podcast — Episode 12", "Publish-ready · share link issued"],
+              ["EMS Debate Session", "Processing · audio + 2 cams"],
+              ["Parent Reflection Upload", "Verified · ready for review"],
               ["Leadership Interview", "Organised · awaiting teacher review"],
             ].map(([title, status]) => (
               <div
@@ -509,14 +525,14 @@ const slides: SlideEntry[] = [
                   display: "flex",
                   justifyContent: "space-between",
                   alignItems: "center",
-                  padding: "1.2vw 1.4vw",
-                  borderRadius: "0.5vw",
-                  background: "rgba(255,255,255,0.025)",
-                  border: `1px solid ${LINE}`,
+                  padding: "1.4vw 1.5vw",
+                  borderRadius: "0.55vw",
+                  background: "rgba(255,255,255,0.035)",
+                  border: `1px solid rgba(245,245,247,0.1)`,
                 }}
               >
-                <div style={{ fontSize: "1.05vw", color: INK, fontWeight: 500 }}>{title}</div>
-                <div style={{ fontSize: "0.95vw", color: INK_MUTED }}>{status}</div>
+                <div style={{ fontSize: "1.15vw", color: INK, fontWeight: 500, letterSpacing: "-0.005em" }}>{title}</div>
+                <div style={{ fontSize: "1vw", color: "rgba(245,245,247,0.78)", fontWeight: 400 }}>{status}</div>
               </div>
             ))}
           </div>
@@ -606,18 +622,18 @@ const slides: SlideEntry[] = [
     label: "Curriculum Alignment",
     render: ({ index, total }) => (
       <Frame eyebrow="10 — Curriculum Alignment" index={index} total={total}>
-        <div style={{ display: "grid", gridTemplateColumns: "1.1fr 0.9fr", gap: "5vw", alignItems: "center" }}>
+        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "5vw", alignItems: "center" }}>
           <div>
             <Eyebrow>Aligned With The Future Of Education</Eyebrow>
             <Headline size="3.6vw">Aligned with the future of education.</Headline>
-            <p style={{ fontSize: "1.2vw", color: INK_MUTED, marginTop: "3vh", maxWidth: "44vw", lineHeight: 1.55 }}>
+            <p style={{ fontSize: "1.25vw", color: INK_MUTED, marginTop: "4vh", maxWidth: "42vw", lineHeight: 1.6 }}>
               The future direction of education is increasingly focused not only on what students know, but how confidently they can communicate, contribute and participate.
             </p>
-            <p style={{ fontSize: "1.2vw", color: INK_MUTED, marginTop: "2vh", maxWidth: "44vw", lineHeight: 1.55 }}>
+            <p style={{ fontSize: "1.25vw", color: INK_MUTED, marginTop: "2.5vh", maxWidth: "42vw", lineHeight: 1.6 }}>
               EDU Media Systems helps schools transform communication and learner agency into practical student experiences — confidence built through repeated participation in authentic communication environments.
             </p>
           </div>
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1vw" }}>
+          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1.2vw" }}>
             {[
               "Learner agency",
               "Communication capability",
@@ -633,11 +649,12 @@ const slides: SlideEntry[] = [
                 style={{
                   border: `1px solid ${LINE}`,
                   background: SURFACE,
-                  borderRadius: "0.6vw",
-                  padding: "1.4vw 1.4vw",
-                  fontSize: "1.05vw",
+                  borderRadius: "0.7vw",
+                  padding: "1.9vw 1.7vw",
+                  fontSize: "1.2vw",
                   color: INK,
                   fontWeight: 500,
+                  letterSpacing: "-0.005em",
                 }}
               >
                 {t}
@@ -663,7 +680,7 @@ const slides: SlideEntry[] = [
               Schools receive structured implementation support and program frameworks to help staff and students confidently launch media initiatives — without inventing the format from scratch.
             </SubHead>
           </div>
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1.2vw", marginTop: "1vh" }}>
+          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1.4vw", marginTop: "1vh" }}>
             {[
               "Podcast programs",
               "Student interviews",
@@ -677,13 +694,15 @@ const slides: SlideEntry[] = [
               <div
                 key={label}
                 style={{
-                  border: `1px solid ${LINE}`,
-                  background: SURFACE,
-                  borderRadius: "0.6vw",
-                  padding: "1.6vw 1.6vw",
-                  fontSize: "1.25vw",
+                  border: `1px solid rgba(110,168,255,0.22)`,
+                  background: "linear-gradient(180deg, rgba(110,168,255,0.05) 0%, rgba(18,19,22,0.95) 100%)",
+                  borderRadius: "0.85vw",
+                  padding: "2vw 1.9vw",
+                  fontSize: "1.3vw",
                   color: INK,
                   fontWeight: 500,
+                  letterSpacing: "-0.005em",
+                  boxShadow: "0 0.6vw 1.6vw rgba(0,0,0,0.35), inset 0 0 0 1px rgba(110,168,255,0.04)",
                 }}
               >
                 {label}
@@ -702,7 +721,11 @@ const slides: SlideEntry[] = [
     render: ({ index, total }) => (
       <Frame eyebrow="12 — School Media Identity" index={index} total={total}>
         <Eyebrow>Building School Media Identity</Eyebrow>
-        <Headline size="3.6vw">More than equipment. A complete school media program.</Headline>
+        <Headline size="3.6vw">
+          More than equipment.
+          <br />
+          A complete school media program.
+        </Headline>
         <SubHead>
           EDU Media Systems helps schools build student-led media programs that are properly branded, properly produced and embedded into school culture — programs students genuinely want to participate in.
         </SubHead>
@@ -785,7 +808,7 @@ const slides: SlideEntry[] = [
         <SubHead>
           The rollout is only the beginning. EDU Media Systems is designed to provide ongoing activation, support and participation long after installation — so schools never feel: "we have the equipment, but what do we actually do with it?"
         </SubHead>
-        <div style={{ marginTop: "4vh", display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1.4vw" }}>
+        <div style={{ marginTop: "5vh", display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1.6vw" }}>
           <ColumnCard caption="Ongoing Support">
             <Listed items={[
               "Implementation guidance",
@@ -805,11 +828,11 @@ const slides: SlideEntry[] = [
               "Communication initiatives",
               "Media literacy workshops",
             ]} />
-            <p style={{ fontSize: "0.95vw", color: INK_SOFT, marginTop: "1.2vh", lineHeight: 1.5 }}>
-              The value is participation, representation and student voice — not celebrity access.
-            </p>
           </ColumnCard>
         </div>
+        <p style={{ fontSize: "1.2vw", color: INK, marginTop: "5vh", maxWidth: "62vw", lineHeight: 1.55, fontStyle: "italic", letterSpacing: "-0.005em" }}>
+          The value is participation, representation and student voice — not celebrity access.
+        </p>
       </Frame>
     ),
   },
