@@ -203,7 +203,7 @@ function LogoRow() {
         src={eduLogo}
         crossOrigin="anonymous"
         alt="EDU Media Systems"
-        style={{ height: "2.4vw", width: "auto", filter: "brightness(0) invert(1)" }}
+        style={{ height: "2.4vw", width: "auto" }}
       />
       <span style={{ width: 1, height: "2vw", background: LINE }} />
       <img
@@ -237,7 +237,7 @@ const slides: SlideEntry[] = [
             src={eduLogo}
             crossOrigin="anonymous"
             alt="EDU Media Systems"
-            style={{ height: "2.6vw", filter: "brightness(0) invert(1)" }}
+            style={{ height: "2.6vw" }}
           />
           <span>
             {String(index).padStart(2, "0")} / {String(total).padStart(2, "0")}
@@ -416,7 +416,7 @@ const slides: SlideEntry[] = [
               src={podcartLogo}
               crossOrigin="anonymous"
               alt="The Podcart"
-              style={{ height: "2.6vw", filter: "brightness(0) invert(1)", marginBottom: "3vh" }}
+              style={{ height: "2.6vw", marginBottom: "3vh", filter: "brightness(0) invert(1)" }}
             />
             <Headline>A complete student media studio that rolls between classrooms.</Headline>
             <SubHead>
@@ -1028,7 +1028,7 @@ const slides: SlideEntry[] = [
             src={eduLogo}
             crossOrigin="anonymous"
             alt="EDU Media Systems"
-            style={{ height: "2.6vw", filter: "brightness(0) invert(1)" }}
+            style={{ height: "2.6vw" }}
           />
           <span>
             {String(index).padStart(2, "0")} / {String(total).padStart(2, "0")}
