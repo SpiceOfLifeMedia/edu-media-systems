@@ -571,14 +571,14 @@ const slides: SlideEntry[] = [
     label: "The Podcart",
     render: ({ index, total }) => (
       <Frame eyebrow="05 — Hardware" index={index} total={total}>
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 1.15fr", gap: "4vw", alignItems: "start" }}>
-          <div style={{ marginTop: "-2vh" }}>
+        <div style={{ display: "grid", gridTemplateColumns: "1fr 1.1fr", gap: "4.5vw", alignItems: "center" }}>
+          <div style={{ marginTop: "1.6vh" }}>
             <img src={podcartLogo} crossOrigin="anonymous" alt="The Podcart" style={{ height: "2.6vw", marginBottom: "2vh" }} />
             <Headline size="3.2vw">Portable student media infrastructure for modern schools.</Headline>
             <p style={{ fontSize: "1.2vw", color: INK_MUTED, marginTop: "2vh", maxWidth: "38vw", lineHeight: 1.55 }}>
               A complete production setup that rolls between classrooms — built to survive a school week and simple enough for students to operate.
             </p>
-            <ul style={{ display: "flex", flexDirection: "column", gap: "1.1vh", marginTop: "2.4vh" }}>
+            <ul style={{ display: "flex", flexDirection: "column", gap: "1.5vh", marginTop: "2.6vh" }}>
               <Bullet>Portable production setup</Bullet>
               <Bullet>Podcasting and video recording</Bullet>
               <Bullet>Mobile deployment between rooms</Bullet>
@@ -593,11 +593,11 @@ const slides: SlideEntry[] = [
               alt="The Podcart hero render"
               style={{
                 width: "100%",
-                maxWidth: "46vw",
-                maxHeight: "82vh",
+                maxWidth: "42vw",
+                maxHeight: "72vh",
                 height: "auto",
                 objectFit: "contain",
-                transform: "translate(2vw, -1vh)",
+                transform: "translate(1vw, -2.4vh)",
                 filter: "drop-shadow(0 2.4vw 3vw rgba(0,0,0,0.55))",
               }}
             />
@@ -1112,11 +1112,12 @@ const slides: SlideEntry[] = [
     label: "Founders",
     render: ({ index, total }) => (
       <Frame eyebrow="17 — Founders" index={index} total={total}>
+        <div style={{ marginTop: "-2.4vh" }}>
         <Eyebrow>Founders</Eyebrow>
         <Headline size="3.4vw">Built by people working inside real-world media and education.</Headline>
         <div
           style={{
-            marginTop: "3vh",
+            marginTop: "1.4vh",
             display: "grid",
             gridTemplateColumns: "1fr 1fr",
             gap: "4vw",
@@ -1128,23 +1129,23 @@ const slides: SlideEntry[] = [
               img: founderSam,
               name: "Sam Leverenz",
               role: "Founder & Creative Director",
-              bio: "Leads the creative and operational direction of EDU Media Systems. Over 20 years in sound and more than a decade in professional videography and media production — bringing real-world production systems into education through student-led media infrastructure focused on communication, confidence and student voice.",
-              imgFilter: "saturate(0.78) contrast(1.08) brightness(0.86) hue-rotate(-4deg)",
+              bio: "Over 20 years in sound and more than a decade in professional videography and media production, bringing real-world media systems into education through student-led communication infrastructure.",
+              imgFilter: "saturate(0.7) contrast(1.04) brightness(0.78) hue-rotate(-6deg)",
             },
             {
               img: founderTom,
               name: "Tom Leverenz",
               role: "Co-Founder & Education Strategy",
-              bio: "Supports the education strategy and long-term implementation direction behind EDU Media Systems. Extensive experience across education environments and student support systems — helping ensure the EMS ecosystem remains practical, scalable and genuinely sustainable for schools, teachers and students.",
-              imgFilter: "saturate(0.92) contrast(1.02)",
+              bio: "Supports the education strategy and implementation direction behind EDU Media Systems, helping ensure the ecosystem remains practical, scalable and sustainable for schools.",
+              imgFilter: "saturate(0.88) contrast(1.04) brightness(0.92)",
             },
           ].map((f) => (
-            <div key={f.name} style={{ display: "flex", flexDirection: "column", alignItems: "flex-start", marginTop: "-1vh" }}>
+            <div key={f.name} style={{ display: "flex", flexDirection: "column", alignItems: "flex-start" }}>
               <div
                 style={{
                   position: "relative",
                   width: "100%",
-                  height: "30vh",
+                  height: "24vh",
                   borderRadius: "0.7vw",
                   overflow: "hidden",
                   background: "radial-gradient(ellipse at 50% 70%, rgba(110,168,255,0.22) 0%, rgba(110,168,255,0.08) 40%, rgba(10,10,11,0.95) 90%)",
@@ -1200,9 +1201,9 @@ const slides: SlideEntry[] = [
               />
               <div
                 style={{
-                  fontSize: "1.7vw",
-                  fontWeight: 600,
-                  letterSpacing: "-0.015em",
+                  fontSize: "2vw",
+                  fontWeight: 700,
+                  letterSpacing: "-0.02em",
                   color: INK,
                   lineHeight: 1.05,
                 }}
@@ -1215,7 +1216,7 @@ const slides: SlideEntry[] = [
                   letterSpacing: "0.2em",
                   textTransform: "uppercase",
                   color: ACCENT,
-                  marginTop: "0.5vh",
+                  marginTop: "0.6vh",
                   fontWeight: 600,
                 }}
               >
@@ -1223,10 +1224,10 @@ const slides: SlideEntry[] = [
               </div>
               <p
                 style={{
-                  fontSize: "0.9vw",
+                  fontSize: "1.1vw",
                   color: INK_MUTED,
-                  lineHeight: 1.5,
-                  marginTop: "0.9vh",
+                  lineHeight: 1.55,
+                  marginTop: "1.4vh",
                   maxWidth: "32vw",
                 }}
               >
@@ -1234,6 +1235,7 @@ const slides: SlideEntry[] = [
               </p>
             </div>
           ))}
+        </div>
         </div>
       </Frame>
     ),
