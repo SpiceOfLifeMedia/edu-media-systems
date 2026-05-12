@@ -121,7 +121,7 @@ function Podcart360() {
           <p className="mt-5 max-w-md text-base text-ink-muted leading-relaxed">
             A studio you can walk around. The Podcart was engineered for the
             way schools actually use it — wheeled in, wheeled out, opened up,
-            packed down. Use the controls to pause or scrub through the loop.
+            packed down. A full turn around the cart, on loop.
           </p>
         </div>
 
@@ -133,7 +133,6 @@ function Podcart360() {
             muted
             loop
             playsInline
-            controls
             preload="metadata"
             aria-label="360 degree view of The Podcart"
             className="block h-full w-full object-cover aspect-video"
