@@ -29,9 +29,6 @@ export default function Nav() {
           <a href="#identity" className="hover:text-ink">
             Identity
           </a>
-          <a href="#pricing" className="hover:text-ink">
-            Pricing
-          </a>
           <a
             href="#contact"
             className="rounded-full bg-ink px-4 py-2 text-white hover:bg-accent"

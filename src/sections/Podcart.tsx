@@ -46,7 +46,7 @@ export default function Podcart() {
             <Body>
               Configurations available for primary, secondary, and tertiary
               programs. Bundled rollout packages include training, install,
-              and Offloadr seats — see the pricing section.
+              and Offloadr seats.
             </Body>
           </div>
         </div>

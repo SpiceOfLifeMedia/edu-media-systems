@@ -9,7 +9,6 @@ import Offloadr from "./sections/Offloadr";
 import ProducerMode from "./sections/ProducerMode";
 import RemoteCollab from "./sections/RemoteCollab";
 import MediaIdentity from "./sections/MediaIdentity";
-import Pricing from "./sections/Pricing";
 import Founder from "./sections/Founder";
 import FinalCta from "./sections/FinalCta";
 import Footer from "./sections/Footer";
@@ -37,7 +36,6 @@ function Marketing() {
         <ProducerMode />
         <RemoteCollab />
         <MediaIdentity />
-        <Pricing />
         <Founder />
         <FinalCta />
       </main>
