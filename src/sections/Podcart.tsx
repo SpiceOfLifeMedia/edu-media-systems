@@ -9,10 +9,18 @@ const specs = [
   ["Power", "Single-cord power-up; runs from any classroom outlet"],
 ];
 
+const featureStrip = [
+  "Mobile classroom studio",
+  "Secure fold-down design",
+  "Built for student use",
+  "Podcast + video ready",
+  "Remote guest capable",
+];
+
 export default function Podcart() {
   return (
     <Section id="podcart" eyebrow="The Podcart" tone="soft">
-      <div className="grid grid-cols-1 gap-16 lg:grid-cols-[1.1fr_1fr] lg:gap-24">
+      <div className="grid grid-cols-1 gap-16 lg:grid-cols-[0.9fr_1.2fr] lg:gap-20">
         <div>
           <H2>A studio that rolls into the classroom.</H2>
           <Lead>
@@ -22,14 +30,15 @@ export default function Podcart() {
             full term of student use.
           </Lead>
 
-          <div className="mt-10 flex flex-wrap items-baseline gap-x-3 gap-y-1">
-            <span className="text-xs font-semibold uppercase tracking-[0.16em] text-ink-muted">
-              From
-            </span>
-            <span className="text-2xl font-semibold text-ink">
-              $14,999 AUD
-            </span>
-            <span className="text-sm text-ink-muted">+ GST</span>
+          <div className="mt-10">
+            <div className="text-2xl sm:text-3xl font-semibold text-ink leading-tight">
+              Podcart packages from{" "}
+              <span className="whitespace-nowrap">$14,999 AUD + GST</span>
+            </div>
+            <p className="mt-3 max-w-md text-sm text-ink-muted leading-relaxed">
+              Configured for school environments, rollout support and media
+              program setup.
+            </p>
           </div>
 
           <div className="mt-10">
@@ -43,6 +52,17 @@ export default function Podcart() {
 
         <div>
           <PodcartGallery />
+          <ul className="mt-8 flex flex-wrap gap-x-4 gap-y-3">
+            {featureStrip.map((f) => (
+              <li
+                key={f}
+                className="inline-flex items-center gap-2 rounded-full border border-line bg-white px-4 py-2 text-xs font-medium uppercase tracking-[0.12em] text-ink"
+              >
+                <span className="h-1.5 w-1.5 rounded-full bg-accent" aria-hidden />
+                {f}
+              </li>
+            ))}
+          </ul>
           <ul className="mt-10 divide-y divide-line border-t border-line">
             {specs.map(([k, v]) => (
               <li
@@ -56,7 +76,44 @@ export default function Podcart() {
           </ul>
         </div>
       </div>
+
+      <Podcart360 />
     </Section>
+  );
+}
+
+function Podcart360() {
+  return (
+    <div className="mt-20 lg:mt-24">
+      <div className="grid grid-cols-1 gap-10 lg:grid-cols-[0.9fr_1.2fr] lg:gap-20 lg:items-center">
+        <div>
+          <div className="text-[11px] font-semibold uppercase tracking-[0.18em] text-accent">
+            360° showcase
+          </div>
+          <h3 className="mt-4 text-3xl sm:text-4xl font-semibold text-ink leading-[1.1] tracking-[-0.02em] max-w-xl">
+            See The Podcart from every angle.
+          </h3>
+          <p className="mt-5 max-w-md text-base text-ink-muted leading-relaxed">
+            A studio you can walk around. The Podcart was engineered for the
+            way schools actually use it — wheeled in, wheeled out, opened up,
+            packed down. Hover the model and look at how it folds.
+          </p>
+        </div>
+
+        <div className="overflow-hidden rounded-2xl border border-line bg-white">
+          <video
+            src="/podcart-360.mp4"
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="metadata"
+            aria-label="360 degree view of The Podcart"
+            className="block h-full w-full object-cover aspect-video"
+          />
+        </div>
+      </div>
+    </div>
   );
 }
 

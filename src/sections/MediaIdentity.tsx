@@ -1,3 +1,4 @@
+import type { PropsWithChildren } from "react";
 import { Section, H2, Lead, Body, Eyebrow } from "../lib/components";
 
 const identityServices = [
@@ -55,6 +56,120 @@ const supportTiers = [
     ],
   },
 ];
+
+function IdentityMockups() {
+  return (
+    <div className="mt-16">
+      <div className="text-[11px] font-semibold uppercase tracking-[0.18em] text-accent">
+        What it looks like
+      </div>
+      <h3 className="mt-3 text-xl sm:text-2xl font-semibold text-ink leading-snug max-w-3xl">
+        A quick look at the brand layer schools get.
+      </h3>
+
+      <div className="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-5">
+        <MockTile label="Media program logo">
+          <div className="flex h-full w-full flex-col items-center justify-center gap-2 px-3 text-center">
+            <div className="h-1 w-10 rounded-full bg-accent" aria-hidden />
+            <div className="text-[13px] font-semibold tracking-[-0.01em] text-ink">
+              School Media
+            </div>
+            <div className="text-[9px] uppercase tracking-[0.2em] text-ink-muted">
+              Studio · Est. 2026
+            </div>
+          </div>
+        </MockTile>
+
+        <MockTile label="Broadcast identity card">
+          <div className="flex h-full w-full flex-col justify-between p-3">
+            <div className="flex items-center justify-between">
+              <div className="h-1.5 w-1.5 rounded-full bg-accent" aria-hidden />
+              <div className="text-[8px] uppercase tracking-[0.18em] text-ink-muted">
+                Live
+              </div>
+            </div>
+            <div>
+              <div className="text-[10px] uppercase tracking-[0.2em] text-ink-muted">
+                On air
+              </div>
+              <div className="mt-1 text-[12px] font-semibold leading-tight text-ink">
+                Year 9 News Weekly
+              </div>
+            </div>
+          </div>
+        </MockTile>
+
+        <MockTile label="Thumbnail template">
+          <div className="relative h-full w-full overflow-hidden">
+            <div className="absolute inset-0 bg-gradient-to-br from-ink/85 via-ink/70 to-accent/40" />
+            <div className="absolute left-2 top-2 rounded bg-accent px-1.5 py-0.5 text-[8px] font-semibold uppercase tracking-[0.16em] text-white">
+              Ep · 04
+            </div>
+            <div className="absolute bottom-2 left-2 right-2">
+              <div className="text-[11px] font-semibold leading-tight text-white">
+                The Wellbeing Sit-Down
+              </div>
+              <div className="mt-0.5 text-[8px] uppercase tracking-[0.18em] text-white/70">
+                12 min · podcast
+              </div>
+            </div>
+          </div>
+        </MockTile>
+
+        <MockTile label="Lower-third example">
+          <div className="flex h-full w-full items-end p-3">
+            <div className="w-full">
+              <div className="h-px w-8 bg-accent" aria-hidden />
+              <div className="mt-1.5 text-[11px] font-semibold leading-tight text-ink">
+                Mr. Calloway
+              </div>
+              <div className="text-[8px] uppercase tracking-[0.18em] text-ink-muted">
+                Head of Media
+              </div>
+            </div>
+          </div>
+        </MockTile>
+
+        <MockTile label="YouTube channel">
+          <div className="flex h-full w-full flex-col">
+            <div className="flex h-1/2 w-full items-end bg-gradient-to-r from-accent/30 to-ink/20 px-2 pb-1.5">
+              <div className="text-[9px] font-semibold uppercase tracking-[0.18em] text-ink">
+                Banner
+              </div>
+            </div>
+            <div className="flex flex-1 items-center gap-2 p-2">
+              <div className="h-6 w-6 shrink-0 rounded-full border border-line bg-white" />
+              <div className="min-w-0">
+                <div className="truncate text-[10px] font-semibold text-ink">
+                  School Media
+                </div>
+                <div className="text-[8px] uppercase tracking-[0.16em] text-ink-muted">
+                  4 series · weekly
+                </div>
+              </div>
+            </div>
+          </div>
+        </MockTile>
+      </div>
+    </div>
+  );
+}
+
+function MockTile({
+  label,
+  children,
+}: PropsWithChildren<{ label: string }>) {
+  return (
+    <figure>
+      <div className="aspect-[4/3] overflow-hidden rounded-xl border border-line bg-white">
+        {children}
+      </div>
+      <figcaption className="mt-2 text-[10px] font-medium uppercase tracking-[0.16em] text-ink-muted">
+        {label}
+      </figcaption>
+    </figure>
+  );
+}
 
 function ServiceColumn({
   eyebrow,
@@ -119,6 +234,8 @@ export default function MediaIdentity() {
           items={channelServices}
         />
       </div>
+
+      <IdentityMockups />
 
       <div className="mt-16 rounded-2xl border border-line bg-white p-8 sm:p-10">
         <div className="text-[11px] font-semibold uppercase tracking-[0.18em] text-accent">

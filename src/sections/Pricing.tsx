@@ -1,5 +1,15 @@
 import { Section, H2, Lead, Body } from "../lib/components";
 
+const subscriptionIncludes = [
+  "Business-hours support",
+  "First-term activation guidance",
+  "Technical support visits where required",
+  "Media program templates",
+  "YouTube setup & support",
+  "Optional editing support",
+  "EMS Network access",
+];
+
 const tiers = [
   {
     eyebrow: "Hardware",
@@ -22,7 +32,7 @@ const tiers = [
     qualifier: "subscription",
     features: [
       "Unlimited projects per school",
-      "Producer mode and editor handoff included",
+      "Producer mode and publish-ready handoff included",
       "Remote collaboration and guest access",
       "School-owned project history",
     ],
@@ -89,6 +99,37 @@ export default function Pricing() {
             </ul>
           </div>
         ))}
+      </div>
+
+      <div className="mt-16 rounded-2xl border border-line bg-white p-8 sm:p-10 lg:p-12">
+        <div className="grid grid-cols-1 gap-10 lg:grid-cols-[1fr_1.2fr] lg:gap-16">
+          <div>
+            <div className="text-[11px] font-semibold uppercase tracking-[0.18em] text-accent">
+              The subscription is the program
+            </div>
+            <h3 className="mt-4 text-2xl sm:text-3xl font-semibold text-ink leading-[1.15] max-w-md">
+              Not just software. An operational layer behind the program.
+            </h3>
+            <p className="mt-5 max-w-md text-base text-ink-muted leading-relaxed">
+              The Offloadr subscription is what keeps a school media program
+              alive after the equipment lands — activation, templates, channel
+              setup, optional editing help and access to the wider EMS
+              Network of schools.
+            </p>
+          </div>
+
+          <ul className="grid grid-cols-1 gap-y-3 sm:grid-cols-2">
+            {subscriptionIncludes.map((s) => (
+              <li key={s} className="flex items-start gap-3 text-sm text-ink">
+                <span
+                  className="mt-2 h-1.5 w-1.5 rounded-full bg-accent shrink-0"
+                  aria-hidden
+                />
+                <span>{s}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
 
       <div className="mt-12 max-w-2xl">

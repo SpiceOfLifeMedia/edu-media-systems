@@ -13,8 +13,8 @@ const features = [
   },
   {
     index: "03",
-    title: "Editor-ready handoff",
-    body: "Selects, notes, and source files leave Offloadr packaged the way an editor (or a senior student) actually wants to receive them.",
+    title: "Publish-ready projects",
+    body: "Selects, notes, and source files arrive packaged as organised school media workflows — teacher-ready, student-ready, classroom-ready exports.",
   },
   {
     index: "04",

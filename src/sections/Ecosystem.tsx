@@ -21,6 +21,16 @@ const pillars = [
   },
 ];
 
+const programs = [
+  "Quick 15 classroom podcasts",
+  "Student debates",
+  "Leadership interviews",
+  "Wellbeing discussions",
+  "Assembly recaps",
+  "Cultural conversations",
+  "EMS Network live sessions",
+];
+
 export default function Ecosystem() {
   return (
     <Section id="ecosystem" eyebrow="The ecosystem">
@@ -54,6 +64,41 @@ export default function Ecosystem() {
             </div>
           </a>
         ))}
+      </div>
+
+      <div className="mt-16 rounded-2xl border border-line bg-white p-8 sm:p-10 lg:p-12">
+        <div className="grid grid-cols-1 gap-10 lg:grid-cols-[1fr_1.1fr] lg:gap-16">
+          <div>
+            <div className="text-[11px] font-semibold uppercase tracking-[0.18em] text-accent">
+              Programs students show up for
+            </div>
+            <h3 className="mt-4 text-2xl sm:text-3xl font-semibold text-ink leading-[1.15] max-w-md">
+              Schools are not left wondering what to record.
+            </h3>
+            <p className="mt-5 max-w-md text-base text-ink-muted leading-relaxed">
+              EMS comes with a starter program library and ongoing prompts so
+              teachers always have a session to run, a format to follow, and
+              a reason for students to step up to the microphone.
+            </p>
+            <p className="mt-4 max-w-md text-sm text-ink-muted leading-relaxed">
+              Teachers reserve The Podcart through a simple in-school booking
+              and scheduling layer — so the cart stops being "whoever grabs
+              it first" and starts running like a shared studio.
+            </p>
+          </div>
+
+          <ul className="grid grid-cols-1 gap-y-3 sm:grid-cols-2">
+            {programs.map((p) => (
+              <li key={p} className="flex items-start gap-3 text-sm text-ink">
+                <span
+                  className="mt-2 h-1.5 w-1.5 rounded-full bg-accent shrink-0"
+                  aria-hidden
+                />
+                <span>{p}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
     </Section>
   );
