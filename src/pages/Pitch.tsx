@@ -1289,12 +1289,9 @@ export default function Pitch() {
           textTransform: "uppercase",
         }}
       >
-        <button
-          type="button"
-          onClick={() => {
-            const url = `${window.location.pathname}?print`;
-            window.open(url, "_blank", "noopener");
-          }}
+        <a
+          href={`${import.meta.env.BASE_URL || "/"}edu-media-systems-pitch-deck.pdf`}
+          download="EDU-Media-Systems-Pitch-Deck.pdf"
           style={{
             background: ACCENT,
             color: "#0a0a0b",
@@ -1307,10 +1304,12 @@ export default function Pitch() {
             cursor: "pointer",
             borderRadius: 2,
             fontFamily: "inherit",
+            textDecoration: "none",
+            display: "inline-block",
           }}
         >
           ↓ Download PDF
-        </button>
+        </a>
         <button
           type="button"
           onClick={() => {
