@@ -74,17 +74,6 @@ export default function FinalCta() {
               No commitment.
             </p>
 
-            <div className="mt-10">
-              <div className="text-xs uppercase tracking-[0.14em] text-white/50">
-                Email
-              </div>
-              <a
-                href={`mailto:${FALLBACK_EMAIL}`}
-                className="mt-1 inline-block text-base text-white hover:text-accent"
-              >
-                {FALLBACK_EMAIL}
-              </a>
-            </div>
           </div>
 
           <div className="lg:border-l lg:border-white/15 lg:pl-12">
