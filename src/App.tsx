@@ -3,12 +3,7 @@ import Nav from "./sections/Nav";
 import Hero from "./sections/Hero";
 import WhyItMatters from "./sections/WhyItMatters";
 import Problem from "./sections/Problem";
-import Ecosystem from "./sections/Ecosystem";
-import Podcart from "./sections/Podcart";
-import Offloadr from "./sections/Offloadr";
-import ProducerMode from "./sections/ProducerMode";
-import RemoteCollab from "./sections/RemoteCollab";
-import MediaIdentity from "./sections/MediaIdentity";
+import Explore from "./sections/Explore";
 import Founder from "./sections/Founder";
 import FinalCta from "./sections/FinalCta";
 import Footer from "./sections/Footer";
@@ -30,12 +25,7 @@ function Marketing() {
         <Hero />
         <WhyItMatters />
         <Problem />
-        <Ecosystem />
-        <Podcart />
-        <Offloadr />
-        <ProducerMode />
-        <RemoteCollab />
-        <MediaIdentity />
+        <Explore />
         <Founder />
         <FinalCta />
       </main>

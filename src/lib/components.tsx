@@ -1,4 +1,12 @@
-import type { PropsWithChildren, ReactNode } from "react";
+import {
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+  type KeyboardEvent,
+  type PropsWithChildren,
+  type ReactNode,
+} from "react";
 
 export function Section({
   id,
@@ -119,6 +127,114 @@ export function Stat({ label, value }: { label: string; value: string }) {
         {value}
       </div>
       <div className="mt-2 text-sm text-ink-muted">{label}</div>
+    </div>
+  );
+}
+
+export type TabDef = { id: string; label: string; eyebrow?: string };
+
+export function Tabs({
+  tabs,
+  defaultId,
+  children,
+}: {
+  tabs: TabDef[];
+  defaultId?: string;
+  children: (activeId: string) => ReactNode;
+}) {
+  const ids = useMemo(() => new Set(tabs.map((t) => t.id)), [tabs]);
+  const fallback = defaultId && ids.has(defaultId) ? defaultId : tabs[0]!.id;
+  const readHash = (): string => {
+    if (typeof window === "undefined") return fallback;
+    const h = window.location.hash.replace("#", "");
+    return ids.has(h) ? h : fallback;
+  };
+  const [active, setActive] = useState<string>(fallback);
+  const tabRefs = useRef<Record<string, HTMLButtonElement | null>>({});
+
+  useEffect(() => {
+    setActive(readHash());
+    const handler = () => setActive(readHash());
+    window.addEventListener("hashchange", handler);
+    return () => window.removeEventListener("hashchange", handler);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  const select = (id: string, focus = false) => {
+    setActive(id);
+    if (typeof window !== "undefined") {
+      const url = new URL(window.location.href);
+      url.hash = id;
+      window.history.replaceState(null, "", url.toString());
+    }
+    if (focus) tabRefs.current[id]?.focus();
+  };
+
+  const onKeyDown = (e: KeyboardEvent<HTMLDivElement>) => {
+    const i = tabs.findIndex((t) => t.id === active);
+    if (i < 0) return;
+    if (e.key === "ArrowRight") {
+      e.preventDefault();
+      select(tabs[(i + 1) % tabs.length]!.id, true);
+    } else if (e.key === "ArrowLeft") {
+      e.preventDefault();
+      select(tabs[(i - 1 + tabs.length) % tabs.length]!.id, true);
+    } else if (e.key === "Home") {
+      e.preventDefault();
+      select(tabs[0]!.id, true);
+    } else if (e.key === "End") {
+      e.preventDefault();
+      select(tabs[tabs.length - 1]!.id, true);
+    }
+  };
+
+  return (
+    <div>
+      <div className="-mx-6 sm:-mx-8 lg:mx-0 overflow-x-auto">
+        <div
+          role="tablist"
+          aria-label="Explore EDU Media Systems"
+          onKeyDown={onKeyDown}
+          className="flex min-w-max gap-1 border-b border-line px-6 sm:px-8 lg:px-0"
+        >
+          {tabs.map((t) => {
+            const isActive = t.id === active;
+            return (
+              <button
+                key={t.id}
+                role="tab"
+                ref={(el) => {
+                  tabRefs.current[t.id] = el;
+                }}
+                id={`tab-${t.id}`}
+                aria-controls={`panel-${t.id}`}
+                aria-selected={isActive}
+                tabIndex={isActive ? 0 : -1}
+                onClick={() => select(t.id)}
+                className={`relative px-5 py-4 text-sm font-medium transition-colors whitespace-nowrap focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/40 rounded-md ${
+                  isActive ? "text-ink" : "text-ink-muted hover:text-ink"
+                }`}
+              >
+                {t.label}
+                {isActive ? (
+                  <span
+                    aria-hidden
+                    className="absolute inset-x-3 -bottom-px h-0.5 rounded-t bg-accent"
+                  />
+                ) : null}
+              </button>
+            );
+          })}
+        </div>
+      </div>
+      <div
+        role="tabpanel"
+        id={`panel-${active}`}
+        aria-labelledby={`tab-${active}`}
+        className="pt-12 sm:pt-14 lg:pt-16"
+      >
+        {children(active)}
+      </div>
     </div>
   );
 }
