@@ -1,3 +1,4 @@
+import { useEffect, useRef } from "react";
 import { Section, H2, Lead, Body } from "../lib/components";
 
 const specs = [
@@ -83,6 +84,30 @@ export default function Podcart() {
 }
 
 function Podcart360() {
+  const videoRef = useRef<HTMLVideoElement | null>(null);
+
+  useEffect(() => {
+    const v = videoRef.current;
+    if (!v || typeof window === "undefined" || !window.matchMedia) return;
+    const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const apply = () => {
+      if (mq.matches) {
+        v.removeAttribute("autoplay");
+        v.removeAttribute("loop");
+        try {
+          v.pause();
+          v.currentTime = 0;
+        } catch {
+          // no-op
+        }
+      }
+    };
+    apply();
+    const handler = () => apply();
+    mq.addEventListener?.("change", handler);
+    return () => mq.removeEventListener?.("change", handler);
+  }, []);
+
   return (
     <div className="mt-20 lg:mt-24">
       <div className="grid grid-cols-1 gap-10 lg:grid-cols-[0.9fr_1.2fr] lg:gap-20 lg:items-center">
@@ -96,17 +121,19 @@ function Podcart360() {
           <p className="mt-5 max-w-md text-base text-ink-muted leading-relaxed">
             A studio you can walk around. The Podcart was engineered for the
             way schools actually use it — wheeled in, wheeled out, opened up,
-            packed down. Hover the model and look at how it folds.
+            packed down. Use the controls to pause or scrub through the loop.
           </p>
         </div>
 
         <div className="overflow-hidden rounded-2xl border border-line bg-white">
           <video
+            ref={videoRef}
             src="/podcart-360.mp4"
             autoPlay
             muted
             loop
             playsInline
+            controls
             preload="metadata"
             aria-label="360 degree view of The Podcart"
             className="block h-full w-full object-cover aspect-video"
