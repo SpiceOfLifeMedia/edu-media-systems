@@ -201,13 +201,6 @@ function LogoRow() {
       }}
     >
       <img
-        src={eduLogo}
-        crossOrigin="anonymous"
-        alt="EDU Media Systems"
-        style={{ height: "2.4vw", width: "auto" }}
-      />
-      <span style={{ width: 1, height: "2vw", background: LINE }} />
-      <img
         src={podcartLogo}
         crossOrigin="anonymous"
         alt="The Podcart"
