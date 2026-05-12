@@ -5,6 +5,8 @@ const eduLogo = `${base}pitch/edu-logo.png`;
 const offloadrLogo = `${base}pitch/offloadr-logo.png`;
 const podcartLogo = `${base}pitch/podcart-logo.png`;
 const podcartHero = `${base}podcart-hero.png`;
+const founderSam = `${base}founder-sam.png`;
+const founderTom = `${base}founder-tom.png`;
 
 type SlideRender = (props: { index: number; total: number }) => ReactElement;
 
@@ -877,7 +879,116 @@ const slides: SlideEntry[] = [
     ),
   },
 
-  // 17 — FINAL VISION
+  // 17 — FOUNDERS
+  {
+    id: "founders",
+    label: "Founders",
+    render: ({ index, total }) => (
+      <Frame eyebrow="17 — Founders" index={index} total={total}>
+        <Eyebrow>Founders</Eyebrow>
+        <Headline size="3.6vw">Built by people working inside real-world media and education.</Headline>
+        <div
+          style={{
+            marginTop: "4vh",
+            display: "grid",
+            gridTemplateColumns: "1fr 1fr",
+            gap: "4vw",
+            alignItems: "start",
+          }}
+        >
+          {[
+            {
+              img: founderSam,
+              name: "Sam Leverenz",
+              role: "Founder & Creative Director",
+              bio: "Leads the creative and operational direction of EDU Media Systems. Over 20 years in sound and more than a decade in professional videography and media production — bringing real-world production systems into education through student-led media infrastructure focused on communication, confidence and student voice.",
+            },
+            {
+              img: founderTom,
+              name: "Tom Leverenz",
+              role: "Co-Founder & Education Strategy",
+              bio: "Supports the education strategy and long-term implementation direction behind EDU Media Systems. Extensive experience across education environments and student support systems — helping ensure the EMS ecosystem remains practical, scalable and genuinely sustainable for schools, teachers and students.",
+            },
+          ].map((f) => (
+            <div key={f.name} style={{ display: "flex", flexDirection: "column", alignItems: "flex-start" }}>
+              <div
+                style={{
+                  width: "100%",
+                  height: "32vh",
+                  borderRadius: "0.6vw",
+                  overflow: "hidden",
+                  background: "linear-gradient(180deg, rgba(110,168,255,0.07) 0%, rgba(255,255,255,0.015) 100%)",
+                  border: `1px solid ${LINE}`,
+                  display: "flex",
+                  alignItems: "flex-end",
+                  justifyContent: "center",
+                }}
+              >
+                <img
+                  src={f.img}
+                  crossOrigin="anonymous"
+                  alt={f.name}
+                  style={{
+                    height: "100%",
+                    maxWidth: "100%",
+                    objectFit: "contain",
+                    objectPosition: "bottom center",
+                    filter: "saturate(0.92) contrast(1.02)",
+                  }}
+                />
+              </div>
+              <div
+                style={{
+                  width: "2.4vw",
+                  height: "2px",
+                  background: ACCENT,
+                  opacity: 0.85,
+                  marginTop: "2vh",
+                  marginBottom: "1.2vh",
+                }}
+              />
+              <div
+                style={{
+                  fontSize: "1.7vw",
+                  fontWeight: 600,
+                  letterSpacing: "-0.01em",
+                  color: INK,
+                  lineHeight: 1.05,
+                }}
+              >
+                {f.name}
+              </div>
+              <div
+                style={{
+                  fontSize: "0.95vw",
+                  letterSpacing: "0.18em",
+                  textTransform: "uppercase",
+                  color: ACCENT,
+                  marginTop: "0.8vh",
+                  fontWeight: 500,
+                }}
+              >
+                {f.role}
+              </div>
+              <p
+                style={{
+                  fontSize: "0.95vw",
+                  color: INK_MUTED,
+                  lineHeight: 1.55,
+                  marginTop: "1.4vh",
+                  maxWidth: "32vw",
+                }}
+              >
+                {f.bio}
+              </p>
+            </div>
+          ))}
+        </div>
+      </Frame>
+    ),
+  },
+
+  // 18 — FINAL VISION
   {
     id: "vision",
     label: "Final Vision",
