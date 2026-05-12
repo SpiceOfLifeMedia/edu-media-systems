@@ -74,35 +74,17 @@ export default function FinalCta() {
               No commitment.
             </p>
 
-            <dl className="mt-10 space-y-5 text-base">
-              <div>
-                <dt className="text-xs uppercase tracking-[0.14em] text-white/50">
-                  Email
-                </dt>
-                <dd className="mt-1 text-base text-white">
-                  <a
-                    href={`mailto:${FALLBACK_EMAIL}`}
-                    className="hover:text-accent"
-                  >
-                    {FALLBACK_EMAIL}
-                  </a>
-                </dd>
+            <div className="mt-10">
+              <div className="text-xs uppercase tracking-[0.14em] text-white/50">
+                Email
               </div>
-              <div>
-                <dt className="text-xs uppercase tracking-[0.14em] text-white/50">
-                  Response time
-                </dt>
-                <dd className="mt-1 text-base text-white">
-                  Within one business day
-                </dd>
-              </div>
-              <div>
-                <dt className="text-xs uppercase tracking-[0.14em] text-white/50">
-                  Based in
-                </dt>
-                <dd className="mt-1 text-base text-white">Australia</dd>
-              </div>
-            </dl>
+              <a
+                href={`mailto:${FALLBACK_EMAIL}`}
+                className="mt-1 inline-block text-base text-white hover:text-accent"
+              >
+                {FALLBACK_EMAIL}
+              </a>
+            </div>
           </div>
 
           <div className="lg:border-l lg:border-white/15 lg:pl-12">
