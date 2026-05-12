@@ -7,7 +7,7 @@ export default function Hero() {
       className="relative overflow-hidden border-b border-line-soft pt-16 pb-20 sm:pt-20 sm:pb-24 lg:pt-24 lg:pb-32"
     >
       <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-10">
-        <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-[0.95fr_1.35fr] lg:gap-12">
+        <div className="grid grid-cols-1 items-center gap-10 sm:gap-12 lg:grid-cols-[0.85fr_1.5fr] lg:gap-8">
           <div>
             <div className="inline-flex items-center gap-3 rounded-full border border-line bg-surface px-4 py-1.5">
               <span
@@ -39,15 +39,11 @@ export default function Hero() {
             </div>
           </div>
 
-          <div className="relative">
-            <div
-              className="absolute inset-0 -z-10 rounded-3xl bg-surface"
-              aria-hidden
-            />
+          <div className="relative -mx-2 sm:-mx-4 lg:mx-0 lg:-my-8 xl:-my-16">
             <img
               src="/podcart-1.png"
               alt="The Podcart — mobile recording cart for schools"
-              className="relative w-full h-auto object-contain lg:scale-[1.18] lg:origin-center"
+              className="relative mx-auto block h-auto w-full max-w-[520px] object-contain sm:max-w-[640px] lg:max-w-none lg:scale-[1.45] xl:scale-[1.55] lg:origin-center"
               loading="eager"
               fetchPriority="high"
             />
