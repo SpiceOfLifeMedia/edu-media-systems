@@ -416,7 +416,7 @@ const slides: SlideEntry[] = [
           {[
             { caption: "Infrastructure", title: "EDU Media Systems", body: "The connecting layer — programs, identity, training and ongoing support that keep school media systems alive." },
             { caption: "Hardware", title: "The Podcart", body: "Portable student media studio. Rolls between classrooms, built to survive a school week, simple enough for students to operate." },
-            { caption: "Software", title: "Offloadr", body: "Media workflow software that turns recording sessions into clean, publish-ready projects automatically." },
+            { caption: "Software", title: "Offloadr", body: "The missing link between recording and editing — uploads, verifies and organises every file the moment a session ends." },
           ].map((c) => (
             <Card key={c.title} caption={c.caption} title={c.title} body={c.body} />
           ))}
@@ -481,9 +481,9 @@ const slides: SlideEntry[] = [
               alt="Offloadr"
               style={{ height: "2.6vw", marginBottom: "3vh", filter: "brightness(0) invert(1)" }}
             />
-            <Headline size="3.4vw">Media workflow software built for education environments.</Headline>
+            <Headline size="3.4vw">The missing link between recording and editing.</Headline>
             <SubHead>
-              The operational layer that turns a recording session into a clean, publish-ready project — automatically. Uploads, organises, verifies and prepares structured media projects without teacher overhead.
+              Offloadr doesn't record — it takes over when the session ends. It automatically uploads, checksum-verifies and organises every file into a clean, publish-ready project, so teachers and student media teams stop chasing files and start producing.
             </SubHead>
           </div>
           <div
@@ -498,10 +498,10 @@ const slides: SlideEntry[] = [
             }}
           >
             {[
-              ["Session 042 — Quick 15", "Verified · 8 files · 12.4 GB"],
-              ["Assembly Recap — Term 4", "Uploading · 3 of 6 files"],
-              ["Year 5 Podcast — Episode 12", "Publish-ready"],
-              ["Leadership Interview", "Organised · awaiting review"],
+              ["Session 042 — Quick 15", "Verified · 8 files · checksum confirmed"],
+              ["Assembly Recap — Term 4", "Uploading · 3 of 6 files · resumable"],
+              ["Year 5 Podcast — Episode 12", "Publish-ready · share link issued"],
+              ["Leadership Interview", "Organised · awaiting teacher review"],
             ].map(([title, status]) => (
               <div
                 key={title}
@@ -532,34 +532,30 @@ const slides: SlideEntry[] = [
     render: ({ index, total }) => (
       <Frame eyebrow="07 — How Offloadr Works" index={index} total={total}>
         <Eyebrow>How Offloadr Works</Eyebrow>
-        <Headline size="3.4vw">From recording session to publish-ready project.</Headline>
+        <Headline size="3.4vw">Five steps. Nothing the editor has to chase.</Headline>
         <SubHead>
-          Offloadr automates the operational side of school media — no manual file collection, no fragmented folders, no teacher overhead.
+          Offloadr is the layer between recording ending and editing beginning. No manual file collection, no fragmented folders, no teacher overhead — every session lands as a clean, verified project.
         </SubHead>
-        <div style={{ marginTop: "5vh", display: "flex", alignItems: "stretch", justifyContent: "space-between", gap: "0.5vw" }}>
+        <div style={{ marginTop: "5vh", display: "flex", alignItems: "stretch", justifyContent: "space-between", gap: "0.6vw" }}>
           {[
-            { n: "01", t: "Record", b: "Students record podcasts, interviews, debates or classroom sessions." },
-            { n: "02", t: "Offload", b: "Media uploads automatically into the project workspace." },
-            { n: "03", t: "Verify", b: "Files checked and confirmed before sessions close." },
-            { n: "04", t: "Organise", b: "Projects grouped into clean, structured folders." },
-            { n: "05", t: "Handoff", b: "Teachers, editors or media teams receive organised projects instantly." },
-            { n: "06", t: "Publish", b: "Exported for YouTube, assemblies, newsletters or classroom reflections." },
+            { n: "01", t: "Record", b: "On the same gear you already use. Offloadr stays out of the recording path." },
+            { n: "02", t: "Upload", b: "Files land in the right project folder, every time. Resumable if the connection drops." },
+            { n: "03", t: "Verify", b: "Checksum per file. A missing-file checklist runs against the expected setup." },
+            { n: "04", t: "Handoff", b: "One revocable share link with producer notes attached. No login for the editor." },
+            { n: "05", t: "Publish", b: "A clean project ready for YouTube, assemblies, newsletters or classroom reflections." },
           ].map((s, i, arr) => (
-            <div key={s.n} style={{ display: "flex", alignItems: "stretch", flex: 1, gap: "0.5vw" }}>
-              <div style={{ flex: 1, background: SURFACE, border: `1px solid ${LINE}`, borderRadius: "0.7vw", padding: "1.6vw 1.2vw", display: "flex", flexDirection: "column", gap: "1vh" }}>
-                <div style={{ fontSize: "0.8vw", letterSpacing: "0.22em", textTransform: "uppercase", color: ACCENT, fontWeight: 500 }}>{s.n}</div>
-                <div style={{ fontSize: "1.35vw", fontWeight: 600, color: INK, letterSpacing: "-0.01em" }}>{s.t}</div>
-                <div style={{ fontSize: "0.9vw", color: INK_MUTED, lineHeight: 1.45 }}>{s.b}</div>
+            <div key={s.n} style={{ display: "flex", alignItems: "stretch", flex: 1, gap: "0.6vw" }}>
+              <div style={{ flex: 1, background: SURFACE, border: `1px solid ${LINE}`, borderRadius: "0.7vw", padding: "1.8vw 1.4vw", display: "flex", flexDirection: "column", gap: "1.2vh" }}>
+                <div style={{ fontSize: "0.85vw", letterSpacing: "0.22em", textTransform: "uppercase", color: ACCENT, fontWeight: 500 }}>{s.n}</div>
+                <div style={{ fontSize: "1.5vw", fontWeight: 600, color: INK, letterSpacing: "-0.01em" }}>{s.t}</div>
+                <div style={{ fontSize: "1vw", color: INK_MUTED, lineHeight: 1.45 }}>{s.b}</div>
               </div>
               {i < arr.length - 1 && (
-                <div style={{ display: "flex", alignItems: "center", color: INK_SOFT, fontSize: "1.4vw" }}>→</div>
+                <div style={{ display: "flex", alignItems: "center", color: INK_SOFT, fontSize: "1.6vw" }}>→</div>
               )}
             </div>
           ))}
         </div>
-        <p style={{ fontSize: "1.05vw", color: INK_SOFT, marginTop: "4vh", maxWidth: "70vw", lineHeight: 1.55 }}>
-          Publish destinations include school YouTube channels, internal school media, parent communication, Vimeo, assemblies, newsletters and classroom reflections.
-        </p>
       </Frame>
     ),
   },
@@ -571,14 +567,14 @@ const slides: SlideEntry[] = [
     render: ({ index, total }) => (
       <Frame eyebrow="08 — Producer Mode" index={index} total={total}>
         <Eyebrow>Producer Mode — Live Confidence</Eyebrow>
-        <Headline size="3.8vw">Student-friendly production confidence.</Headline>
+        <Headline size="3.8vw">Operational confidence before you press record.</Headline>
         <SubHead>
-          Designed to empower students without exposing complex system controls. Admin functions stay hidden — students see only what they need to record with confidence.
+          Producer Mode runs in the studio. It checks the kit, watches the uploads and tells students and teachers the moment something expected from the session isn't there yet — admin functions stay hidden.
         </SubHead>
         <div style={{ marginTop: "5vh", display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "1.4vw" }}>
-          <Card caption="Live" title="Recording status" body="A clear visual signal showing the session is capturing." />
-          <Card caption="Live" title="Audio monitoring" body="Per-mic levels surfaced in plain language." />
-          <Card caption="Live" title="Camera connectivity" body="Frame, focus and source confirmed before takes begin." />
+          <Card caption="Pre-record" title="Kit checks" body="Audio, cameras, drive and helper app all verified before record." />
+          <Card caption="Pre-record" title="Recording readiness" body="A single status — Ready, Warning, or Not ready. No guessing." />
+          <Card caption="In session" title="Take organisation" body="Tag take number, talent and mic assignments while it's still fresh." />
         </div>
       </Frame>
     ),
@@ -591,14 +587,14 @@ const slides: SlideEntry[] = [
     render: ({ index, total }) => (
       <Frame eyebrow="09 — Producer Mode" index={index} total={total}>
         <Eyebrow>Producer Mode — Session Integrity</Eyebrow>
-        <Headline size="3.8vw">Every session ends with a clean, verified project.</Headline>
+        <Headline size="3.8vw">Production doesn't end when recording stops.</Headline>
         <SubHead>
-          The session doesn't end when the recording stops. Producer Mode keeps students and teachers informed through upload, verification and handoff — so nothing slips through the cracks.
+          Every file accounted for, every project verified, every gap surfaced before it becomes a Tuesday-morning DM hunt for the missing lav from take 4.
         </SubHead>
         <div style={{ marginTop: "5vh", display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "1.4vw" }}>
-          <Card caption="Live" title="Session timer" body="Visible runtime so sessions stay structured and on track." />
-          <Card caption="Post" title="Upload status" body="Every file confirmed offloaded and integrity-checked." />
-          <Card caption="Post" title="Storage health" body="Free space and project size monitored in-app." />
+          <Card caption="Post" title="Session status" body="Uploads land in real time. You see what's still on a card before anyone leaves the room." />
+          <Card caption="Post" title="Project verification" body="What landed is compared against the expected setup for this project." />
+          <Card caption="Post" title="Missing-file alerts" body="Flagged before the editor or teacher ever opens the project. Nothing slips." />
         </div>
       </Frame>
     ),
