@@ -87,7 +87,7 @@ export default function Hero() {
         <div className="mt-12 sm:mt-16 grid grid-cols-2 gap-x-6 gap-y-8 sm:grid-cols-4 sm:gap-8 border-t border-line-soft pt-10">
           <PillarLink label="The Podcart" sub="Production hub" href="#podcart" />
           <PillarLink label="Offloadr" sub="Workflow platform" href="#offloadr" />
-          <PillarLink label="School identity" sub="Branding & channel" href="#identity" />
+          <PillarLink label="School identity" sub="Branding & channel" href="#school-identity" />
           <PillarLink label="Partnerships" sub="Onboarding & support" href="#partnerships" />
         </div>
       </div>

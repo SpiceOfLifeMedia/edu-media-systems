@@ -25,7 +25,7 @@ const offerings = [
 
 export default function MediaIdentitySupport() {
   return (
-    <Section id="identity" eyebrow="School media identity & content support" tone="soft">
+    <Section id="school-identity" eyebrow="School media identity & content support" tone="soft">
       <H2>
         We don't just hand over equipment and walk away.
       </H2>
