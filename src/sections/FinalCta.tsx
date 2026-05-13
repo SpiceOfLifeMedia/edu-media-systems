@@ -186,14 +186,11 @@ export default function FinalCta() {
                   required
                 />
 
-                <div className="flex flex-col gap-3 pt-2 sm:flex-row sm:items-center sm:justify-between">
-                  <p className="text-xs text-white/50">
-                    We'll only use your details to reply about EDU Media Systems.
-                  </p>
+                <div className="pt-2">
                   <button
                     type="submit"
                     disabled={status === "submitting"}
-                    className="inline-flex items-center justify-center rounded-full bg-white px-6 py-3 text-sm font-medium text-ink transition-colors hover:bg-accent hover:text-white disabled:cursor-not-allowed disabled:opacity-60"
+                    className="inline-flex w-full items-center justify-center rounded-full bg-white px-8 py-4 text-base font-semibold text-ink transition-colors hover:bg-accent hover:text-white disabled:cursor-not-allowed disabled:opacity-60"
                   >
                     {status === "submitting" ? "Sending…" : "Send message"}
                   </button>
