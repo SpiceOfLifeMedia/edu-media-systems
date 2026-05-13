@@ -21,6 +21,10 @@ const offerings = [
     t: "YouTube & rollout support",
     b: "Help getting student media in front of the right audience — parents, community, prospective families — with privacy and consent handled correctly.",
   },
+  {
+    t: "Teacher onboarding & training",
+    b: "Practical training so the staff actually running the program — not just the keen teacher — can use the cart, run the workflow, and keep recordings moving each week.",
+  },
 ];
 
 export default function MediaIdentitySupport() {

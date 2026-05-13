@@ -7,8 +7,8 @@ export default function Hero() {
       id="top"
       className="relative overflow-hidden border-b border-line-soft bg-white"
     >
-      <div className="relative mx-auto max-w-7xl px-6 sm:px-8 lg:px-10 pt-16 sm:pt-20 lg:pt-20 lg:min-h-[900px] lg:flex lg:items-center">
-        <div className="grid grid-cols-1 items-center gap-10 sm:gap-12 lg:grid-cols-[minmax(0,_9fr)_minmax(0,_13fr)] lg:gap-4 w-full">
+      <div className="relative mx-auto max-w-7xl px-6 sm:px-8 lg:px-10 pt-12 sm:pt-14 lg:pt-12">
+        <div className="grid grid-cols-1 items-center gap-10 sm:gap-12 lg:grid-cols-[minmax(0,_9fr)_minmax(0,_13fr)] lg:gap-4 lg:items-start w-full">
           <div className="lg:pr-4">
             <div className="inline-flex items-center gap-3 rounded-full border border-line bg-surface px-4 py-1.5">
               <span
@@ -38,14 +38,6 @@ export default function Hero() {
             <div className="mt-8 flex flex-wrap items-center gap-3">
               <PrimaryButton href="#contact">Book a demo</PrimaryButton>
               <SecondaryButton href="#explore">See the ecosystem</SecondaryButton>
-            </div>
-
-            <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-2 text-xs font-medium uppercase tracking-[0.16em] text-ink-muted">
-              <span>Podcart · production hub</span>
-              <span aria-hidden className="text-line">·</span>
-              <span>Offloadr · workflow</span>
-              <span aria-hidden className="text-line">·</span>
-              <span>Subscription · support</span>
             </div>
           </div>
 
@@ -77,8 +69,8 @@ export default function Hero() {
         </div>
       </div>
 
-      <div className="relative mx-auto max-w-7xl px-6 sm:px-8 lg:px-10 pb-16 sm:pb-20 lg:pb-24">
-        <div className="mt-12 sm:mt-16 grid grid-cols-2 gap-x-6 gap-y-8 sm:grid-cols-4 sm:gap-8 border-t border-line-soft pt-10">
+      <div className="relative mx-auto max-w-7xl px-6 sm:px-8 lg:px-10 pb-14 sm:pb-16 lg:pb-20">
+        <div className="mt-6 sm:mt-8 lg:mt-4 grid grid-cols-2 gap-x-6 gap-y-8 sm:grid-cols-4 sm:gap-8 border-t border-line-soft pt-10">
           <PillarLink label="The Podcart" sub="Production hub" href="#podcart" />
           <PillarLink label="Offloadr" sub="Workflow platform" href="#offloadr" />
           <PillarLink label="School identity" sub="Branding & channel" href="#school-identity" />

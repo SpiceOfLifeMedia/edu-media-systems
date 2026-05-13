@@ -114,6 +114,8 @@ function PodcartPanel() {
               and Offloadr seats — scoped per school.
             </Body>
           </div>
+
+          <Podcart360Inline />
         </div>
 
         <div>
@@ -139,13 +141,11 @@ function PodcartPanel() {
           </ul>
         </div>
       </div>
-
-      <Podcart360 />
     </div>
   );
 }
 
-function Podcart360() {
+function Podcart360Inline() {
   const videoRef = useRef<HTMLVideoElement | null>(null);
 
   useEffect(() => {
@@ -171,39 +171,34 @@ function Podcart360() {
   }, []);
 
   return (
-    <div className="mt-20 lg:mt-24">
-      <div className="grid grid-cols-1 gap-10 lg:grid-cols-[0.9fr_1.2fr] lg:gap-20 lg:items-center">
-        <div>
-          <div className="text-[11px] font-semibold uppercase tracking-[0.18em] text-accent">
-            360° showcase
-          </div>
-          <h3 className="mt-4 text-3xl sm:text-4xl font-semibold text-ink leading-[1.1] tracking-[-0.02em] max-w-xl">
-            See The Podcart from every angle.
-          </h3>
-          <p className="mt-5 max-w-md text-base text-ink-muted leading-relaxed">
-            A studio you can walk around. The Podcart was engineered for the
-            way schools actually use it — wheeled in, wheeled out, opened up,
-            packed down. A full turn around the cart, on loop.
-          </p>
-        </div>
-
-        <div className="overflow-hidden rounded-2xl border border-line bg-white">
-          <video
-            ref={videoRef}
-            src="/podcart-360.mp4"
-            autoPlay
-            muted
-            loop
-            playsInline
-            preload="metadata"
-            aria-label="360 degree view of The Podcart"
-            className="block h-full w-full object-cover aspect-video"
-          />
-        </div>
+    <div className="mt-12">
+      <div className="text-[11px] font-semibold uppercase tracking-[0.18em] text-accent">
+        360° showcase
+      </div>
+      <h3 className="mt-3 text-xl sm:text-2xl font-semibold text-ink leading-snug max-w-md">
+        See The Podcart from every angle.
+      </h3>
+      <p className="mt-4 max-w-md text-sm text-ink-muted leading-relaxed">
+        A studio you can walk around — wheeled in, wheeled out, opened up,
+        packed down. A full turn around the cart, on loop.
+      </p>
+      <div className="mt-6 overflow-hidden rounded-2xl border border-line bg-white">
+        <video
+          ref={videoRef}
+          src="/podcart-360.mp4"
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="metadata"
+          aria-label="360 degree view of The Podcart"
+          className="block h-full w-full object-cover aspect-video"
+        />
       </div>
     </div>
   );
 }
+
 
 function PodcartGallery() {
   return (
