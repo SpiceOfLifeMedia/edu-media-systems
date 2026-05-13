@@ -7,17 +7,8 @@ export default function Hero() {
       id="top"
       className="relative overflow-hidden border-b border-line-soft bg-white"
     >
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-y-0 right-0 hidden lg:block w-[60%]"
-        style={{
-          background:
-            "radial-gradient(ellipse 70% 60% at 60% 50%, rgba(15,23,42,0.045), rgba(15,23,42,0) 70%)",
-        }}
-      />
-
-      <div className="relative mx-auto max-w-7xl px-6 sm:px-8 lg:px-10 pt-16 sm:pt-20 lg:pt-24 lg:min-h-[820px] lg:flex lg:items-center">
-        <div className="grid grid-cols-1 items-center gap-10 sm:gap-12 lg:grid-cols-[minmax(0,_5fr)_minmax(0,_7fr)] lg:gap-8 w-full">
+      <div className="relative mx-auto max-w-7xl px-6 sm:px-8 lg:px-10 pt-16 sm:pt-20 lg:pt-20 lg:min-h-[900px] lg:flex lg:items-center">
+        <div className="grid grid-cols-1 items-center gap-10 sm:gap-12 lg:grid-cols-[minmax(0,_9fr)_minmax(0,_13fr)] lg:gap-4 w-full">
           <div className="lg:pr-4">
             <div className="inline-flex items-center gap-3 rounded-full border border-line bg-surface px-4 py-1.5">
               <span
@@ -58,14 +49,17 @@ export default function Hero() {
             </div>
           </div>
 
-          <div className="relative lg:h-full lg:flex lg:items-center">
+          <div
+            className="relative lg:h-full lg:flex lg:items-center lg:justify-center lg:-mr-16 xl:-mr-20"
+            style={{ clipPath: "inset(-200px -200px -200px 0)" }}
+          >
             <div className="block lg:hidden -mx-6 sm:-mx-8 overflow-hidden">
-              <div className="relative h-[360px] sm:h-[440px]">
+              <div className="relative h-[380px] sm:h-[460px]">
                 <img
                   src={heroImage}
                   alt="A school student presenting to camera in front of a green screen, with The Podcart production hub"
                   className="absolute inset-0 h-full w-full object-cover"
-                  style={{ objectPosition: "78% center", transform: "scale(1.15)" }}
+                  style={{ objectPosition: "72% center", transform: "scale(1.18)" }}
                   loading="eager"
                   fetchPriority="high"
                 />
@@ -75,7 +69,7 @@ export default function Hero() {
             <img
               src={heroImage}
               alt="The EDU Media Systems ecosystem — Podcart production hub, lighting, cameras, and a school student presenting to a green screen"
-              className="hidden lg:block w-full h-auto object-contain lg:scale-[1.18] lg:origin-center lg:translate-x-4"
+              className="hidden lg:block w-full h-auto object-contain lg:scale-[1.32] lg:origin-right lg:-translate-y-2"
               loading="eager"
               fetchPriority="high"
             />
