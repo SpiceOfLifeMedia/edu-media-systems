@@ -17,20 +17,20 @@ export default function Nav() {
           className="hidden items-center gap-8 text-sm text-ink-muted md:flex"
           aria-label="Primary"
         >
+          <a href="#use-cases" className="hover:text-ink">
+            Use cases
+          </a>
           <a href="#podcart" className="hover:text-ink">
             Podcart
           </a>
           <a href="#offloadr" className="hover:text-ink">
             Offloadr
           </a>
-          <a href="#workflow" className="hover:text-ink">
-            Workflow
-          </a>
           <a href="#identity" className="hover:text-ink">
             Identity
           </a>
-          <a href="#subscription" className="hover:text-ink">
-            Subscription
+          <a href="#partnerships" className="hover:text-ink">
+            Partnerships
           </a>
           <a
             href="#contact"

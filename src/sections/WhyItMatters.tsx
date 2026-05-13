@@ -4,15 +4,16 @@ export default function WhyItMatters() {
   return (
     <Section id="why" eyebrow="Why it matters">
       <H2>
-        Media literacy is the new literacy. Most schools still don't have the
-        gear, the workflow, or the time to teach it properly.
+        Communication is the new literacy. Most schools don't have the system
+        to teach it at scale.
       </H2>
       <Lead>
-        Students record podcasts, news segments, interviews and films every
-        week — on borrowed phones, in echoey classrooms, into apps they can't
-        re-open tomorrow. EDU Media Systems is the first kit purpose-built for
-        the way schools actually work: mobile, multi-classroom, shared between
-        teachers, and finished by the end of the period.
+        Students record interviews, lead assemblies, run debates, tell their
+        community's stories — every week, on borrowed phones, into apps they
+        can't reopen tomorrow. EDU Media Systems gives schools the production
+        hub, the workflow and the operational support to turn that energy into
+        a sustainable student media program — not a one-off project that dies
+        when a teacher leaves.
       </Lead>
     </Section>
   );

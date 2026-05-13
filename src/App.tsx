@@ -3,7 +3,10 @@ import Nav from "./sections/Nav";
 import Hero from "./sections/Hero";
 import WhyItMatters from "./sections/WhyItMatters";
 import Problem from "./sections/Problem";
+import MoreThanPodcasting from "./sections/MoreThanPodcasting";
 import Explore from "./sections/Explore";
+import MediaIdentitySupport from "./sections/MediaIdentitySupport";
+import FlexiblePartnerships from "./sections/FlexiblePartnerships";
 import Founder from "./sections/Founder";
 import FinalCta from "./sections/FinalCta";
 import Footer from "./sections/Footer";
@@ -25,7 +28,10 @@ function Marketing() {
         <Hero />
         <WhyItMatters />
         <Problem />
+        <MoreThanPodcasting />
         <Explore />
+        <MediaIdentitySupport />
+        <FlexiblePartnerships />
         <Founder />
         <FinalCta />
       </main>
