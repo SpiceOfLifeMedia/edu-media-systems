@@ -118,6 +118,11 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   const apiKey = process.env.RESEND_API_KEY;
   const to = process.env.EDU_LEAD_TO_EMAIL || "info@edumediasystems.com.au";
   const from = process.env.EDU_LEAD_FROM_EMAIL;
+  const bccRaw = process.env.EDU_LEAD_BCC_EMAIL || "";
+  const bcc = bccRaw
+    .split(",")
+    .map((s) => s.trim())
+    .filter((s) => s.length > 0);
 
   if (!apiKey || !from) {
     console.error("[edu-leads] Missing env: RESEND_API_KEY / EDU_LEAD_FROM_EMAIL");
@@ -130,10 +135,14 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     const { error } = await resend.emails.send({
       from,
       to,
+      ...(bcc.length > 0 ? { bcc } : {}),
       replyTo: lead.email,
       subject: buildSubject(lead),
       text: buildText(lead),
       html: buildHtml(lead),
+      headers: {
+        "X-Entity-Ref-ID": `edu-lead-${Date.now()}-${Math.random().toString(36).slice(2, 8)}`,
+      },
     });
     if (error) {
       console.error("[edu-leads] Resend error", error);
