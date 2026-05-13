@@ -41,16 +41,31 @@ export default function FinalCta() {
     e.preventDefault();
     if (!validate()) return;
     setStatus("submitting");
+    setErrors({});
     try {
       const res = await fetch("/api/edu-leads", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(form),
       });
-      if (!res.ok && res.status !== 404) throw new Error(`HTTP ${res.status}`);
+      if (!res.ok) {
+        let message = `Couldn't send your message (HTTP ${res.status}).`;
+        try {
+          const data = (await res.json()) as { error?: string };
+          if (data?.error) message = data.error;
+        } catch {
+          // ignore JSON parse failure
+        }
+        setErrors({ form: message });
+        setStatus("error");
+        return;
+      }
       setStatus("success");
     } catch {
-      setStatus("success");
+      setErrors({
+        form: "Couldn't reach the server. Please try again, or email us at " + FALLBACK_EMAIL + ".",
+      });
+      setStatus("error");
     }
   }
 
@@ -185,6 +200,12 @@ export default function FinalCta() {
                   multiline
                   required
                 />
+
+                {errors.form ? (
+                  <div className="rounded-xl border border-red-400/40 bg-red-500/10 px-4 py-3 text-sm text-red-200">
+                    {errors.form}
+                  </div>
+                ) : null}
 
                 <div className="pt-2">
                   <button
