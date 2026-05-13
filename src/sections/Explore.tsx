@@ -15,7 +15,7 @@ const tabs: TabDef[] = [
   { id: "offloadr", label: "Offloadr", eyebrow: "Software" },
   { id: "workflow", label: "Workflow", eyebrow: "Producer mode + collaboration" },
   { id: "identity", label: "Identity", eyebrow: "Brand, channel & support" },
-  { id: "subscription", label: "Subscription", eyebrow: "Pricing & business model" },
+  { id: "subscription", label: "Subscription", eyebrow: "Structure & ongoing partnership" },
 ];
 
 export default function Explore() {
@@ -108,21 +108,10 @@ function PodcartPanel() {
           </Lead>
 
           <div className="mt-10">
-            <div className="text-2xl sm:text-3xl font-semibold text-ink leading-tight">
-              Podcart packages from{" "}
-              <span className="whitespace-nowrap">$14,999 AUD + GST</span>
-            </div>
-            <p className="mt-3 max-w-md text-sm text-ink-muted leading-relaxed">
-              Configured for school environments, rollout support and media
-              program setup.
-            </p>
-          </div>
-
-          <div className="mt-10">
             <Body>
               Configurations available for primary, secondary, and tertiary
               programs. Bundled rollout packages include training, install,
-              and Offloadr seats.
+              and Offloadr seats — scoped per school.
             </Body>
           </div>
         </div>
@@ -284,14 +273,7 @@ function OffloadrPanel() {
           it into a workflow students can actually follow — and teachers can
           actually grade.
         </Lead>
-        <div className="mt-10 flex flex-wrap items-baseline gap-x-3 gap-y-1">
-          <span className="text-xs font-semibold uppercase tracking-[0.16em] text-ink-muted">
-            From
-          </span>
-          <span className="text-2xl font-semibold text-ink">$299–$499 AUD</span>
-          <span className="text-sm text-ink-muted">/ month / school</span>
-        </div>
-        <div className="mt-8">
+        <div className="mt-10">
           <a
             href="https://www.useoffloadr.com/"
             target="_blank"
@@ -789,29 +771,25 @@ const subscriptionIncludes = [
   "EMS Network access",
 ];
 
-const pricingTiers = [
+const scopeTiers = [
   {
     eyebrow: "Hardware",
     name: "The Podcart",
-    price: "$14,999",
-    unit: "AUD + GST",
-    qualifier: "from",
+    summary: "Self-contained mobile studio, fully assembled and ready for the classroom.",
     features: [
       "Mobile recording cart, fully assembled",
       "4-channel mixer, four microphones, lighting",
       "Locked storage and integrated power",
-      "Delivered, installed, and demonstrated on site",
+      "Configurations for primary, secondary and tertiary",
     ],
   },
   {
     eyebrow: "Software",
     name: "Offloadr",
-    price: "$299–$499",
-    unit: "AUD / month / school",
-    qualifier: "subscription",
+    summary: "Producer-mode pipeline that turns recordings into publish-ready projects schools own.",
     features: [
       "Unlimited projects per school",
-      "Producer mode and publish-ready handoff included",
+      "Producer mode and publish-ready handoff",
       "Remote collaboration and guest access",
       "School-owned project history",
     ],
@@ -819,14 +797,12 @@ const pricingTiers = [
   },
   {
     eyebrow: "Rollout",
-    name: "Whole-program package",
-    price: "$24,999–$39,999",
-    unit: "AUD",
-    qualifier: "package",
+    name: "Whole-program partnership",
+    summary: "Hardware, software and ongoing operational support — sized to your program, not a template.",
     features: [
       "Podcart hardware (one or more)",
-      "First year of Offloadr included",
-      "Teacher training and student onboarding",
+      "Offloadr seats and onboarding",
+      "Teacher training and student activation",
       "Curriculum-mapped starter projects",
     ],
   },
@@ -835,19 +811,19 @@ const pricingTiers = [
 function SubscriptionPanel() {
   return (
     <div>
-      <H2>Priced like infrastructure, not like a textbook.</H2>
+      <H2>Built as long-term infrastructure, not a one-off purchase.</H2>
       <Lead>
-        EDU Media Systems is sold as a long-term system, not a one-off
-        purchase. Schools choose the entry point that fits their program and
-        budget — hardware-only, software-only, or a full rollout that bundles
-        training and the first year of Offloadr.
+        EDU Media Systems is sold as a long-term system. Schools choose the
+        entry point that fits their program — hardware-only, software-only, or
+        a full partnership that includes training and ongoing support. Every
+        rollout is scoped per school.
       </Lead>
 
       <div className="mt-16 grid grid-cols-1 gap-6 md:grid-cols-3">
-        {pricingTiers.map((t) => (
+        {scopeTiers.map((t) => (
           <div
             key={t.name}
-            className={`rounded-2xl border p-8 sm:p-10 ${
+            className={`flex flex-col rounded-2xl border p-8 sm:p-10 ${
               t.accent ? "border-ink bg-white" : "border-line bg-white"
             }`}
           >
@@ -855,18 +831,10 @@ function SubscriptionPanel() {
               {t.eyebrow}
             </div>
             <h3 className="mt-3 text-xl font-semibold text-ink">{t.name}</h3>
-            <div className="mt-6 flex items-baseline gap-2">
-              <span className="text-xs uppercase tracking-[0.14em] text-ink-muted">
-                {t.qualifier}
-              </span>
-            </div>
-            <div className="mt-1 flex items-baseline gap-2">
-              <span className="text-3xl font-semibold text-ink leading-none">
-                {t.price}
-              </span>
-            </div>
-            <div className="mt-1 text-sm text-ink-muted">{t.unit}</div>
-            <ul className="mt-8 space-y-3 text-sm">
+            <p className="mt-4 text-sm text-ink-muted leading-relaxed">
+              {t.summary}
+            </p>
+            <ul className="mt-6 space-y-3 text-sm">
               {t.features.map((f) => (
                 <li key={f} className="flex gap-3 text-ink-muted">
                   <span className="text-accent" aria-hidden>—</span>
@@ -874,6 +842,9 @@ function SubscriptionPanel() {
                 </li>
               ))}
             </ul>
+            <div className="mt-8 border-t border-line pt-5 text-xs uppercase tracking-[0.14em] text-ink-muted">
+              Pricing scoped per school
+            </div>
           </div>
         ))}
       </div>
@@ -911,9 +882,9 @@ function SubscriptionPanel() {
 
       <div className="mt-12 max-w-2xl">
         <Body>
-          All pricing is indicative starting points; final scope depends on
-          school size, number of carts, and program ambition. Rollout packages
-          include onboarding so the program runs from day one.
+          Every school's setup is scoped individually. Final scope depends on
+          school size, number of carts, and program ambition — pricing is
+          discussed directly so it reflects what your program actually needs.
         </Body>
       </div>
     </div>
