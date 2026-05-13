@@ -29,10 +29,10 @@ export default function Hero() {
             </h1>
 
             <p className="mt-6 max-w-xl text-lg sm:text-xl text-ink-muted leading-relaxed">
-              EDU Media Systems helps schools build sustainable student-led
-              media programs — production hardware students can actually use,
-              a workflow platform teachers can actually run, and the support
-              to keep it going week after week.
+              We help schools run student-led media systems — production
+              hardware students can actually use, a workflow platform teachers
+              can actually run, and the ongoing support that keeps it going
+              week after week.
             </p>
 
             <div className="mt-8 flex flex-wrap items-center gap-3">
