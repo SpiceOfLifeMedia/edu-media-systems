@@ -1,25 +1,28 @@
-import { Section, Eyebrow, Body } from "../lib/components";
+import { Section, Eyebrow } from "../lib/components";
 
 const founders = [
   {
     name: "Sammy Leverenz",
     title: "Founder & Creative Director",
     image: "/founder-sam.png",
-    paragraphs: [
-      "Sammy Leverenz leads the creative and operational direction of EDU Media Systems. With years of hands-on experience running student-led media programs inside schools, Sammy works directly with students and teachers to build real-world media systems focused on communication, confidence, Oracy and student voice.",
-      "With more than 20 years experience in sound and over a decade working professionally in videography and media production, Sammy brings extensive real-world production knowledge into education environments. His background spans music production, live sound, audio engineering, filming, editing and large-scale digital media workflows across both creative industries and school settings.",
-      "Through his work with SOL Media and a wide range of production and content projects, Sammy has developed a strong understanding of how professional media systems operate in fast-moving real-world environments. That experience helped shape EDU Media Systems into a practical, workflow-focused ecosystem designed specifically for long-term school adoption rather than short-term equipment deployment.",
-      "By combining professional production standards with hands-on experience inside schools, Sammy's focus is helping students build confidence, communication skills and media literacy through authentic student-led media experiences that feel modern, engaging and operationally sustainable.",
+    bio: "Sammy leads the creative and operational direction of EDU Media Systems. He's been running student-led media programs inside schools for years, bringing professional production standards directly into classrooms through SOL Media.",
+    credentials: [
+      "20+ years in sound",
+      "10+ years in video production",
+      "Music, live audio & engineering",
+      "Student-led media programs",
     ],
   },
   {
     name: "Tom Leverenz",
     title: "Director of Education Partnerships",
     image: "/founder-tom.png",
-    paragraphs: [
-      "Tom Leverenz supports the education strategy, implementation planning and long-term partnership direction behind EDU Media Systems. With extensive experience working across education environments and student support systems, Tom helps ensure the EMS ecosystem is practical, scalable and aligned with the operational realities of schools.",
-      "His focus includes school engagement, rollout coordination, partnership development and helping schools successfully integrate student-led media programs into everyday learning environments. Tom plays a key role in ensuring EDU Media Systems remains sustainable and genuinely valuable for teachers, students and leadership teams over the long term.",
-      "Working closely across implementation and education strategy, Tom helps bridge the gap between professional media infrastructure and real-world school adoption — ensuring systems are accessible, manageable and capable of scaling across multiple classrooms, campuses and education settings.",
+    bio: "Tom leads education strategy and partnership rollout. He bridges professional media infrastructure and real school adoption — making sure programs are practical, sustainable, and scalable across classrooms, campuses and education networks.",
+    credentials: [
+      "Education strategy",
+      "School engagement",
+      "Rollout coordination",
+      "Partnership development",
     ],
   },
 ];
@@ -37,44 +40,51 @@ export default function Founder() {
         from the outside.
       </p>
 
-      <div className="mt-16 space-y-16 lg:space-y-20">
+      <div className="mt-16 grid grid-cols-1 gap-6 lg:grid-cols-2 lg:gap-8">
         {founders.map((f) => (
           <article
             key={f.name}
-            className="grid grid-cols-[88px_1fr] gap-5 sm:grid-cols-[120px_1fr] sm:gap-8 lg:grid-cols-[160px_1fr] lg:gap-10"
+            className="rounded-2xl border border-line bg-white p-7 sm:p-8"
           >
-            <div className="aspect-square w-full overflow-hidden rounded-full border border-line bg-surface">
-              <img
-                src={f.image}
-                alt={`Portrait of ${f.name}`}
-                loading="lazy"
-                className="h-full w-full object-cover object-top grayscale"
-              />
-            </div>
-            <div>
-              <div className="text-[11px] font-semibold uppercase tracking-[0.16em] text-accent">
-                {f.title}
+            <div className="flex items-center gap-5">
+              <div className="aspect-square w-20 sm:w-24 shrink-0 overflow-hidden rounded-full border border-line bg-surface">
+                <img
+                  src={f.image}
+                  alt={`Portrait of ${f.name}`}
+                  loading="lazy"
+                  className="h-full w-full object-cover object-top grayscale"
+                />
               </div>
-              <h3 className="mt-2 text-xl sm:text-2xl font-semibold text-ink">
-                {f.name}
-              </h3>
-              <div className="mt-4 space-y-4 max-w-2xl">
-                {f.paragraphs.map((p, i) => (
-                  <Body key={i}>{p}</Body>
-                ))}
+              <div className="min-w-0">
+                <div className="text-[11px] font-semibold uppercase tracking-[0.16em] text-accent">
+                  {f.title}
+                </div>
+                <h3 className="mt-1.5 text-xl sm:text-2xl font-semibold text-ink">
+                  {f.name}
+                </h3>
               </div>
             </div>
+
+            <p className="mt-6 text-base text-ink-muted leading-relaxed">
+              {f.bio}
+            </p>
+
+            <ul className="mt-6 flex flex-wrap gap-2">
+              {f.credentials.map((c) => (
+                <li
+                  key={c}
+                  className="inline-flex items-center gap-2 rounded-full border border-line bg-surface px-3 py-1.5 text-xs font-medium text-ink"
+                >
+                  <span
+                    className="h-1 w-1 rounded-full bg-accent"
+                    aria-hidden
+                  />
+                  {c}
+                </li>
+              ))}
+            </ul>
           </article>
         ))}
-      </div>
-
-      <div className="mt-16 border-t border-line pt-10">
-        <p className="max-w-3xl text-base sm:text-lg leading-relaxed text-ink-muted">
-          Together, Sammy and Tom combine real-world production experience with
-          education-focused operational strategy to help schools build modern
-          communication ecosystems centred around student voice, confidence
-          and participation.
-        </p>
       </div>
     </Section>
   );

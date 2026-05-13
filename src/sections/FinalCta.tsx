@@ -74,6 +74,50 @@ export default function FinalCta() {
               No commitment.
             </p>
 
+            <div className="mt-12">
+              <div className="text-[11px] font-semibold uppercase tracking-[0.18em] text-white/60">
+                What happens next
+              </div>
+              <ol className="mt-6 space-y-5">
+                {[
+                  {
+                    n: "01",
+                    t: "We reply within one business day",
+                    b: "A real person — usually Sammy or Tom — responds to schedule a time that works for your school.",
+                  },
+                  {
+                    n: "02",
+                    t: "We bring The Podcart on-site",
+                    b: "Hands-on demo with your teachers and a sample student session, so you can see exactly how it lands in a classroom.",
+                  },
+                  {
+                    n: "03",
+                    t: "We scope your rollout",
+                    b: "Equipment, training, software seats and ongoing support — sized to your program, not a generic package.",
+                  },
+                ].map((s) => (
+                  <li key={s.n} className="grid grid-cols-[2.25rem_1fr] gap-4">
+                    <div className="text-sm font-mono text-accent pt-0.5">{s.n}</div>
+                    <div>
+                      <div className="text-base font-semibold text-white">{s.t}</div>
+                      <div className="mt-1 text-sm text-white/60 leading-relaxed">{s.b}</div>
+                    </div>
+                  </li>
+                ))}
+              </ol>
+            </div>
+
+            <div className="mt-12 border-t border-white/10 pt-6">
+              <div className="text-[11px] font-semibold uppercase tracking-[0.18em] text-white/60">
+                Or reach us directly
+              </div>
+              <a
+                href={`mailto:${FALLBACK_EMAIL}`}
+                className="mt-3 inline-block text-base font-medium text-white underline-offset-4 hover:underline"
+              >
+                {FALLBACK_EMAIL}
+              </a>
+            </div>
           </div>
 
           <div className="lg:border-l lg:border-white/15 lg:pl-12">

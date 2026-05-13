@@ -6,8 +6,8 @@ export default function Hero() {
       id="top"
       className="relative overflow-hidden border-b border-line-soft pt-16 pb-20 sm:pt-20 sm:pb-24 lg:pt-24 lg:pb-32"
     >
-      <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-10">
-        <div className="grid grid-cols-1 items-center gap-10 sm:gap-12 lg:grid-cols-[0.85fr_1.5fr] lg:gap-8">
+      <div className="mx-auto max-w-6xl px-6 sm:px-8 lg:px-10">
+        <div className="grid grid-cols-1 items-center gap-10 sm:gap-12 lg:grid-cols-2 lg:gap-12">
           <div>
             <div className="inline-flex items-center gap-3 rounded-full border border-line bg-surface px-4 py-1.5">
               <span
@@ -39,18 +39,18 @@ export default function Hero() {
             </div>
           </div>
 
-          <div className="relative -mx-2 sm:-mx-4 lg:mx-0 lg:-my-8 xl:-my-16">
+          <div className="relative flex items-center justify-center lg:h-full">
             <img
               src="/podcart-1.png"
               alt="The Podcart — mobile recording cart for schools"
-              className="relative mx-auto block h-auto w-full max-w-[520px] object-contain sm:max-w-[640px] lg:max-w-none lg:scale-[1.45] xl:scale-[1.55] lg:origin-center"
+              className="block h-auto w-full max-w-[480px] object-contain sm:max-w-[560px] lg:max-w-full"
               loading="eager"
               fetchPriority="high"
             />
           </div>
         </div>
 
-        <div className="mx-auto mt-16 grid max-w-6xl grid-cols-2 gap-x-6 gap-y-8 sm:mt-20 sm:grid-cols-4 sm:gap-8">
+        <div className="mt-16 grid grid-cols-2 gap-x-6 gap-y-8 sm:mt-20 sm:grid-cols-4 sm:gap-8">
           <PillarLink label="The Podcart" sub="Hardware" href="#podcart" />
           <PillarLink label="Offloadr" sub="Software" href="#offloadr" />
           <PillarLink label="Producer Mode" sub="Workflow" href="#producer" />
